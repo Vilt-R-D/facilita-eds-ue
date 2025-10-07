@@ -1,4 +1,8 @@
 import { exec } from "node:child_process";
+/**
+ * Esse arquivo é responsável por entrar em cada uma das definições dos blocks e mergea-los no component-models.json,
+ *  componente-definition.json e component-filters.json. Vide package-json
+ */
 
 const run = (cmd) => new Promise((resolve, reject) => exec(
   cmd,
