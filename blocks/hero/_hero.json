@@ -23,23 +23,38 @@
         {
           "component": "reference",
           "valueType": "string",
-          "name": "image",
-          "label": "Image",
+          "name": "logo",
+          "label": "Logo",
+          "description": "Logo do site, que aparecerá no canto superior esquerdo.",
           "multi": false
+        },
+        {
+          "component": "reference",
+          "valueType": "string",
+          "name": "logo-redirect",
+          "label": "Link de redirecionamento da logo.",
+          "value": ""
         },
         {
           "component": "text",
           "valueType": "string",
-          "name": "imageAlt",
-          "label": "Alt",
-          "value": ""
+          "name": "direct-arrow",
+          "value": "",
+          "label": "Ancora - ID da referência da Seção"
         },
         {
-          "component": "richtext",
-          "name": "text",
-          "value": "",
-          "label": "Text",
-          "valueType": "string"
+          "component": "reference",
+          "valueType": "string",
+          "name": "background-image",
+          "label": "Imagem do fundo",
+          "multi": false
+        },
+        {
+          "component": "reference",
+          "valueType": "string",
+          "name": "background-image-mobile",
+          "label": "Imagem de Fundo para Mobile",
+          "multi": false
         }
       ]
     }
