@@ -8,7 +8,6 @@ module.exports = {
   env: {
     browser: true,
   },
-  parser: '@babel/eslint-parser',
   parserOptions: {
     allowImportExportEverywhere: true,
     sourceType: 'module',

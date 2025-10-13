@@ -6,6 +6,7 @@
 
 | Nome                       | Versão  | Descrição                                                                     |
 | -------------------------- | :-----: | ----------------------------------------------------------------------------- |
+| ~~@babel/eslint-parser~~   | 7.28.4  | Removido, pois suspeito que foi usado no inicio do template e depois não mais |
 | eslint*                    | 8.57.1  | Analisa estaticamente a sintaxe de ECMAScript. Pode corrigir automaticamente. |
 | eslint-config-airbnb-base* | 15.0.0  | Regras preferidas pela AirBnb.                                                |
 | eslint-plugin-import*      | 2.32.0  | Regras opinadas para sintaxe de `import/export.`                              |
