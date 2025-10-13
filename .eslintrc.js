@@ -8,11 +8,11 @@ module.exports = {
   env: {
     browser: true,
   },
-  parser: '@babel/eslint-parser',
   parserOptions: {
     allowImportExportEverywhere: true,
     sourceType: 'module',
     requireConfigFile: false,
+    ecmaVersion: 'latest',
   },
   rules: {
     'import/extensions': ['error', { js: 'always' }], // require js file extensions in imports
