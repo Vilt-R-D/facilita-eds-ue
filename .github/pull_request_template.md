@@ -8,4 +8,4 @@
 URLs de Teste:
 
 - Antes: https://main--facilita-eds-ue--vilt-r-d.aem.live/
-- Depois: https://<branch>--facilita-eds-ue--vilt-r-d.aem.live/
+- Depois: https://<branch>--facilita-eds-ue--vilt-r-d.aem.page/
