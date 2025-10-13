@@ -1,7 +1,11 @@
-Please always provide the [GitHub issue(s)](../issues) your PR is for, as well as test URLs where your change can be observed (before and after):
+> [!IMPORTANT]
+> É de importância colocar dois links, **um de antes e outro de depois**, para o bot da Adobe fazer os checks de performance da página. Coloque uma página que tenha exemplo da sua alteração.
 
-Fix #<gh-issue-id>
+> Opcionalmente, como boa prática, provenha a **issue** que gerou esse pull request
 
-Test URLs:
-- Before: https://main--{repo}--{owner}.aem.live/
-- After: https://<branch>--{repo}--{owner}.aem.live/
+**Relacionado a Issue**: #<id-da-issue-ou-vazio>
+
+URLs de Teste:
+
+- Antes: https://main--facilita-eds-ue--vilt-r-d.aem.live/
+- Depois: https://<branch>--facilita-eds-ue--vilt-r-d.aem.live/
