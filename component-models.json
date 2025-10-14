@@ -196,13 +196,13 @@
       {
         "component": "text",
         "valueType": "string",
-        "name": "button",
+        "name": "button-text",
         "label": "Texto do Botão"
       },
       {
         "component": "text",
         "valueType": "string",
-        "name": "button",
+        "name": "card-text",
         "label": "Texto do Card"
       },
       {
