@@ -9,7 +9,8 @@
             "resourceType": "core/franklin/components/block/v1/block",
             "template": {
               "name": "Carousel",
-              "model": "carousel"
+              "model": "carousel",
+              "filter": "carousel"
             }
           }
         }
@@ -34,44 +35,7 @@
   "models": [
     {
       "id": "carousel",
-      "fields": [
-        {
-          "component": "reference",
-          "valueType": "string",
-          "name": "logo",
-          "label": "Logo",
-          "description": "Logo do site, que aparecerá no canto superior esquerdo.",
-          "multi": false
-        },
-        {
-          "component": "reference",
-          "valueType": "string",
-          "name": "logo-redirect",
-          "label": "Link de redirecionamento da logo.",
-          "value": ""
-        },
-        {
-          "component": "text",
-          "valueType": "string",
-          "name": "direct-arrow",
-          "value": "",
-          "label": "Ancora - ID da referência da Seção"
-        },
-        {
-          "component": "reference",
-          "valueType": "string",
-          "name": "background-image",
-          "label": "Imagem do fundo",
-          "multi": false
-        },
-        {
-          "component": "reference",
-          "valueType": "string",
-          "name": "background-image-mobile",
-          "label": "Imagem de Fundo para Mobile",
-          "multi": false
-        }
-      ]
+      "fields": []
     },
     {
       "id": "carousel-card",
@@ -123,5 +87,10 @@
       ]
     }
   ],
-  "filters": []
+  "filters": [
+    {
+      "id": "carousel",
+      "components": ["carousel-card"]
+    }
+  ]
 }
