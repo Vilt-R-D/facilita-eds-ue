@@ -239,12 +239,12 @@
       {
         "component": "text",
         "valueType": "string",
-        "name": "button",
+        "name": "card-text",
         "label": "Texto do Card"
       },
       {
         "component": "aem-content",
-        "name": "link",
+        "name": "card-link",
         "label": "Link de Redirecionamento",
         "description": "Link de Redirecionamento do Card."
       }
