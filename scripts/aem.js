@@ -477,9 +477,11 @@ function decorateIcons(element, prefix = '') {
  * @param {Element} main The container element
  */
 function decorateSections(main) {
+  // Para todas as divs filhas diretas de main que ainda não entraram começaram a serem tratadas.
   main.querySelectorAll(':scope > div:not([data-section-status])').forEach((section) => {
     const wrappers = [];
     let defaultContent = false;
+    // [] converte uma coleção para array.
     [...section.children].forEach((e) => {
       if ((e.tagName === 'DIV' && e.className) || !defaultContent) {
         const wrapper = document.createElement('div');
