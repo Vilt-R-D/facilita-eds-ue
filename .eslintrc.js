@@ -20,4 +20,5 @@ module.exports = {
     'no-param-reassign': [2, { props: false }], // allow modifying properties of param
     'xwalk/max-cells': 'off', // disable temporarily
   },
+  ignorePatterns: ['/styles/main.css'],
 };
