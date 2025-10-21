@@ -1,3 +1,4 @@
+/* eslint no-use-before-define: 0 */
 @import url("/assets/common/css/font-bradesco/font-bradesco.css");
 :root {
     --color-red: #CC092F;
