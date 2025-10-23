@@ -10,9 +10,17 @@
  * governing permissions and limitations under the License.
  */
 
+@import url(/styles/normalize.css);
+
 :root {
+
+  /* colors - nome vindo de main.css do site original*/
+  --color-red: #CC092F;
+  --color-gray: #F0F1F5;
+  --gradient-red-rose: linear-gradient(180deg, #CC092F 0%, #B81570 100%);
+
   /* colors */
-  --background-color: white;
+  --background-color: var(--color-red);
   --light-color: #f8f8f8;
   --dark-color: #505050;
   --text-color: #131313;
@@ -22,6 +30,9 @@
   /* fonts */
   --body-font-family: bradesco, bradesco-normal-400-fallback, sans-serif;
   --heading-font-family: bradesco-condensed, bradesco-condensed-normal-400-fallback, sans-serif;
+
+  /* fonts - nome vindo de main.css do site original*/
+  --font-family-sans-serif: var(--body-font-family)
 
   /* body sizes */
   --body-font-size-m: 22px;
@@ -38,6 +49,13 @@
 
   /* nav height */
   --nav-height: 64px;
+}
+
+html{
+  /* Causa um comportamento
+  ruim no navegador vivaldi, por isso desativei.
+  Vindo de main.css do site original */
+  /* scroll-behavior: smooth; */
 }
 
 /* fallback font for bradesco-condensed (normal - 400) */
