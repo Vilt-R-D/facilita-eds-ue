@@ -210,6 +210,13 @@
         "name": "link",
         "label": "Link de Redirecionamento",
         "description": "Link de Redirecionamento do Card."
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "qrcode",
+        "label": "QRCode do Card",
+        "multi": false
       }
     ]
   },
