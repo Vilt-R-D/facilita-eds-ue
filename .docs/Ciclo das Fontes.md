@@ -1,7 +1,5 @@
 # Ciclo de Vidas da Fontes
 
-
-
 ## Fontes Eager
 
 > Aquelas que possuem preferência no carregamento.
