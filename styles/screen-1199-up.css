@@ -1,0 +1,272 @@
+/* stylelint-disable */
+.lp-container {
+    padding: 56px 56px 64px;
+}
+
+.lp-container h1 {
+    font-size: 80px;
+    line-height: 72px;
+}
+
+.lp-container h2 {
+    font-size: 40px;
+    line-height: 48px;
+}
+
+.lp-header .lp-hero {
+    justify-content: center;
+    height: calc(100% - 96px);
+}
+
+.lp-header .lp-hero h1,
+.lp-header .lp-hero h2,
+.lp-header .lp-hero p {
+    max-width: 544px;
+}
+
+.lp-header .lp-hero h2,
+.lp-header .lp-hero p {
+    font-size: 20px !important;
+    line-height: 28px;
+}
+
+.lp-header .lp-topbar .lp-acessibilidade span {
+    display: block;
+}
+
+
+main {
+    border-radius: 56px 56px  0 0;
+    margin-top: -48px;
+}
+
+
+.lp-facilities .lp-swiper .swiper-slide {
+    width: calc((100% - (16px * 2))/3);
+}
+
+.lp-facilities .swiper-container {
+    padding-right: 56px;
+}
+
+.lp-facilities .swiper-button-next {
+    margin-right: 20px;
+}
+
+.lp-facilities .swiper-button-prev {
+    margin-left: 20px;
+}
+
+.lp-others .lp-filters {
+    display: flex;
+    margin: 32px 0 48px;
+    gap: 32px;
+    align-items: center;
+}
+
+.lp-others .lp-filters h3,
+.lp-others .lp-filters ul {
+    padding: 0;
+    margin: 0;
+}
+
+
+.lp-others .lp-card {
+    gap: 8px;
+    height: 312px;
+    width: 320px;
+}
+
+@media (min-width: 1424px) {
+    .lp-others .lp-cards {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+.lp-others .lp-card header {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.lp-others .lp-card i {
+    width: 48px;
+    height: 48px;
+}
+
+.lp-others .lp-card h3,
+.lp-others .lp-card h4 {
+    white-space: pre-line;
+}
+
+.lp-authorize {
+    background: none;
+}
+
+.lp-authorize .lp-banner {
+    grid-template-columns: 46.25% auto;
+    padding-left: 48px;
+    background: #fff;
+    border-radius: 16px;
+    gap: 32px;
+}
+
+.lp-authorize header {
+    align-self: center;
+}
+
+.lp-authorize h2 {
+    font-size: 40px;
+    line-height: 40px;
+    white-space: pre-line;
+    padding-bottom: 10px;
+}
+
+.lp-authorize h3,
+.lp-authorize p {
+    max-width: 524px;
+    font-size: 20px;
+    line-height: 28px;
+}
+.lp-authorize .txt-seguranca{padding-bottom: 0;}
+
+.lp-authorize .lp-action {
+    padding-top: 10px;
+}
+
+.lp-authorize .lp-action .lp-btn {
+    display: none;
+}
+
+.lp-authorize .lp-qrcode {
+    display: inline-flex;
+    align-items: center;
+    padding: 4px 4px 4px 24px;
+    border-radius: 12px;
+    gap: 16px;
+    background: var(--color-gray);
+}
+
+.lp-authorize .lp-qrcode small {
+    width: 68px;
+    font-size: 12px;
+    line-height: 16px;
+}
+
+.lp-authorize .lp-step {
+    min-height: 244px;
+    aspect-ratio: 328 / 244;
+}
+
+.lp-authorize .lp-step:nth-child(1) span {
+    font-size: 19px;
+    line-height: 19px;
+}
+
+.lp-openaccount {
+    background: none;
+}
+
+.lp-openaccount .lp-banner {
+    height: 480px;
+    grid-template-columns: 42.25% auto;
+}
+
+.lp-openaccount header {
+    align-self: center;
+    padding-left: 112px;
+}
+
+.lp-openaccount h2 {
+    font-size: 40px;
+    line-height: 40px;
+}
+
+.lp-openaccount h3,
+.lp-openaccount p {
+    font-weight: 400;
+    max-width: 433px;
+    font-size: 24px;
+    line-height: 28px;
+}
+
+.lp-openaccount .lp-action {
+    padding-top: 16px;
+    flex-direction: row;
+}
+
+.lp-openaccount figure {
+    height: inherit;
+    display: flex;
+    align-items: center;
+}
+
+.lp-openaccount figure > picture {
+    width: auto;
+}
+
+.lp-openaccount figure figcaption {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    position: absolute;
+    bottom: 40px;
+    right: 40px;
+}
+
+.lp-openaccount figure figcaption small {
+    display: block;
+    width: 112px;
+    font-size: 12px;
+    line-height: 16px;
+}
+
+.lp-header .lp-topbar{padding: 24px 55px;}
+.lp-openaccount > .lp-container:before,
+.lp-openaccount > .lp-container:after,
+.lp-openaccount .lp-banner:before,
+.lp-openaccount .lp-banner:after {
+    content: '';
+    position: absolute;
+    display: block;
+    width: 379px;
+    height: 426px;
+    background: linear-gradient(241.13deg, #CC092F 10.66%, #B81570 90.65%);
+    clip-path: polygon(0 51%, 100% 0%, 100% 50%, 0% 100%);
+}
+
+.lp-openaccount > .lp-container:before {
+    width: 322px;
+    height: 362px;
+    top: 215px;
+    left: 33px;
+}
+
+.lp-openaccount > .lp-container:after {
+    top: 94px;
+    right: 25px;
+}
+
+.lp-openaccount .lp-banner:before {
+    top: 38px;
+    left: -38px;
+}
+
+.lp-openaccount .lp-banner:after {
+    width: 305px;
+    height: 343px;
+    top: 0;
+    right: 84px;
+}
+
+.lp-openaccount .lp-banner i {
+    top: 144px;
+    right: 366px;
+    left: auto;
+    bottom: auto;
+}
+
+.lp-openaccount .lp-banner i svg {
+    width: 306px;
+    height: 326px;
+}
