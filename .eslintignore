@@ -1,3 +1,4 @@
 # Arquivos que não serão "lintados"
 helix-importer-ui
 dompurify.min.js
+scripts/main.js

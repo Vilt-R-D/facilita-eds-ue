@@ -1,3 +1,4 @@
+import './main.js';
 import {
   loadHeader,
   loadFooter,
