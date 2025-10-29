@@ -356,7 +356,7 @@ function waitForElement(selector, callback) {
 
   function applyBehaviours() {
     loadJS('scripts/swiper-bundle.js', () => {
-      initSwiper();
+      initSwiper(); 
     }, document.body);
 
     initModalVideo();

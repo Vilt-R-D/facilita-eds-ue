@@ -1,10 +1,8 @@
-/* eslint no-use-before-define: 0 */
-@import url("/assets/common/css/font-bradesco/font-bradesco.css");
 :root {
     --color-red: #CC092F;
     --color-gray: #F0F1F5;
     --gradient-red-rose: linear-gradient(180deg, #CC092F 0%, #B81570 100%)
-    --font-family-sans-serif: 'Bradesco', sans-serif;
+    --font-family-sans-serif: var(--body-font-family);
 }
 
 [class*="icon-seguro-mais-protecao"] {
@@ -17,7 +15,7 @@ html {
 
 body {
     background: var(--color-red);
-    font-family: "Bradesco", sans-serif;
+    font-family: var(--body-font-family);
 }
 
 .lp-wrapper {
@@ -216,7 +214,7 @@ main {
 }
 
 .lp-facilities .swiper-slide {
-    width: 300px !important;
+    width: calc((100% - (16px * 1))/2);
 }
 
 .legal-txt {
@@ -319,7 +317,7 @@ main {
 }
 
 .lp-facilities .lp-qrcode:before {
-    content: 'Aponte a cÃ¢mera do seu celular para o QR Code';
+    content: 'Aponte a câmera do seu celular para o QR Code';
     font-size: 14px;
     line-height: 16px;
     color: #000;
@@ -858,7 +856,7 @@ main {
 }
 
 .mobile-only {
-    /* display: none !important; */
+    display: none !important;
 }
 
 .desk-only {
