@@ -69,3 +69,7 @@ main {
   size-adjust: 92%;
   src: local("Verdana");
 }
+
+@media screen and (min-width: 1199px) {
+  @import url("/styles/screen-1199-up.css");
+};
