@@ -35,7 +35,7 @@ body {
     line-height: 36px;
 }
 
-.lp-container h2 {
+.lp-container h2, h2 {
     margin: 0;
     font-size: 23px;
     line-height: 28px;

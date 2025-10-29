@@ -2,6 +2,13 @@ main {
     padding-top: 100px;
 }
 
-.carousel-wrapper {
-    width: 100%;
+.section.carousel-container {
+    .swiper-slide {
+        min-width: 232px;
+        max-width: 320px;
+    }
+
+    h3 p {
+        all: inherit;
+    }
 }

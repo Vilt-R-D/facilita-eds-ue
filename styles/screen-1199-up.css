@@ -7,7 +7,7 @@
     line-height: 72px;
 }
 
-.lp-container h2 {
+.lp-container h2, h2 {
     font-size: 40px;
     line-height: 48px;
 }
