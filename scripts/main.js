@@ -1,3 +1,7 @@
+/**
+ * Main do site original
+ */
+
 function waitForElement(selector, callback) {
   const interval = setInterval(() => {
     const element = document.querySelector(selector);
@@ -356,7 +360,7 @@ function waitForElement(selector, callback) {
 
   function applyBehaviours() {
     loadJS('scripts/swiper-bundle.js', () => {
-      initSwiper(); 
+      initSwiper();
     }, document.body);
 
     initModalVideo();
