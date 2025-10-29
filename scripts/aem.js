@@ -488,7 +488,7 @@ function decorateSections(main) {
         wrappers.push(wrapper);
         defaultContent = e.tagName !== 'DIV' || !e.className;
         if (defaultContent) wrapper.classList.add('default-content-wrapper');
-        if(e.tagName == "H2") wrapper.classList.add('lp-container');
+        if (e.tagName === 'H2') wrapper.classList.add('lp-container');
       }
       wrappers[wrappers.length - 1].append(e);
     });

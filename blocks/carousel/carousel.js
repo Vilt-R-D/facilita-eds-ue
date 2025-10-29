@@ -3,7 +3,6 @@
  * @param {Element} block The hero block element
  */
 export default async function decorate(block) {
-  console.log(block)
   block.parentElement.parentElement.classList.add('lp-facilities');
   const cards = [...block.children];
 
@@ -124,4 +123,4 @@ export default async function decorate(block) {
   lpSwiper.replaceChildren(lpContainer);
   const carouselContainer = block.parentElement.parentElement;
   carouselContainer.replaceChildren(...carouselContainer.children, lpSwiper, dialog);
-};
+}
