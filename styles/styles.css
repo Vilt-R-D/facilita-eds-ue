@@ -1,3 +1,5 @@
+@import url("/styles/design-system.bundle.min.css");
+
 /* Importa código para normalizar o padrão do CSS entre os navegadores. */
 @import url("/styles/normalize.css");
 
@@ -26,6 +28,7 @@
   --font-family-sans-serif: var(--body-font-family)
 }
 
+@import url("/styles/main.css");
 /* vindo de main.css do site original, desativei pois não funciona legal no meu navegador */
 
 /* html {
