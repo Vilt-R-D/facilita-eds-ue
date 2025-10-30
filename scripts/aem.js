@@ -17,7 +17,7 @@ function sampleRUM(checkpoint, data) {
   try {
     window.hlx = window.hlx || {};
     if (!window.hlx.rum) {
-      sampleRUM.enhance = () => {};
+      sampleRUM.enhance = () => { };
       const param = new URLSearchParams(window.location.search).get('rum');
       const weight = (param === 'on' && 1)
         || (window.SAMPLE_PAGEVIEWS_AT_RATE === 'high' && 10)
@@ -488,6 +488,7 @@ function decorateSections(main) {
         wrappers.push(wrapper);
         defaultContent = e.tagName !== 'DIV' || !e.className;
         if (defaultContent) wrapper.classList.add('default-content-wrapper');
+        if (e.tagName === 'H2') wrapper.classList.add('lp-container');
       }
       wrappers[wrappers.length - 1].append(e);
     });
