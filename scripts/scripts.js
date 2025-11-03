@@ -1,5 +1,5 @@
+import './main.js';
 import {
-  loadHeader,
   loadFooter,
   decorateButtons,
   decorateIcons,
@@ -77,6 +77,7 @@ function buildAutoBlocks() {
  */
 // eslint-disable-next-line import/prefer-default-export
 export function decorateMain(main) {
+  main.classList.add('lp-wrapper');
   // hopefully forward compatible button decoration
   decorateButtons(main);
   decorateIcons(main);
@@ -121,7 +122,7 @@ async function loadLazy(doc) {
   const element = hash ? doc.getElementById(hash.substring(1)) : false;
   if (hash && element) element.scrollIntoView();
 
-  loadHeader(doc.querySelector('header'));
+  // loadHeader(doc.querySelector('header')); Não precisamos mais do bloco header
   loadFooter(doc.querySelector('footer'));
 
   loadCSS(`${window.hlx.codeBasePath}/styles/lazy-styles.css`);
