@@ -59,10 +59,14 @@ export default async function decorate(block) {
     swipperBullet.classList.add('swiper-pagination-bullet');
     bradPagination.appendChild(swipperBullet);
 
-    const [pictureDiv, youtubeLinkDiv, iconDiv, cardTitleDiv,
-      lpActions, cardLinkDiv, qrCodeDiv] = c.children;
+    const [pictureDiv, youtubeLinkDiv, iconDiv, cardTitleDiv, lpActions, cardLinkDiv,
+      qrCodeDiv] = c.children;
 
+    // Youtuber link is a required attribute.
+    // If it's not present, then cards was not properly authored.
+    if (!youtubeLinkDiv.querySelector('a')) return;
     const youtubeLink = youtubeLinkDiv.querySelector('a').href;
+
     const cardAnchor = cardLinkDiv.querySelector('a');
 
     c.classList.add('swiper-slide');
@@ -112,8 +116,6 @@ export default async function decorate(block) {
     qrCodeFigure.classList.add('lp-qrcode');
     qrCodeFigure.classList.add('desk-only');
     qrCodeFigure.replaceChildren(qrCode);
-
-    // const qrcode = new QRCode(document.getElementById("qrcode"), "Your QR Code Data Here");
 
     lpSlide.replaceChildren(lpActions, pictureFigure, article, qrCodeFigure);
     c.replaceChildren(lpSlide);
