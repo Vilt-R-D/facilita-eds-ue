@@ -35,6 +35,21 @@
               "value": "highlight"
             }
           ]
+        },
+        {
+          "component": "select",
+          "name": "move-to",
+          "label": "Move to",
+          "options": [
+            {
+              "name": "Header",
+              "value": "header"
+            },
+            {
+              "name": "Footer",
+              "value": "footer"
+            }
+          ]
         }
       ]
     }
@@ -50,8 +65,7 @@
         "hero",
         "cards",
         "columns",
-        "fragment",
-        "carousel"
+        "fragment"
       ]
     }
   ]
