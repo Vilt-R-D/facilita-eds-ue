@@ -161,6 +161,66 @@
     ]
   },
   {
+    "id": "carousel",
+    "fields": []
+  },
+  {
+    "id": "carousel-card",
+    "fields": [
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "card-image",
+        "label": "Imagem do Card",
+        "multi": false
+      },
+      {
+        "component": "aem-content",
+        "name": "youtube-video",
+        "label": "Vídeo do Youtube",
+        "description": "Link do Vídeo do Youtube que será aberto ao clicar no card."
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "icon",
+        "label": "Ícone do Card",
+        "multi": false
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "title",
+        "label": "Título do Card"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "button-text",
+        "label": "Texto do Botão"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "card-text",
+        "label": "Texto do Card"
+      },
+      {
+        "component": "aem-content",
+        "name": "link",
+        "label": "Link de Redirecionamento",
+        "description": "Link de Redirecionamento do Card."
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "qrcode",
+        "label": "QRCode do Card",
+        "multi": false
+      }
+    ]
+  },
+  {
     "id": "columns",
     "fields": [
       {
