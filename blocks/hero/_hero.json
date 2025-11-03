@@ -9,38 +9,7 @@
             "resourceType": "core/franklin/components/block/v1/block",
             "template": {
               "name": "Hero",
-              "model": "hero",
-              "filter": "hero"
-            }
-          }
-        }
-      }
-    },
-    {
-      "title": "Logo Cabeçalho",
-      "id": "logo-header",
-      "plugins": {
-        "xwalk": {
-          "page": {
-            "resourceType": "core/franklin/components/block/v1/block",
-            "template": {
-              "name": "Logo Header",
-              "model": "logo-header"
-            }
-          }
-        }
-      }
-    },
-    {
-      "title": "Imagem do Fundo",
-      "id": "background-header",
-      "plugins": {
-        "xwalk": {
-          "page": {
-            "resourceType": "core/franklin/components/block/v1/block",
-            "template": {
-              "name": "Background Image",
-              "model": "background-header"
+              "model": "hero"
             }
           }
         }
@@ -49,62 +18,31 @@
   ],
   "models": [
     {
-      "id": "logo-header",
-      "fields": [
-        {
-          "component": "reference",
-          "valueType": "string",
-          "name": "logo",
-          "label": "Logo do Cabeçalho",
-          "description": "Logo que aparecerá no canto superior esquerdo."
-        },
-        {
-          "component": "text",
-          "valueType": "string",
-          "name": "logo-redirect",
-          "label": "URL de redirecionamento",
-          "description": "Local para onde o usuário será redirecionado ao clicar na logo."
-        }
-      ]
-    },
-    {
-      "id": "background-header",
-      "fields": [
-        {
-          "component": "reference",
-          "valueType": "string",
-          "name": "background",
-          "label": "Imagem do Header",
-          "required": true
-        },
-        {
-          "component": "reference",
-          "valueType": "string",
-          "name": "background-mobile",
-          "label": "Versão da imagem para celular"
-        }
-      ]
-    },
-    {
       "id": "hero",
       "fields": [
         {
+          "component": "reference",
+          "valueType": "string",
+          "name": "image",
+          "label": "Image",
+          "multi": false
+        },
+        {
           "component": "text",
           "valueType": "string",
-          "name": "ancora",
-          "label": "Âncora",
-          "description": "id da seção a ser redirecionado."
+          "name": "imageAlt",
+          "label": "Alt",
+          "value": ""
+        },
+        {
+          "component": "richtext",
+          "name": "text",
+          "value": "",
+          "label": "Text",
+          "valueType": "string"
         }
       ]
     }
   ],
-  "filters": [
-    {
-      "id": "hero",
-      "components": [
-        "logo-header",
-        "background-header"
-      ]
-    }
-  ]
+  "filters": []
 }

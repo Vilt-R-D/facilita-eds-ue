@@ -477,11 +477,9 @@ function decorateIcons(element, prefix = '') {
  * @param {Element} main The container element
  */
 function decorateSections(main) {
-  // Para todas as divs filhas diretas de main que ainda não entraram começaram a serem tratadas.
   main.querySelectorAll(':scope > div:not([data-section-status])').forEach((section) => {
     const wrappers = [];
     let defaultContent = false;
-    // [] converte uma coleção para array.
     [...section.children].forEach((e) => {
       if ((e.tagName === 'DIV' && e.className) || !defaultContent) {
         const wrapper = document.createElement('div');
@@ -660,9 +658,6 @@ async function waitForFirstImage(section) {
 
 async function loadSection(section, loadCallback) {
   const status = section.dataset.sectionStatus;
-  // Metadata customizado para mover a seção para Header ou Footer.
-  const { moveTo } = section.dataset;
-
   if (!status || status === 'initialized') {
     section.dataset.sectionStatus = 'loading';
     const blocks = [...section.querySelectorAll('div.block')];
@@ -673,10 +668,6 @@ async function loadSection(section, loadCallback) {
     if (loadCallback) await loadCallback(section);
     section.dataset.sectionStatus = 'loaded';
     section.style.display = null;
-  }
-  if (moveTo) {
-    const element = document.querySelector(moveTo);
-    element.appendChild(section);
   }
 }
 
