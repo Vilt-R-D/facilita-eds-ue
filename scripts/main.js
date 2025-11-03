@@ -355,7 +355,7 @@ function waitForElement(selector, callback) {
   }
 
   function applyBehaviours() {
-    loadJS(window?.hlx?.codeBasePath + '/scripts/swiper-bundle.js', () => {
+    loadJS(window.hlx.codeBasePath + '/scripts/swiper-bundle.js', () => {
       initSwiper();
     }, document.body);
 

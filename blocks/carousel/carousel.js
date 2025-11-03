@@ -60,7 +60,7 @@ export default async function decorate(block) {
     bradPagination.appendChild(swipperBullet);
 
     const [pictureDiv, youtubeLinkDiv, iconDiv, cardTitleDiv,
-      lpActions, , cardLinkDiv, qrCodeDiv] = c.children;
+      lpActions, cardLinkDiv, qrCodeDiv] = c.children;
 
     const youtubeLink = youtubeLinkDiv.querySelector('a').href;
     const cardAnchor = cardLinkDiv.querySelector('a');

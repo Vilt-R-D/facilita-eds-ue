@@ -200,12 +200,6 @@
         "label": "Texto do Botão"
       },
       {
-        "component": "text",
-        "valueType": "string",
-        "name": "card-text",
-        "label": "Texto do Card"
-      },
-      {
         "component": "aem-content",
         "name": "link",
         "label": "Link de Redirecionamento",
