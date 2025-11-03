@@ -355,7 +355,7 @@ function waitForElement(selector, callback) {
   }
 
   function applyBehaviours() {
-    loadJS('../scripts/swiper-bundle.js', () => {
+    loadJS(window?.hlx?.codeBasePath + '/scripts/swiper-bundle.js', () => {
       initSwiper();
     }, document.body);
 
@@ -363,10 +363,10 @@ function waitForElement(selector, callback) {
     // initResponsiveVideo();
     // initAppButtonsHandler();
     // initOthersFilters();
-    initScrollTo();
+    // initScrollTo();
 
-    initJSLazy();
-    fixAcessib();
+    // initJSLazy();
+    // fixAcessib();
   }
 
   waitForElement('main', applyBehaviours);
