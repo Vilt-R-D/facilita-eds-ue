@@ -355,14 +355,14 @@ function waitForElement(selector, callback) {
   }
 
   function applyBehaviours() {
-    loadJS('scripts/swiper-bundle.js', () => {
-      initSwiper(); 
+    loadJS('../scripts/swiper-bundle.js', () => {
+      initSwiper();
     }, document.body);
 
     initModalVideo();
-    initResponsiveVideo();
-    initAppButtonsHandler();
-    initOthersFilters();
+    // initResponsiveVideo();
+    // initAppButtonsHandler();
+    // initOthersFilters();
     initScrollTo();
 
     initJSLazy();
