@@ -37,7 +37,7 @@
           ]
         },
         {
-          "component": "multiselect",
+          "component": "select",
           "name": "move-to",
           "label": "Move to",
           "options": [

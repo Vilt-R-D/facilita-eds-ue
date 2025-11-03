@@ -660,6 +660,9 @@ async function waitForFirstImage(section) {
 
 async function loadSection(section, loadCallback) {
   const status = section.dataset.sectionStatus;
+  // Metadata customizado para mover a seção para Header ou Footer.
+  const { moveTo } = section.dataset;
+
   if (!status || status === 'initialized') {
     section.dataset.sectionStatus = 'loading';
     const blocks = [...section.querySelectorAll('div.block')];
@@ -670,6 +673,10 @@ async function loadSection(section, loadCallback) {
     if (loadCallback) await loadCallback(section);
     section.dataset.sectionStatus = 'loaded';
     section.style.display = null;
+  }
+  if (moveTo) {
+    const element = document.querySelector(moveTo);
+    element.appendChild(section);
   }
 }
 

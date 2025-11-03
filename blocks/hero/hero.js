@@ -11,17 +11,46 @@
 */
 
 /**
+ * Converte um elemento img para svg.
+ * @param {HTMLElement} picture
+ */
+function extractSVGfromPicture(picture) {
+  const source = picture.querySelector('img').src.split('?')[0];
+  const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+  const use = document.createElementNS('http://www.w3.org/2000/svg', 'use');
+  use.setAttributeNS(null, 'href', source);
+  svg.appendChild(use);
+
+  return svg;
+}
+
+/**
  * @param {Element} row
  * @returns {Element} Decorated link element.
  */
 function decorateLogo(row) {
   const pictureEl = row.querySelector('picture');
+  const hasSVG = pictureEl.querySelector('source[type="image/svg+xml"]') != null;
+
   const redirectUrl = row.lastElementChild.textContent.trim();
   const aEl = document.createElement('a');
   aEl.href = redirectUrl;
-  aEl.appendChild(pictureEl);
+  aEl.title = 'bradesco';
+  aEl.className = 'lp-bradesco';
 
-  return aEl;
+  if (hasSVG) {
+    const svg = extractSVGfromPicture(pictureEl);
+    aEl.append(svg);
+  } else {
+    aEl.appendChild(pictureEl);
+  }
+  const div = document.createElement('div');
+  div.id = 'topbar';
+  div.className = 'lp-topbar';
+
+  div.appendChild(aEl);
+
+  return div;
 }
 
 /**
@@ -40,6 +69,7 @@ function decorateBackground(row) {
 
   pictureEl.append(srcDesktopBig, srcMobile, imgDesktopFallback);
   pictureEl.id = 'hero-background';
+  pictureEl.className = 'lp-video';
 
   return pictureEl;
 }
@@ -85,6 +115,9 @@ function classifyRow(row) {
  * @param {Element} block The hero block element
  */
 export default async function decorate(block) {
+  // const divWrapper = document.createElement('div');
+  // divWrapper.classList.add('lp-header');
+  block.classList.add('lp-header');
   Object.values(block.children).forEach(
     (row, i) => {
       const rowType = classifyRow(row);
@@ -107,6 +140,7 @@ export default async function decorate(block) {
         default:
         // console.warn('Could not classify block type');
       }
+      // if (newElement != null) divWrapper.appendChild(newElement);
       if (newElement != null) row.replaceWith(newElement);
     },
   );
