@@ -55,10 +55,6 @@ export default async function decorate(block) {
   navPagination.replaceChildren(leftButton, bradPagination, rightButton);
 
   cards.forEach((c) => {
-    const swipperBullet = document.createElement('span');
-    swipperBullet.classList.add('swiper-pagination-bullet');
-    bradPagination.appendChild(swipperBullet);
-
     const [pictureDiv, youtubeLinkDiv, iconDiv, cardTitleDiv, lpActions, cardLinkDiv,
       qrCodeDiv] = c.children;
 
@@ -70,8 +66,6 @@ export default async function decorate(block) {
     const cardAnchor = cardLinkDiv.querySelector('a');
 
     c.classList.add('swiper-slide');
-    c.style.marginRight = '16px';
-    c.style.width = '320px';
     const lpSlide = document.createElement('div');
     lpSlide.classList.add('lp-slide');
 
@@ -124,6 +118,4 @@ export default async function decorate(block) {
   lpContainer.replaceChildren(swiperWrapper, navPagination);
   lpSwiper.replaceChildren(lpContainer);
   block.replaceChildren(lpSwiper, dialog);
-  // const carouselContainer = block.parentElement.parentElement;
-  // carouselContainer.replaceChildren(...carouselContainer.children, lpSwiper, dialog);
 }
