@@ -138,6 +138,21 @@
             "value": "highlight"
           }
         ]
+      },
+      {
+        "component": "select",
+        "name": "move-to",
+        "label": "Move to",
+        "options": [
+          {
+            "name": "Header",
+            "value": "header"
+          },
+          {
+            "name": "Footer",
+            "value": "footer"
+          }
+        ]
       }
     ]
   },
@@ -251,28 +266,51 @@
     ]
   },
   {
-    "id": "hero",
+    "id": "logo-header",
     "fields": [
       {
         "component": "reference",
         "valueType": "string",
-        "name": "image",
-        "label": "Image",
-        "multi": false
+        "name": "logo",
+        "label": "Logo do Cabeçalho",
+        "description": "Logo que aparecerá no canto superior esquerdo."
       },
       {
         "component": "text",
         "valueType": "string",
-        "name": "imageAlt",
-        "label": "Alt",
-        "value": ""
+        "name": "logo-redirect",
+        "label": "URL de redirecionamento",
+        "description": "Local para onde o usuário será redirecionado ao clicar na logo."
+      }
+    ]
+  },
+  {
+    "id": "background-header",
+    "fields": [
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "background",
+        "label": "Imagem do Header",
+        "required": true
       },
       {
-        "component": "richtext",
-        "name": "text",
-        "value": "",
-        "label": "Text",
-        "valueType": "string"
+        "component": "reference",
+        "valueType": "string",
+        "name": "background-mobile",
+        "label": "Versão da imagem para celular"
+      }
+    ]
+  },
+  {
+    "id": "hero",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "ancora",
+        "label": "Âncora",
+        "description": "id da seção a ser redirecionado."
       }
     ]
   }
