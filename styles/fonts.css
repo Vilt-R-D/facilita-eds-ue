@@ -1,39 +1,47 @@
 /* stylelint-disable max-line-length */
 
 @font-face {
-  font-family: bradesco-condensed;
-  font-weight: 700;
-  font-display: swap;
-  src: url('../fonts/BradescoSans-CondensedBold.woff2') format('woff2');
+    font-family: bradesco-condensed;
+    font-weight: 700;
+    font-display: swap;
+    src: url("../fonts/BradescoSans-CondensedBold.woff2") format("woff2");
 }
 
 @font-face {
-  font-family: bradesco-condensed;
-  font-weight: 400;
-  font-display: swap;
-  src: url('../fonts/BradescoSans-Condensed.woff2') format('woff2');
+    font-family: bradesco-condensed;
+    font-weight: 400;
+    font-display: swap;
+    src: url("../fonts/BradescoSans-Condensed.woff2") format("woff2");
 }
 
 @font-face {
-  font-family: bradesco;
-  font-style: normal;
-  font-weight: 700;
-  font-display: swap;
-  src: url('../fonts/BradescoSans-Bold.woff2') format('woff2');
+    font-family: bradesco;
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url("../fonts/BradescoSans-Bold.woff2") format("woff2");
 }
 
 @font-face {
-  font-family: bradesco;
-  font-style: italic;
-  font-weight: 500;
-  font-display: swap;
-  src: url('../fonts/BradescoSans-Italic.woff2') format('woff2');
+    font-family: bradesco;
+    font-style: italic;
+    font-weight: 500;
+    font-display: swap;
+    src: url("../fonts/BradescoSans-Italic.woff2") format("woff2");
 }
 
 @font-face {
-  font-family: bradesco;
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url('../fonts/BradescoSans-Regular.woff2') format('woff2');
+    font-family: bradesco;
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url("../fonts/BradescoSans-Regular.woff2") format("woff2");
+}
+
+@font-face {
+    font-display: block;
+    font-family: icons;
+    font-style: normal;
+    font-weight: 400;
+    src: url("../fonts/icons.ttf");
 }
