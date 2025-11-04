@@ -224,26 +224,33 @@ function waitForElement(selector, callback) {
   }
 
   function initSwiper() {
-    new Swiper('.lp-facilities .lp-swiper .swiper-container', {
-      autoResize: false,
+    new Swiper('.swiper-container', {
+      allowTouchMove: true,
+      simulateTouch: true,
+      spaceBetween: 16,
+      slidesPerView: 1,
       breakpoints: {
-        0: {
-          slidesPerGroup: 1,
-          spaceBetween: 16,
+        320: {
+          slidesPerView: 1.1
         },
-        890: {
-          slidesPerGroup: 1,
-          spaceBetween: 16,
+        640: {
+          slidesPerView: 2.2
         },
-        1150: {
-          slidesPerView: 4,
-          spaceBetween: 16,
+        960: {
+          slidesPerView: 3.3
         },
-        1450: {
-          slidesPerView: 4,
-          spaceBetween: 16,
+        1280: {
+          slidesPerView: 4.4
         },
+        1600: {
+          slidesPerView: 5.5
+        },
+        1900: {
+          slidesPerView: 6.6
+        }
+
       },
+      breakpointsBase: 'container',
       pagination: {
         el: '.brad-pagination',
         type: 'bullets',
@@ -355,18 +362,18 @@ function waitForElement(selector, callback) {
   }
 
   function applyBehaviours() {
-    loadJS('scripts/swiper-bundle.js', () => {
-      initSwiper(); 
+    loadJS(window.hlx.codeBasePath + '/scripts/swiper-bundle.js', () => {
+      initSwiper();
     }, document.body);
 
     initModalVideo();
-    initResponsiveVideo();
-    initAppButtonsHandler();
-    initOthersFilters();
-    initScrollTo();
+    // initResponsiveVideo();
+    // initAppButtonsHandler();
+    // initOthersFilters();
+    // initScrollTo();
 
-    initJSLazy();
-    fixAcessib();
+    // initJSLazy();
+    // fixAcessib();
   }
 
   waitForElement('main', applyBehaviours);

@@ -187,51 +187,52 @@
         "valueType": "string",
         "name": "card-image",
         "label": "Imagem do Card",
-        "multi": false
+        "multi": false,
+        "required": true
       },
       {
         "component": "aem-content",
         "name": "youtube-video",
         "label": "Vídeo do Youtube",
-        "description": "Link do Vídeo do Youtube que será aberto ao clicar no card."
+        "description": "Link do Vídeo do Youtube que será aberto ao clicar no card.",
+        "required": true
       },
       {
         "component": "reference",
         "valueType": "string",
         "name": "icon",
         "label": "Ícone do Card",
-        "multi": false
+        "multi": false,
+        "required": true
       },
       {
         "component": "richtext",
         "valueType": "string",
         "name": "title",
-        "label": "Título do Card"
+        "label": "Título do Card",
+        "required": true
       },
       {
         "component": "text",
         "valueType": "string",
         "name": "button-text",
-        "label": "Texto do Botão"
-      },
-      {
-        "component": "text",
-        "valueType": "string",
-        "name": "card-text",
-        "label": "Texto do Card"
+        "label": "Texto do Botão",
+        "required": true
       },
       {
         "component": "aem-content",
         "name": "link",
         "label": "Link de Redirecionamento",
-        "description": "Link de Redirecionamento do Card."
+        "description": "Link de Redirecionamento do Card.",
+        "required": true
       },
       {
         "component": "reference",
         "valueType": "string",
         "name": "qrcode",
         "label": "QRCode do Card",
-        "multi": false
+        "multi": false,
+        "required": true
       }
     ]
   },
