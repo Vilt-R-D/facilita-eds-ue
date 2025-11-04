@@ -41,6 +41,7 @@
 @font-face {
     font-display: block;
     font-family: icons;
+    font-display: swap;
     font-style: normal;
     font-weight: 400;
     src: url("../fonts/icons.ttf");
