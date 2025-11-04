@@ -30,7 +30,8 @@ function extractSVGfromPicture(picture) {
  */
 function decorateLogo(row) {
   const pictureEl = row.querySelector('picture');
-  const hasSVG = pictureEl.querySelector('source[type="image/svg+xml"]') != null;
+  let hasSVG = pictureEl.querySelector('source[type="image/svg+xml"]') != null;
+  hasSVG ||= pictureEl.querySelector('img[src*=".svg"]') != null;
 
   const redirectUrl = row.lastElementChild.textContent.trim();
   const aEl = document.createElement('a');
@@ -61,13 +62,24 @@ function decorateBackground(row) {
   const pictures = row.querySelectorAll('picture');
   const pictureEl = document.createElement('picture');
   // Pegar a imagem grande de desktop e a original como fallback. Também pegar a para celular.
-  const srcDesktopBig = pictures[0].children[2];
-  const imgDesktopFallback = pictures[0].lastElementChild;
-  const srcMobile = pictures[1].children[2];
-  srcDesktopBig.setAttribute('media', '(min-width: 720px)');
-  srcMobile.setAttribute('media', '(max-width: 719px)');
+  const isUniversalEditor = pictures[0].childElementCount <= 1;
+  if (!isUniversalEditor) {
+    const srcDesktopBig = pictures[0].children[2];
+    const imgDesktopFallback = pictures[0].lastElementChild;
+    const srcMobile = pictures[1].children[2];
+    srcDesktopBig.setAttribute('media', '(min-width: 720px)');
+    srcMobile.setAttribute('media', '(max-width: 719px)');
+    pictureEl.append(srcDesktopBig, srcMobile, imgDesktopFallback);
+  } else {
+    const imgDesktop = pictures[0].firstElementChild;
+    [imgDesktop.src] = imgDesktop.src.split('?');
+    const imgMobile = pictures[1].firstElementChild;
+    const srcMobile = document.createElement('source');
+    srcMobile.setAttribute('media', '(max-width: 719px)');
+    [srcMobile.srcset] = imgMobile.src.split('?');
+    pictureEl.append(srcMobile, imgDesktop);
+  }
 
-  pictureEl.append(srcDesktopBig, srcMobile, imgDesktopFallback);
   pictureEl.id = 'hero-background';
   pictureEl.className = 'lp-video';
 
