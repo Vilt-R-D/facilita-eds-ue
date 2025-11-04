@@ -123,6 +123,7 @@ export default async function decorate(block) {
 
   lpContainer.replaceChildren(swiperWrapper, navPagination);
   lpSwiper.replaceChildren(lpContainer);
-  const carouselContainer = block.parentElement.parentElement;
-  carouselContainer.replaceChildren(...carouselContainer.children, lpSwiper, dialog);
+  block.replaceChildren(lpSwiper, dialog);
+  // const carouselContainer = block.parentElement.parentElement;
+  // carouselContainer.replaceChildren(...carouselContainer.children, lpSwiper, dialog);
 }
