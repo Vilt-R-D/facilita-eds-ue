@@ -3,7 +3,22 @@
     --color-gray: #F0F1F5;
     --gradient-red-rose: linear-gradient(180deg, #CC092F 0%, #B81570 100%)
     --font-family-sans-serif: var(--body-font-family);
+    --swiper-theme-color: #007aff;
+    --swiper-navigation-size: 44px;
+    --brad-color-cta: 59, 105, 255;
+    --brad-color-cta-light: 87, 129, 255;
+    --brad-color-icon: 204, 9, 47;
+    --brad-color-neutral-0: 255, 255, 255;
+    --brad-border-radius-pill: 999px;
 }
+
+@font-face {
+    font-family: swiper-icons;
+    font-style: normal;
+    font-weight: 400;
+    src: url("data:application/font-woff;charset=utf-8;base64, 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");
+}
+
 
 [class*="icon-seguro-mais-protecao"] {
     color: white;
@@ -18,13 +33,17 @@ body {
     font-family: var(--body-font-family);
 }
 
+main {
+    padding: 0;
+    margin: 0;
+}
+
 .lp-wrapper {
     display: grid;
 }
 
 .lp-container {
     width: 100%;
-    max-width: 1440px;
     padding: 24px;
     box-sizing: border-box;
 }
@@ -189,32 +208,7 @@ main {
     grid-auto-columns: 1fr;
     background: #F0F1F5;
     border-radius: 24px 24px 0 0;
-    margin-top: -64px;
-}
-
-.lp-facilities {
-    display: grid;
-    width: 100%;
-    place-items: center;
-}
-
-.lp-facilities .lp-swiper {
-    position: relative;
-    width: 100%;
-    padding-bottom: 8px;
-    overflow: hidden;
-}
-
-.lp-facilities .swiper-container {
-    position: relative;
-    margin: 0 auto;
-    padding-top: 0;
-    padding-bottom: 0;
-    padding-right: 64px;
-}
-
-.lp-facilities .swiper-slide {
-    width: calc((100% - (16px * 1))/2);
+    /* margin-top: -64px; */
 }
 
 .legal-txt {
@@ -224,268 +218,6 @@ main {
     width: 100%;
     max-width: 1440px;
     padding: 10px 0;
-}
-
-.lp-facilities .lp-slide {
-    position: relative;
-    border-radius: 24px;
-    height: 596px;
-    overflow: hidden;
-    background: #fff;
-    color: #fff;
-    border-radius: 24px;
-    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.161);
-}
-
-.lp-facilities .lp-videocard {
-    position: absolute;
-    top: 0;
-    bottom: 82px;
-    left: 0;
-    right: 0;
-    margin: 0;
-    border-radius: 24px;
-    overflow: hidden;
-}
-
-.lp-facilities .lp-videocard figcaption {
-    position: absolute;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 34.29%, rgba(0, 0, 0, 0.50) 84.01%);
-}
-
-.lp-facilities .lp-videocard figcaption a {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 1;
-}
-
-.lp-facilities .lp-videocard figcaption i {
-    width: 40px;
-    height: 32px;
-}
-
-.lp-facilities .lp-videocard figcaption svg {
-    width: inherit;
-    height: inherit;
-}
-
-.lp-facilities .lp-videocard picture {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: #000;
-}
-
-.lp-facilities .lp-videocard picture img {
-    display: block;
-    min-width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.lp-facilities .lp-qrcode {
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 138px;
-    margin: 0;
-    opacity: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-    z-index: 2;
-    pointer-events: none;
-}
-
-.lp-facilities .lp-qrcode:before {
-    content: 'Aponte a câmera do seu celular para o QR Code';
-    font-size: 14px;
-    line-height: 16px;
-    color: #000;
-    font-weight: 700;
-    text-align: center;
-    max-width: 216px;
-}
-
-.lp-facilities .lp-qrcode img {
-    display: block;
-    width: 152px;
-    height: 152px;
-}
-
-.lp-facilities .lp-slide article {
-    position: relative;
-    display: grid;
-    align-content: end;
-    height: calc(100% - 82px);
-    padding: 24px;
-    gap: 16px;
-    box-sizing: border-box;
-}
-
-.lp-facilities .lp-slide article header {
-    display: grid;
-    gap: 16px;
-}
-
-.lp-facilities .lp-slide article header i {
-    width: 32px;
-    height: 32px;
-}
-
-.lp-facilities .lp-slide article header i svg {
-    width: inherit;
-    height: inherit;
-}
-
-.lp-facilities .lp-slide article header h4,
-.lp-facilities .lp-slide article header h3 {
-    margin: 0;
-    font-size: 20px;
-    line-height: 28px;
-    max-width: 200px;
-}
-
-.lp-facilities .lp-slide .lp-actions {
-    position: absolute;
-    display: flex;
-    padding: 18px;
-    left: 0;
-    right: 0;
-    bottom: 0;
-}
-
-.lp-facilities .lp-slide .lp-actions:before {
-    position: absolute;
-    content: '';
-    bottom: 100%;
-    left: 0;
-    right: 0;
-    height: 0;
-    display: block;
-    background: #fff;
-    border-radius: 24px 24px 0 0;
-    z-index: 1;
-}
-
-.lp-facilities .lp-slide .lp-actions a,
-.lp-facilities .lp-slide .lp-actions p {
-    display: inline-flex;
-    width: 100%;
-    align-items: center;
-    gap: 12px;
-    font-size: 14px;
-    line-height: 20px;
-    color: #fff;
-    background: #e1173f;
-    z-index: 1;
-    border-radius: 24px;
-    height: 46px;
-    padding: 0;
-    justify-content: center;
-}
-
-.lp-facilities .lp-slide .lp-actions a:hover {
-    background: #d63a59;
-}
-
-.lp-facilities .lp-slide .lp-actions a i {
-    width: 7px;
-    height: 12px;
-    margin-bottom: 6px;
-}
-
-.lp-facilities .lp-slide .lp-actions a i svg {
-    width: inherit;
-    height: inherit;
-}
-
-.lp-facilities .swiper-button-next,
-.lp-facilities .swiper-button-prev {
-    width: 48px;
-    height: 48px;
-    border-radius: 50%;
-    background: #fff;
-    border: 1px solid #fff;
-    color: var(--color-red);
-}
-
-.lp-facilities .swiper-button-next.swiper-button-disabled,
-.lp-facilities .swiper-button-prev.swiper-button-disabled {
-    background: rgba(0, 0, 0, 0.2);
-    border: 1px solid rgba(255, 255, 255, 0.4);
-    backdrop-filter: blur(10px);
-    opacity: 1;
-    color: #fff;
-}
-
-.lp-facilities .swiper-button-next:after,
-.lp-facilities .swiper-button-prev:after {
-    display: none;
-}
-
-.lp-facilities .swiper-button-prev i {
-    transform: rotate(180deg);
-}
-
-.lp-facilities .swiper-button-next svg,
-.lp-facilities .swiper-button-prev svg {
-    display: block;
-    width: 10px;
-    height: 16px;
-}
-
-.lp-modalvideo {
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    margin: 0;
-    width: auto;
-    height: auto;
-    padding: 46px;
-    border: 0;
-    z-index: 1;
-    background: rgba(0, 0, 0, .88);
-    display: none;
-    align-items: center;
-    justify-content: center;
-    z-index: 1000;
-}
-
-.lp-modalvideo[open] {
-    display: flex;
-}
-
-.lp-modalvideo .lp-modalclose {
-    position: absolute;
-    top: 55px;
-    right: 341px;
-}
-
-.lp-modalvideo .lp-modalclose svg {
-    width: 20px;
-    height: 20px;
 }
 
 .logo-whats {
@@ -880,72 +612,9 @@ main {
     width: 320px !important;
 } */
 
-@media (hover: hover) {
-
-    .lp-facilities .lp-videocard picture img,
-    .lp-facilities .lp-qrcode {
-        transition: opacity .3s ease-in-out, transform .3s ease-in-out;
-    }
-
-    .lp-facilities .lp-slide .lp-actions:before {
-        transition: height .3s ease-in-out;
-    }
-
-    .lp-facilities .lp-slide .lp-videocard:hover picture img {
-        opacity: .75;
-        transform: scale(1.15);
-    }
-
-    .lp-facilities .lp-slide:has(.lp-qrcode) .lp-content header,
-    .lp-facilities .lp-slide:has(.lp-qrcode) .lp-videocard figcaption i {
-        transition: transform .3s ease-in-out;
-    }
-
-    .lp-facilities .lp-slide:has(.lp-qrcode) .lp-actions:hover:before {
-        height: 224px;
-    }
-
-    .lp-facilities .lp-slide:has(.lp-qrcode) .lp-actions:hover~.lp-content header {
-        transform: translateY(-224px);
-    }
-
-    .lp-facilities .lp-slide:has(.lp-qrcode) .lp-actions:hover~.lp-videocard figcaption i {
-        transform: translateY(-124px);
-    }
-
-    .lp-facilities .lp-slide:has(.lp-qrcode) .lp-actions:hover~.lp-qrcode {
-        transform: translateY(48px);
-    }
-
-    .lp-facilities .lp-slide:has(.lp-qrcode) .lp-actions:hover~.lp-qrcode {
-        opacity: 1;
-    }
-
-}
-
 @media (max-width: 1198px) {
     .legal-txt {
         padding: 10px 0;
-    }
-}
-
-@media (max-width: 1023px) {
-
-    .lp-facilities .swiper-button-prev,
-    .lp-facilities .swiper-button-next {
-        display: none;
-    }
-
-    .mobile-only {
-        display: inherit !important;
-    }
-
-    .desk-only {
-        display: none !important;
-    }
-
-    .lp-facilities .lp-slide article a {
-        display: inline-flex !important
     }
 }
 
@@ -963,27 +632,9 @@ main {
 
 @media (min-width: 640px) {
     .lp-header {
-        height: 44.166666666666664vw;
+        height: 44.16vw;
         min-height: 452px;
-    }
-
-    
-}
-
-@media (max-width: 639px) {
-    .lp-modalvideo .lp-modalclose {
-        position: absolute;
-        top: 55px;
-        right: 12px !important;
-    }
-
-    .lp-card {
-        cursor: pointer;
-    }
-
-    .lp-header .lp-video video {
-        display: none;
-    }
+    }  
 }
 
 .texto-mobile {
@@ -1000,10 +651,10 @@ main {
         padding: 5px;
     }
     
-    .lp-container {
+    /* .lp-container {
         max-width: unset;
-    }
-
+    } */
+    
     /* .swiper-slide {
         width: 326px !important;
     } */
@@ -1048,48 +699,6 @@ dialog:-internal-dialog-in-top-layer::backdrop {
 .lp-cards .saiba-mais-mobile img {
     position: relative;
     top: 2px;
-}
-
-.nav-pagination {
-    margin: 30px auto;
-}
-
-.nav-pagination .swiper-button-prev {
-    position: relative;
-    left: -70px;
-}
-
-.nav-pagination .swiper-button-next {
-    position: relative;
-    top: -40px;
-    left: 170px;
-}
-
-.nav-pagination .brad-pagination {
-    position: relative;
-    top: -25px !important;
-}
-
-.lp-facilities .swiper-button-prev.swiper-button-disabled,
-.lp-facilities .swiper-button-next.swiper-button-disabled {
-    opacity: 0;
-}
-
-.lp-facilities .swiper-button-next, .lp-facilities .swiper-button-prev {
-    background: #007aff;
-}
-
-.swiper-pagination-bullet-active {
-    background: #cc092f !important;
-    width: 32px !important;
-    height: 8px !important;
-    border-radius: 10px !important;
-}
-
-@media only screen and (max-width: 620px) {
-    .nav-pagination {
-        margin: 40px auto;
-    }
 }
 
 .lp-cards .h3-card__novo,
