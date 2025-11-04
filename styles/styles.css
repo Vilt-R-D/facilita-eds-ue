@@ -1,5 +1,3 @@
-@import url("../styles/design-system.bundle.min.css");
-
 /* Importa código para normalizar o padrão do CSS entre os navegadores. */
 @import url("../styles/normalize.css");
 
