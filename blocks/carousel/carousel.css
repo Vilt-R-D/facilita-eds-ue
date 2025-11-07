@@ -1,14 +1,464 @@
-main {
-    padding-top: 100px;
-}
-
 .section.carousel-container {
-    .swiper-slide {
-        min-width: 232px;
-        max-width: 320px;
-    }
+    width: 100%;
+    min-width: 100%;
 
     h3 p {
         all: inherit;
+    }
+
+    .lp-swiper {
+        width: 100%;
+        overflow: hidden;
+    }
+
+    .swiper-container {
+        position: relative;
+        margin: 0 auto;
+        padding: 0 12px;
+        max-width: 1440px;
+    }
+
+    .swiper-slide {
+        flex-shrink: 0;
+    }
+
+    .lp-slide {
+        position: relative;
+        height: 596px;
+        overflow: hidden;
+        background: #fff;
+        color: #fff;
+        border-radius: 24px;
+        box-shadow: 0 3px 6px rgb(0 0 0 / 16.1%);
+    }
+
+    .lp-videocard {
+        position: absolute;
+        inset: 0 0 82px;
+        margin: 0;
+        border-radius: 24px;
+        overflow: hidden;
+    }
+
+    .lp-qrcode img {
+        display: block;
+        width: 152px;
+        height: 152px;
+    }
+
+    .lp-videocard figcaption {
+        position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        inset: 0;
+        background: linear-gradient(
+            180deg,
+            rgb(0 0 0 / 0%) 34.29%,
+            rgb(0 0 0 / 50%) 84.01%
+        );
+    }
+
+    .swiper-button-next svg,
+    .swiper-button-prev svg {
+        display: block;
+        width: 10px;
+        height: 16px;
+    }
+
+    .lp-videocard figcaption i {
+        width: 40px;
+        height: 32px;
+    }
+
+    .lp-videocard picture {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #000;
+    }
+
+    .lp-videocard figcaption svg {
+        width: inherit;
+        height: inherit;
+    }
+
+    .lp-videocard picture img {
+        display: block;
+        min-width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .lp-qrcode {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 138px;
+        margin: 0;
+        opacity: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        z-index: 2;
+        pointer-events: none;
+    }
+
+    .lp-qrcode::before {
+        content: "Aponte a câmera do seu celular para o QR Code";
+        font-size: 14px;
+        line-height: 16px;
+        color: #000;
+        font-weight: 700;
+        text-align: center;
+        max-width: 216px;
+    }
+
+    .lp-slide article {
+        position: relative;
+        display: grid;
+        align-content: end;
+        height: calc(100% - 82px);
+        padding: 24px;
+        gap: 16px;
+        box-sizing: border-box;
+    }
+
+    .lp-slide article header {
+        display: grid;
+        gap: 16px;
+    }
+
+    .lp-slide article header i {
+        width: 32px;
+        height: 32px;
+    }
+
+    .lp-slide article header i svg {
+        width: inherit;
+        height: inherit;
+    }
+
+    .lp-slide article header h4,
+    .lp-slide article header h3 {
+        margin: 0;
+        font-size: 20px;
+        line-height: 28px;
+        max-width: 200px;
+    }
+
+    .lp-slide .lp-actions {
+        position: absolute;
+        display: flex;
+        padding: 18px;
+        left: 0;
+        right: 0;
+        bottom: 0;
+    }
+
+    .lp-slide .lp-actions::before {
+        position: absolute;
+        content: "";
+        bottom: 100%;
+        left: 0;
+        right: 0;
+        height: 0;
+        display: block;
+        background: #fff;
+        border-radius: 24px 24px 0 0;
+        z-index: 1;
+    }
+
+    .lp-slide .lp-actions a,
+    .lp-slide .lp-actions p {
+        display: inline-flex;
+        width: 100%;
+        align-items: center;
+        gap: 12px;
+        font-size: 14px;
+        line-height: 20px;
+        color: #fff;
+        background: #e1173f;
+        z-index: 1;
+        border-radius: 24px;
+        height: 46px;
+        padding: 0;
+        justify-content: center;
+    }
+
+    .lp-slide .lp-actions a:hover {
+        background: #d63a59;
+    }
+
+    .lp-slide .lp-actions a i {
+        width: 7px;
+        height: 12px;
+        margin-bottom: 6px;
+    }
+
+    .lp-modalvideo .lp-modalclose svg {
+        width: 20px;
+        height: 20px;
+    }
+
+    .lp-slide .lp-actions a i svg {
+        width: inherit;
+        height: inherit;
+    }
+
+    .swiper-button-next,
+    .swiper-button-prev {
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        background: #fff;
+        border: 1px solid #fff;
+        color: var(--color-red);
+    }
+
+    .swiper-button-next.swiper-button-disabled,
+    .swiper-button-prev.swiper-button-disabled {
+        background: rgb(0 0 0 / 20%);
+        border: 1px solid rgb(255 255 255 / 40%);
+        backdrop-filter: blur(10px);
+        color: #fff;
+        opacity: 0;
+    }
+
+    .swiper-button-next::after,
+    .swiper-button-prev::after {
+        display: none;
+        font-family: swiper-icons, sans-serif;
+        font-size: var(--swiper-navigation-size);
+        font-variant: normal;
+        letter-spacing: 0;
+        line-height: 1;
+        text-transform: none !important;
+    }
+
+    .lp-modalvideo {
+        position: fixed;
+        inset: 0;
+        margin: 0;
+        width: auto;
+        height: auto;
+        padding: 46px;
+        border: 0;
+        background: rgb(0 0 0 / 88%);
+        display: none;
+        align-items: center;
+        justify-content: center;
+        z-index: 1000;
+    }
+
+    .lp-modalvideo[open] {
+        display: flex;
+    }
+
+    .lp-modalvideo .lp-modalclose {
+        position: absolute;
+        top: 55px;
+        right: 341px;
+    }
+
+    .swiper-wrapper {
+        box-sizing: content-box;
+        display: flex;
+        height: 100%;
+        position: relative;
+        transition-property: transform;
+        transition-timing-function: var(
+            --swiper-wrapper-transition-timing-function,
+            initial
+        );
+        width: 100%;
+        z-index: 1;
+    }
+
+    .swiper-pagination-bullet {
+        background: var(--swiper-pagination-bullet-inactive-color, #000);
+        border-radius: var(--swiper-pagination-bullet-border-radius, 50%);
+        display: inline-block;
+        height: var(
+            --swiper-pagination-bullet-height,
+            var(--swiper-pagination-bullet-size, 8px)
+        );
+        opacity: var(--swiper-pagination-bullet-inactive-opacity, 0.2);
+        width: var(
+            --swiper-pagination-bullet-width,
+            var(--swiper-pagination-bullet-size, 8px)
+        );
+    }
+
+    .swiper-pagination-bullet-active {
+        background: #cc092f !important;
+        width: 32px !important;
+        height: 8px !important;
+        border-radius: 10px !important;
+        opacity: 1;
+    }
+
+    .swiper-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet,
+    .swiper-pagination-horizontal.swiper-pagination-bullets
+        .swiper-pagination-bullet {
+        margin: 0 var(--swiper-pagination-bullet-horizontal-gap, 4px);
+    }
+
+    .brad-btn-icon {
+        align-items: center;
+        background-color: rgb(var(--brad-color-cta));
+        display: inline-flex;
+        justify-content: center;
+        padding: 8px;
+    }
+
+    .brad-btn {
+        border-radius: var(--brad-border-radius-pill);
+        color: rgb(var(--brad-color-neutral-0));
+        cursor: pointer;
+        padding-left: var(--brad-padding-xxl);
+        padding-right: var(--brad-padding-xxl);
+        transition: all 0.4s;
+    }
+
+    .brad-icon,
+    [class*=" icon-"],
+    [class*=" icon-component"],
+    [class^="icon-"],
+    [class^="icon-component"] {
+        color: rgb(var(--brad-color-icon));
+        font-family: icons, sans-serif !important;
+        font-style: normal;
+        font-variant: normal;
+        font-weight: 400;
+        line-height: 1;
+        text-transform: none;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+
+    .brad-btn .btn-icon::before,
+    .brad-btn,
+    .brad-btn .fab-icon::before {
+        color: rgb(var(--brad-color-neutral-0));
+    }
+
+    .icon-ui-chevron-left::before {
+        content: "\e9d4";
+    }
+
+    .icon-ui-chevron-right::before {
+        content: "\e9d5";
+    }
+
+    .nav-pagination {
+        display: flex;
+        gap: 5px;
+        margin: 30px auto;
+        padding-top: 8px;
+    }
+
+    @media only screen and (width <= 620px) {
+        .nav-pagination {
+            margin: 40px auto;
+        }
+    }
+
+    .nav-pagination .swiper-button-prev,
+    .nav-pagination .swiper-button-next {
+        background: #007aff;
+        position: relative;
+    }
+
+    .brad-btn-icon:hover {
+        background-color: rgb(var(--brad-color-cta-light));
+        transition: all 0.7s 0.11s;
+    }
+
+    .nav-pagination .brad-pagination {
+        position: relative;
+        display: flex;
+        align-items: center;
+        width: initial;
+    }
+
+    @media (width <= 639px) {
+        .lp-modalvideo .lp-modalclose {
+            position: absolute;
+            top: 55px;
+            right: 12px !important;
+        }
+
+        .lp-card {
+            cursor: pointer;
+        }
+
+        .lp-header .lp-video video {
+            display: none;
+        }
+    }
+
+    @media (width <= 1023px) {
+        .swiper-button-prev,
+        .swiper-button-next {
+            display: none;
+        }
+
+        .mobile-only {
+            display: inherit !important;
+        }
+
+        .desk-only {
+            display: none !important;
+        }
+
+        .lp-slide article a {
+            display: inline-flex !important;
+        }
+    }
+
+    @media (hover: hover) {
+        .lp-videocard picture img,
+        .lp-qrcode {
+            transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+        }
+
+        .lp-slide .lp-actions::before {
+            transition: height 0.3s ease-in-out;
+        }
+
+        .lp-slide .lp-videocard:hover picture img {
+            opacity: 0.75;
+            transform: scale(1.15);
+        }
+
+        .lp-slide:has(.lp-qrcode) .lp-content header,
+        .lp-slide:has(.lp-qrcode) .lp-videocard figcaption i {
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .lp-slide:has(.lp-qrcode) .lp-actions:hover::before {
+            height: 224px;
+        }
+
+        .lp-slide:has(.lp-qrcode) .lp-actions:hover ~ .lp-content header {
+            transform: translateY(-224px);
+        }
+
+        .lp-slide:has(.lp-qrcode)
+            .lp-actions:hover
+            ~ .lp-videocard
+            figcaption
+            i {
+            transform: translateY(-124px);
+        }
+
+        .lp-slide:has(.lp-qrcode) .lp-actions:hover ~ .lp-qrcode {
+            transform: translateY(48px);
+            opacity: 1;
+        }
     }
 }

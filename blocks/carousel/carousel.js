@@ -55,19 +55,17 @@ export default async function decorate(block) {
   navPagination.replaceChildren(leftButton, bradPagination, rightButton);
 
   cards.forEach((c) => {
-    const swipperBullet = document.createElement('span');
-    swipperBullet.classList.add('swiper-pagination-bullet');
-    bradPagination.appendChild(swipperBullet);
+    const [pictureDiv, youtubeLinkDiv, iconDiv, cardTitleDiv, lpActions, cardLinkDiv,
+      qrCodeDiv] = c.children;
 
-    const [pictureDiv, youtubeLinkDiv, iconDiv, cardTitleDiv,
-      lpActions, , cardLinkDiv, qrCodeDiv] = c.children;
-
+    // Youtuber link is a required attribute.
+    // If it's not present, then cards was not properly authored.
+    if (!youtubeLinkDiv.querySelector('a')) return;
     const youtubeLink = youtubeLinkDiv.querySelector('a').href;
+
     const cardAnchor = cardLinkDiv.querySelector('a');
 
     c.classList.add('swiper-slide');
-    c.style.marginRight = '16px';
-    c.style.width = '320px';
     const lpSlide = document.createElement('div');
     lpSlide.classList.add('lp-slide');
 
@@ -113,14 +111,11 @@ export default async function decorate(block) {
     qrCodeFigure.classList.add('desk-only');
     qrCodeFigure.replaceChildren(qrCode);
 
-    // const qrcode = new QRCode(document.getElementById("qrcode"), "Your QR Code Data Here");
-
     lpSlide.replaceChildren(lpActions, pictureFigure, article, qrCodeFigure);
     c.replaceChildren(lpSlide);
   });
 
   lpContainer.replaceChildren(swiperWrapper, navPagination);
   lpSwiper.replaceChildren(lpContainer);
-  const carouselContainer = block.parentElement.parentElement;
-  carouselContainer.replaceChildren(...carouselContainer.children, lpSwiper, dialog);
+  block.replaceChildren(lpSwiper, dialog);
 }

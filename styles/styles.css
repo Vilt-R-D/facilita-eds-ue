@@ -1,41 +1,35 @@
-/* @import url("../styles/design-system.bundle.min.css"); */
-
 /* Importa código para normalizar o padrão do CSS entre os navegadores. */
 @import url("../styles/normalize.css");
 
 /* Mesclei o reset do bundle.min.js e do style.min.css para não precisar baixar os dois(junto com várias outras classes que não necessariamente serão usadas) */
 @import url("../styles/resets.css");
+
 /* @import url("../styles/main.css"); */
+
 /* @import url("../styles/screen-1199-up.css") screen and (min-width: 1199px); */
 
 :root {
-  /* colors - vindo de main.css do site original */
-  --color-red: #CC092F;
-  --color-gray: #F0F1F5;
-  --gradient-red-rose: linear-gradient(180deg, #CC092F 0%, #B81570 100%);
+    /* colors - vindo de main.css do site original */
+    --color-red: #cc092f;
+    --color-gray: #f0f1f5;
+    --gradient-red-rose: linear-gradient(180deg, #cc092f 0%, #b81570 100%);
 
-  /* colors - vindo do boilerplate original */
-  --background-color: var(--color-red);
-  --light-color: #f8f8f8;
-  --dark-color: #505050;
-  --text-color: #131313;
-  --link-color: #3b63fb;
-  --link-hover-color: #1d3ecf;
+    /* colors - vindo do boilerplate original */
+    --background-color: var(--color-red);
+    --light-color: #f8f8f8;
+    --dark-color: #505050;
+    --text-color: #131313;
+    --link-color: #3b63fb;
+    --link-hover-color: #1d3ecf;
 
-  /* fonts */
-  --body-font-family: bradesco, bradesco-normal-400-fallback, sans-serif;
-  --heading-font-family: bradesco-condensed, bradesco-condensed-normal-400-fallback, sans-serif;
+    /* fonts */
+    --body-font-family: bradesco, bradesco-normal-400-fallback, sans-serif;
+    --heading-font-family: bradesco-condensed,
+        bradesco-condensed-normal-400-fallback, sans-serif;
 
-  /* fonts - nome vindo de main.css do site original */
-  --font-family-sans-serif: var(--body-font-family)
+    /* fonts - nome vindo de main.css do site original */
+    --font-family-sans-serif: var(--body-font-family);
 }
-
-
-/* vindo de main.css do site original, desativei pois não funciona legal no meu navegador */
-
-/* html {
-    scroll-behavior: smooth;
-} */
 
 /* vindo de main.css do site original */
 body {
@@ -54,20 +48,26 @@ main {
     margin-top: -64px;
 }
 
+/* vindo de main.css do site original, desativei pois não funciona legal no meu navegador */
+
+/* html {
+    scroll-behavior: smooth;
+} */
+
 /* Se as fontes customizadas não poderem ser carregadas, serão utilizadas as seguintes. */
 
 /* O tamanho e o tipo foram especificamente escolhidos para ser semelhante a fonte customizada caso não seja carregada. */
 
 /* fallback font for bradesco-condensed (normal - 400) */
 @font-face {
-  font-family: "bradesco-condensed-normal-400-fallback";
-  size-adjust: 91.389%;
-  src: local("verdana");
+    font-family: "bradesco-condensed-normal-400-fallback";
+    size-adjust: 91.389%;
+    src: local("verdana");
 }
 
 /* fallback font for bradesco (normal - 400) */
 @font-face {
-  font-family: "bradesco-normal-400-fallback";
-  size-adjust: 92%;
-  src: local("Verdana");
+    font-family: "bradesco-normal-400-fallback";
+    size-adjust: 92%;
+    src: local("Verdana");
 }
