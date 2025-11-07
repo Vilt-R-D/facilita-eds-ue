@@ -1,12 +1,12 @@
-@import url("../styles/design-system.bundle.min.css");
+/* @import url("../styles/design-system.bundle.min.css"); */
 
 /* Importa código para normalizar o padrão do CSS entre os navegadores. */
 @import url("../styles/normalize.css");
 
 /* Mesclei o reset do bundle.min.js e do style.min.css para não precisar baixar os dois(junto com várias outras classes que não necessariamente serão usadas) */
 @import url("../styles/resets.css");
-@import url("../styles/main.css");
-@import url("../styles/screen-1199-up.css") screen and (min-width: 1199px);
+/* @import url("../styles/main.css"); */
+/* @import url("../styles/screen-1199-up.css") screen and (min-width: 1199px); */
 
 :root {
   /* colors - vindo de main.css do site original */

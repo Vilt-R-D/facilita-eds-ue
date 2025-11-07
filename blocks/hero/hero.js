@@ -16,12 +16,11 @@
  */
 function extractSVGfromPicture(picture) {
   const source = picture.querySelector('img').src.split('?')[0];
-  const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-  const use = document.createElementNS('http://www.w3.org/2000/svg', 'use');
-  use.setAttributeNS(null, 'href', source);
-  svg.appendChild(use);
+  const object = document.createElement('object');
+  object.type = 'image/svg+xml';
+  object.data = source;
 
-  return svg;
+  return object;
 }
 
 /**
@@ -47,7 +46,7 @@ function decorateLogo(row) {
   }
   const div = document.createElement('div');
   div.id = 'topbar';
-  div.className = 'lp-topbar';
+  // div.className = 'lp-topbar';
 
   div.appendChild(aEl);
 
@@ -81,7 +80,7 @@ function decorateBackground(row) {
   }
 
   pictureEl.id = 'hero-background';
-  pictureEl.className = 'lp-video';
+  // pictureEl.className = 'lp-video';
 
   return pictureEl;
 }
@@ -93,13 +92,24 @@ function decorateBackground(row) {
 function decorateAnchor(row) {
   const anchorID = row.textContent.trim();
   const anchorEl = document.createElement('a');
+  const iconEl = document.createElement('i');
   anchorEl.href = `#${anchorID}`;
 
+  const svgs = Array.from({ length: 2 }, () => {
+    const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+    const use = document.createElementNS('http://www.w3.org/2000/svg', 'use');
+    use.setAttributeNS(null, 'href', '#arrow-min');
+    svg.appendChild(use);
+    return svg;
+  });
+
+  iconEl.append(...svgs);
   const nav = document.createElement('nav');
-  nav.appendChild(anchorEl);
+  anchorEl.appendChild(nav);
+  nav.appendChild(iconEl);
   nav.id = 'hero-anchor';
 
-  return nav;
+  return anchorEl;
 }
 
 /**
@@ -127,9 +137,6 @@ function classifyRow(row) {
  * @param {Element} block The hero block element
  */
 export default async function decorate(block) {
-  // const divWrapper = document.createElement('div');
-  // divWrapper.classList.add('lp-header');
-  block.classList.add('lp-header');
   Object.values(block.children).forEach(
     (row, i) => {
       const rowType = classifyRow(row);
@@ -152,7 +159,6 @@ export default async function decorate(block) {
         default:
         // console.warn('Could not classify block type');
       }
-      // if (newElement != null) divWrapper.appendChild(newElement);
       if (newElement != null) row.replaceWith(newElement);
     },
   );
