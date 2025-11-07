@@ -41,6 +41,7 @@ function waitForElement(selector, callback) {
 
   function initResponsiveVideo() {
     const $video = document.querySelector('.lp-video video');
+    if ($video === null) return;
     const toggleVideoSource = function (matches) {
       if (matches) {
         $video.src = 'assets/video/bg-horizontal.webm';
@@ -145,7 +146,7 @@ function waitForElement(selector, callback) {
           }
 
           if ($initalVideo) loadPlayerScripts($initalVideo.dataset.videoId);
-
+          if (document.querySelector('.lp-modalvideo') === null) return;
           document.querySelector('.lp-modalvideo').addEventListener('click', (event) => {
             if (event.target.closest('.lp-modalclose') || event.target === $modalVideo) {
               $modalVideo.open = false;
@@ -213,6 +214,7 @@ function waitForElement(selector, callback) {
   }
 
   function initScrollTo() {
+    if (document.querySelector('#wrapper') === null) return;
     document.querySelector('#wrapper').addEventListener('click', (e) => {
       const $lnk = e.target.closest('.lnk-obs');
       if ($lnk) {
@@ -265,6 +267,7 @@ function waitForElement(selector, callback) {
 
   function initOthersFilters() {
     const $others = document.querySelector('.lp-others');
+    if ($others === null) return;
     $others.addEventListener('click', (event) => {
       if (event.target.matches('a[data-filter]')) {
         $others.dataset.filter = event.target.dataset.filter;
