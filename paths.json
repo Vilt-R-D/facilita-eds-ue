@@ -2,7 +2,8 @@
   "mappings": [
     "/content/facilita-eds-ue/:/",
     "/content/facilita-eds-ue/configuration:/.helix/config.json",
-    "/content/facilita-eds-ue/metadata:/metadata.json"
+    "/content/facilita-eds-ue/metadata:/metadata.json",
+    "/content/facilita-eds-ue/icons/icons.xml:/icons/icons.xml"
   ],
   "includes": [
     "/content/facilita-eds-ue/"
