@@ -420,6 +420,12 @@
         }
     }
 
+    @media only screen and (width <= 320px) {
+        .swiper-slide .lp-slide .lp-actions span {
+            font-size: 14px;
+        }
+    }
+
     @media (hover: hover) {
         .lp-videocard picture img,
         .lp-qrcode {

@@ -56,47 +56,7 @@ main {
     margin-left: 20px;
 }
 
-.lp-others .lp-filters {
-    display: flex;
-    margin: 32px 0 48px;
-    gap: 32px;
-    align-items: center;
-}
 
-.lp-others .lp-filters h3,
-.lp-others .lp-filters ul {
-    padding: 0;
-    margin: 0;
-}
-
-
-.lp-others .lp-card {
-    gap: 8px;
-    height: 312px;
-    width: 320px;
-}
-
-@media (min-width: 1424px) {
-    .lp-others .lp-cards {
-        grid-template-columns: repeat(4, 1fr);
-    }
-}
-
-.lp-others .lp-card header {
-    align-items: flex-start;
-    flex-direction: column;
-    gap: 24px;
-}
-
-.lp-others .lp-card i {
-    width: 48px;
-    height: 48px;
-}
-
-.lp-others .lp-card h3,
-.lp-others .lp-card h4 {
-    white-space: pre-line;
-}
 
 .lp-authorize {
     background: none;

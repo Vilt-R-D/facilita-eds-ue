@@ -367,9 +367,9 @@ function waitForElement(selector, callback) {
     }, document.body);
 
     initModalVideo();
+    initOthersFilters();
     // initResponsiveVideo();
     // initAppButtonsHandler();
-    // initOthersFilters();
     // initScrollTo();
 
     // initJSLazy();
