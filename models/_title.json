@@ -54,27 +54,6 @@
               "value": "h6"
             }
           ]
-        },
-        {
-          "component": "radio-group",
-          "label": "Show on:",
-          "name": "classes",
-          "value": "",
-          "valueType": "string",
-          "options": [
-            {
-              "name": "Desktop",
-              "value": "desktop-only"
-            },
-            {
-              "name": "Mobile",
-              "value": "mobile-only"
-            },
-            {
-              "name": "Both",
-              "value": ""
-            }
-          ]
         }
       ]
     }

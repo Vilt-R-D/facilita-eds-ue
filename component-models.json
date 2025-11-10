@@ -77,27 +77,6 @@
             "value": "h6"
           }
         ]
-      },
-      {
-        "component": "radio-group",
-        "label": "Show on:",
-        "name": "classes",
-        "value": "",
-        "valueType": "string",
-        "options": [
-          {
-            "name": "Desktop",
-            "value": "desktop-only"
-          },
-          {
-            "name": "Mobile",
-            "value": "mobile-only"
-          },
-          {
-            "name": "Both",
-            "value": ""
-          }
-        ]
       }
     ]
   },
@@ -367,6 +346,32 @@
         "name": "ancora",
         "label": "Âncora",
         "description": "id da seção a ser redirecionado."
+      }
+    ]
+  },
+  {
+    "id": "show-only",
+    "fields": [
+      {
+        "component": "radio-group",
+        "label": "Show on:",
+        "name": "classes",
+        "value": "",
+        "valueType": "string",
+        "options": [
+          {
+            "name": "Desktop",
+            "value": "desktop-only"
+          },
+          {
+            "name": "Mobile",
+            "value": "mobile-only"
+          },
+          {
+            "name": "Both",
+            "value": ""
+          }
+        ]
       }
     ]
   }
