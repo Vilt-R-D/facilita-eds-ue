@@ -365,12 +365,15 @@ function waitForElement(selector, callback) {
   }
 
   function applyBehaviours() {
-    loadJS(window.hlx.codeBasePath + '/scripts/swiper-bundle.js', () => {
-      initSwiper();
-    }, document.body);
-
     initModalVideo();
     initOthersFilters();
+
+    waitForElement('.swiper-container', () => {
+      loadJS(window.hlx.codeBasePath + '/scripts/swiper-bundle.js', () => {
+        initSwiper();
+      }, document.body);
+    });
+
     // initResponsiveVideo();
     // initAppButtonsHandler();
     // initScrollTo();

@@ -34,7 +34,7 @@
   }
 }
 
-#topbar object, img {
+#topbar object, #topbar img {
   pointer-events: none;
   display: inline;
   width: 168px;

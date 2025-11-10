@@ -10,7 +10,7 @@
  *    - Ancora
 */
 
-import { getMetadata } from "../../scripts/aem.js";
+import { getMetadata } from '../../scripts/aem.js';
 
 /**
  * Converte um elemento img para svg.
