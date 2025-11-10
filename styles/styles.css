@@ -3,7 +3,6 @@
 
 /* Mesclei o reset do bundle.min.js e do style.min.css para não precisar baixar os dois(junto com várias outras classes que não necessariamente serão usadas) */
 @import url("../styles/resets.css");
-
 @import url("../styles/main.css");
 
 /* @import url("../styles/screen-1199-up.css") screen and (min-width: 1199px); */
