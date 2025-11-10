@@ -157,21 +157,56 @@
     ]
   },
   {
+    "id": "card-grid",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "filters",
+        "label": "Filtros",
+        "multi": true,
+        "required": true
+      }
+    ]
+  },
+  {
     "id": "card",
     "fields": [
       {
         "component": "reference",
         "valueType": "string",
-        "name": "image",
-        "label": "Image",
-        "multi": false
+        "name": "card-icon",
+        "label": "Ícone do Card",
+        "multi": false,
+        "required": true
       },
       {
         "component": "richtext",
-        "name": "text",
-        "value": "",
-        "label": "Text",
-        "valueType": "string"
+        "valueType": "string",
+        "name": "title",
+        "label": "Título do Card",
+        "required": true
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "description",
+        "label": "Texto do Card",
+        "required": true
+      },
+      {
+        "component": "aem-content",
+        "name": "link",
+        "label": "Link de Redirecionamento",
+        "description": "Link de Redirecionamento do Card.",
+        "required": true
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "tag",
+        "label": "Categoria do Card",
+        "required": true
       }
     ]
   },

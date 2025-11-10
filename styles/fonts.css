@@ -37,3 +37,11 @@
   font-display: swap;
   src: url('../fonts/BradescoSans-Regular.woff2') format('woff2');
 }
+
+@font-face {
+    font-family: icons;
+    font-display: swap;
+    font-style: normal;
+    font-weight: 400;
+    src: url('../fonts/icons.ttf');
+}

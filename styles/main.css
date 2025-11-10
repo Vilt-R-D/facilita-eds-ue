@@ -20,11 +20,6 @@
     src: url("data:application/font-woff;charset=utf-8;base64, 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");
 }
 
-
-[class*="icon-seguro-mais-protecao"] {
-    color: white;
-}
-
 html {
     scroll-behavior: smooth;
 }
@@ -35,8 +30,15 @@ body {
 }
 
 main {
+    position: relative;
+    display: grid;
+    justify-items: center;
+    grid-auto-columns: 1fr;
+    background: #F0F1F5;
+    border-radius: 24px 24px 0 0;
     padding: 0;
     margin: 0;
+    margin-top: -64px;
 }
 
 .lp-wrapper {
@@ -44,6 +46,9 @@ main {
 }
 
 .lp-container {
+    display: flex;
+    flex-direction: column;
+    max-width: 1440px;
     width: 100%;
     padding: 24px;
     box-sizing: border-box;
@@ -65,6 +70,37 @@ main {
     margin: 0;
     font-size: 16px;
     line-height: 24px;
+}
+
+@media (min-width: 1024px) and (max-width:1279px) {
+    .hidden-md {
+        display:none!important
+    }
+}
+
+@media (min-width: 1280px) {
+    .hidden-lg {
+        display:none!important
+    }
+}
+
+@media (max-width: 542px) {
+    #link_mobile25 > header > i {
+        padding: 5px;
+    }
+    
+    .lp-container {
+        max-width: unset;
+    }
+}
+
+
+/* END - Classes gerais do CSS */
+/* Daqui em diante, CSS a ser retirado e imbutido via css do block */
+
+
+[class*="icon-seguro-mais-protecao"] {
+    color: white;
 }
 
 .lp-header {
@@ -202,16 +238,6 @@ main {
     color: #fff;
 }
 
-main {
-    position: relative;
-    display: grid;
-    justify-items: center;
-    grid-auto-columns: 1fr;
-    background: #F0F1F5;
-    border-radius: 24px 24px 0 0;
-    /* margin-top: -64px; */
-}
-
 .legal-txt {
     font-size: 15px;
     line-height: 1.4em;
@@ -227,93 +253,8 @@ main {
     margin: -3px 0px;
 }
 
-.lp-modalvideo>iframe,
-.lp-modalvideo>video {
-    width: auto;
-    height: -moz-available;
-    height: -webkit-fill-available;
-    height: fill-available;
-    max-width: 100%;
-    max-height: 100%;
-    aspect-ratio: 492 / 874;
-    border-radius: 24px;
-    object-fit: cover;
-}
-
 #conheca-outras-facilidades .legal-txt {
     padding-top: 30px;
-}
-
-.lp-others .lp-filters {
-    overflow: hidden;
-    margin: 32px -24px;
-}
-
-.lp-others .lp-filters h3 {
-    margin: 0 0 24px;
-    padding: 0 24px;
-}
-
-.lp-others .lp-filters ul {
-    display: flex;
-    padding: 0;
-    margin: 0;
-    list-style: none;
-    gap: 16px;
-    width: 100%;
-    overflow-x: auto;
-    padding: 0 24px 16px;
-    max-width: 100vw;
-    box-sizing: border-box;
-}
-
-.lp-others .lp-filters a {
-    display: flex;
-    border-radius: 24px;
-    padding: 12px 32px;
-    text-decoration: none;
-    background: #fff;
-    color: #000;
-    white-space: nowrap;
-}
-
-.lp-others[data-filter="0"] .lp-filters a[data-filter="0"],
-.lp-others[data-filter="1"] .lp-filters a[data-filter="1"],
-.lp-others[data-filter="2"] .lp-filters a[data-filter="2"],
-.lp-others[data-filter="3"] .lp-filters a[data-filter="3"],
-.lp-others[data-filter="4"] .lp-filters a[data-filter="4"] {
-    background: var(--color-red);
-    color: #fff;
-}
-
-.lp-container {
-    display: flex;
-    flex-direction: column;
-}
-
-.lp-others .lp-cards {
-    display: flex;
-    width: 100%;
-    flex-wrap: wrap;
-    justify-content: left;
-    flex: 1 1 calc(25% - 1rem);
-    gap: 16px;
-}
-
-.lp-others .lp-card {
-    display: flex;
-    flex-direction: column;
-    padding: 24px;
-    border-radius: 8px;
-    background: #fff;
-    gap: 16px;
-}
-
-.lp-others[data-filter="1"] .lp-card:not([data-filter="1"]),
-.lp-others[data-filter="2"] .lp-card:not([data-filter="2"]),
-.lp-others[data-filter="3"] .lp-card:not([data-filter="3"]),
-.lp-others[data-filter="4"] .lp-card:not([data-filter="4"]) {
-    display: none;
 }
 
 @keyframes fadeIn {
@@ -337,34 +278,6 @@ main {
     }
 }
 
-.lp-others .lp-card header {
-    display: flex;
-    gap: 12px;
-    align-items: center;
-}
-
-.lp-others .lp-card i {
-    display: block;
-    flex: 0 0 auto;
-    width: 40px;
-    height: 40px;
-    border-radius: 12px;
-    background: var(--color-red);
-    padding: 8px;
-    box-sizing: border-box;
-}
-
-.lp-others .lp-card i svg {
-    width: 100%;
-    height: 100%;
-}
-
-.lp-others .lp-card h3,
-.lp-others .lp-card h4 {
-    margin: 0;
-    font-size: 16px;
-    line-height: 20px;
-}
 
 .lp-authorize {
     background: #fff;
@@ -588,13 +501,6 @@ main {
     padding: 20px 0;
 }
 
-.mobile-only {
-    display: none !important;
-}
-
-.desk-only {
-    display: inherit;
-}
 
 .hide-temp {
     display: none !important
@@ -609,70 +515,17 @@ main {
     display: none;
 }
 
-/* .swiper-slide {
-    width: 320px !important;
-} */
 
 @media (max-width: 1198px) {
     .legal-txt {
         padding: 10px 0;
     }
 }
-
-@media (min-width: 1016px) {
-    .lp-others .lp-cards {
-        grid-template-columns: repeat(3, 1fr);
-    }
-}
-
-@media (min-width: 688px) {
-    .lp-others .lp-cards {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
 @media (min-width: 640px) {
     .lp-header {
         height: 44.16vw;
         min-height: 452px;
-    }  
-}
-
-.texto-mobile {
-    display: none;
-}
-
-.texto-desktop {
-    display: block;
-}
-
-@media (max-width: 542px) {
-
-    #link_mobile25 > header > i {
-        padding: 5px;
     }
-    
-    /* .lp-container {
-        max-width: unset;
-    } */
-    
-    /* .swiper-slide {
-        width: 326px !important;
-    } */
-
-    .texto-desktop {
-        display: none;
-    }
-    .texto-mobile {
-        display: block;
-    }
-}
-
-.lp-cards a {
-    color: #000;
-    margin-right: -16px;
-    position: relative;
-    display: contents;
 }
 
 dialog:-internal-dialog-in-top-layer::backdrop {
@@ -687,33 +540,3 @@ dialog:-internal-dialog-in-top-layer::backdrop {
     font-size: 12px;
 }
 
-@media only screen and (max-width: 320px) {
-    .swiper-slide .lp-slide .lp-actions span {
-        font-size: 14px;
-    }
-}
-
-.lp-cards .saiba-mais-mobile {
-    color: #3b69ff;
-}
-
-.lp-cards .saiba-mais-mobile img {
-    position: relative;
-    top: 2px;
-}
-
-.lp-cards .h3-card__novo,
-.lp-cards .p-card__novo,
-.lp-cards .a-novo__card {
-    color: #007aff;
-}
-
-.lp-cards .p-card__novo .a-novo__card a {
-    font-weight: bold;
-    text-decoration: underline;
-}
-
-.lp-cards header > i > img {
-    width: 32px;
-    height: 32px;
-}

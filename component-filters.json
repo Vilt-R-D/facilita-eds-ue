@@ -15,11 +15,12 @@
       "hero",
       "cards",
       "columns",
-      "fragment"
+      "fragment",
+      "card-grid"
     ]
   },
   {
-    "id": "cards",
+    "id": "card-grid",
     "components": [
       "card"
     ]
