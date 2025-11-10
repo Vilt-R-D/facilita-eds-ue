@@ -16,12 +16,11 @@
  */
 function extractSVGfromPicture(picture) {
   const source = picture.querySelector('img').src.split('?')[0];
-  const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-  const use = document.createElementNS('http://www.w3.org/2000/svg', 'use');
-  use.setAttributeNS(null, 'href', source);
-  svg.appendChild(use);
+  const object = document.createElement('object');
+  object.type = 'image/svg+xml';
+  object.data = source;
 
-  return svg;
+  return object;
 }
 
 /**
@@ -30,7 +29,8 @@ function extractSVGfromPicture(picture) {
  */
 function decorateLogo(row) {
   const pictureEl = row.querySelector('picture');
-  const hasSVG = pictureEl.querySelector('source[type="image/svg+xml"]') != null;
+  let hasSVG = pictureEl.querySelector('source[type="image/svg+xml"]') != null;
+  hasSVG ||= pictureEl.querySelector('img[src*=".svg"]') != null;
 
   const redirectUrl = row.lastElementChild.textContent.trim();
   const aEl = document.createElement('a');
@@ -46,7 +46,7 @@ function decorateLogo(row) {
   }
   const div = document.createElement('div');
   div.id = 'topbar';
-  div.className = 'lp-topbar';
+  // div.className = 'lp-topbar';
 
   div.appendChild(aEl);
 
@@ -61,15 +61,26 @@ function decorateBackground(row) {
   const pictures = row.querySelectorAll('picture');
   const pictureEl = document.createElement('picture');
   // Pegar a imagem grande de desktop e a original como fallback. Também pegar a para celular.
-  const srcDesktopBig = pictures[0].children[2];
-  const imgDesktopFallback = pictures[0].lastElementChild;
-  const srcMobile = pictures[1].children[2];
-  srcDesktopBig.setAttribute('media', '(min-width: 720px)');
-  srcMobile.setAttribute('media', '(max-width: 719px)');
+  const isUniversalEditor = pictures[0].childElementCount <= 1;
+  if (!isUniversalEditor) {
+    const srcDesktopBig = pictures[0].children[2];
+    const imgDesktopFallback = pictures[0].lastElementChild;
+    const srcMobile = pictures[1].children[2];
+    srcDesktopBig.setAttribute('media', '(min-width: 720px)');
+    srcMobile.setAttribute('media', '(max-width: 719px)');
+    pictureEl.append(srcDesktopBig, srcMobile, imgDesktopFallback);
+  } else {
+    const imgDesktop = pictures[0].firstElementChild;
+    [imgDesktop.src] = imgDesktop.src.split('?');
+    const imgMobile = pictures[1].firstElementChild;
+    const srcMobile = document.createElement('source');
+    srcMobile.setAttribute('media', '(max-width: 719px)');
+    [srcMobile.srcset] = imgMobile.src.split('?');
+    pictureEl.append(srcMobile, imgDesktop);
+  }
 
-  pictureEl.append(srcDesktopBig, srcMobile, imgDesktopFallback);
   pictureEl.id = 'hero-background';
-  pictureEl.className = 'lp-video';
+  // pictureEl.className = 'lp-video';
 
   return pictureEl;
 }
@@ -81,13 +92,24 @@ function decorateBackground(row) {
 function decorateAnchor(row) {
   const anchorID = row.textContent.trim();
   const anchorEl = document.createElement('a');
+  const iconEl = document.createElement('i');
   anchorEl.href = `#${anchorID}`;
 
+  const svgs = Array.from({ length: 2 }, () => {
+    const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+    const use = document.createElementNS('http://www.w3.org/2000/svg', 'use');
+    use.setAttributeNS(null, 'href', '#arrow-min');
+    svg.appendChild(use);
+    return svg;
+  });
+
+  iconEl.append(...svgs);
   const nav = document.createElement('nav');
-  nav.appendChild(anchorEl);
+  anchorEl.appendChild(nav);
+  nav.appendChild(iconEl);
   nav.id = 'hero-anchor';
 
-  return nav;
+  return anchorEl;
 }
 
 /**
@@ -115,9 +137,6 @@ function classifyRow(row) {
  * @param {Element} block The hero block element
  */
 export default async function decorate(block) {
-  // const divWrapper = document.createElement('div');
-  // divWrapper.classList.add('lp-header');
-  block.classList.add('lp-header');
   Object.values(block.children).forEach(
     (row, i) => {
       const rowType = classifyRow(row);
@@ -140,7 +159,6 @@ export default async function decorate(block) {
         default:
         // console.warn('Could not classify block type');
       }
-      // if (newElement != null) divWrapper.appendChild(newElement);
       if (newElement != null) row.replaceWith(newElement);
     },
   );

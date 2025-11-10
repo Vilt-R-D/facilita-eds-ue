@@ -3,8 +3,10 @@
 
 /* Mesclei o reset do bundle.min.js e do style.min.css para não precisar baixar os dois(junto com várias outras classes que não necessariamente serão usadas) */
 @import url("../styles/resets.css");
-@import url("../styles/main.css");
-@import url("../styles/screen-1199-up.css") screen and (min-width: 1199px);
+
+/* @import url("../styles/main.css"); */
+
+/* @import url("../styles/screen-1199-up.css") screen and (min-width: 1199px); */
 
 :root {
     /* colors - vindo de main.css do site original */
@@ -27,6 +29,23 @@
 
     /* fonts - nome vindo de main.css do site original */
     --font-family-sans-serif: var(--body-font-family);
+}
+
+/* vindo de main.css do site original */
+body {
+    background: var(--color-red);
+    font-family: Bradesco, sans-serif;
+}
+
+/* vindo de main.css do site original */
+main {
+    position: relative;
+    display: grid;
+    justify-items: center;
+    grid-auto-columns: 1fr;
+    background: #F0F1F5;
+    border-radius: 24px 24px 0 0;
+    margin-top: -64px;
 }
 
 /* vindo de main.css do site original, desativei pois não funciona legal no meu navegador */
