@@ -313,5 +313,48 @@
         "description": "id da seção a ser redirecionado."
       }
     ]
+  },
+  {
+    "id": "teaser",
+    "fields": [
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "title",
+        "label": "Título",
+        "description": "Título do componente, ao topo."
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "text",
+        "label": "Texto",
+        "description": "Texto rico abaixo do título."
+      },
+      {
+        "component": "reference",
+        "name": "qrcode",
+        "label": "QR Code (Desktop)",
+        "description": "QR Code abaixo do texto, apenas em Desktop."
+      },
+      {
+        "component": "text",
+        "name": "link",
+        "label": "Link do botão (Mobile)",
+        "description": "Ao clicar no botão, o usuário será redirecionado. Apenas em mobile, abaixo do texto."
+      },
+      {
+        "component": "text",
+        "name": "linkText",
+        "label": "Texto do botão",
+        "description": "Texto descritivo ao redirecionamento."
+      },
+      {
+        "component": "richtext",
+        "name": "disclaimer",
+        "label": "Texto ",
+        "description": "Texto abaixo do redirecionamento."
+      }
+    ]
   }
 ]
