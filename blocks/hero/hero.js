@@ -10,6 +10,8 @@
  *    - Ancora
 */
 
+import { getMetadata } from "../../scripts/aem.js";
+
 /**
  * Converte um elemento img para svg.
  * @param {HTMLElement} picture
@@ -28,6 +30,8 @@ function extractSVGfromPicture(picture) {
  * @returns {Element} Decorated link element.
  */
 function decorateLogo(row) {
+  const isUniversalEditor = getMetadata('modified-time') !== '';
+
   const pictureEl = row.querySelector('picture');
   let hasSVG = pictureEl.querySelector('source[type="image/svg+xml"]') != null;
   hasSVG ||= pictureEl.querySelector('img[src*=".svg"]') != null;
@@ -38,7 +42,7 @@ function decorateLogo(row) {
   aEl.title = 'bradesco';
   aEl.className = 'lp-bradesco';
 
-  if (hasSVG) {
+  if (hasSVG && !isUniversalEditor) {
     const svg = extractSVGfromPicture(pictureEl);
     aEl.append(svg);
   } else {
