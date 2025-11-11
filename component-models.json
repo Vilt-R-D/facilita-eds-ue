@@ -352,7 +352,7 @@
       {
         "component": "richtext",
         "name": "disclaimer",
-        "label": "Texto ",
+        "label": "Disclaimer",
         "description": "Texto abaixo do redirecionamento."
       }
     ]
