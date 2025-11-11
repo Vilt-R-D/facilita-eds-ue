@@ -52,6 +52,7 @@ main {
     width: 100%;
     padding: 24px;
     box-sizing: border-box;
+    margin: 0 auto;
 }
 
 .lp-container h1 {
