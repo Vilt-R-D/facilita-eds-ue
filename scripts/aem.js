@@ -488,7 +488,8 @@ function decorateSections(main) {
         wrappers.push(wrapper);
         defaultContent = e.tagName !== 'DIV' || !e.className;
         if (defaultContent) wrapper.classList.add('default-content-wrapper');
-        if (e.tagName === 'H2') wrapper.classList.add('lp-container');
+        // Enzo
+        // if (e.tagName === 'H2') wrapper.classList.add('lp-container');
       }
       wrappers[wrappers.length - 1].append(e);
     });
@@ -677,10 +678,6 @@ async function loadSection(section, loadCallback) {
   }
   if (moveTo) {
     const element = document.querySelector(moveTo);
-    element.dataset.aueType = 'container';
-    element.dataset.aueResource = 'urn:aemconnection:/content/facilita-eds-ue/vilt-facilita/jcr:content/root_header';
-    element.dataset.aueLabel = 'Header';
-    element.dataset.aueFilter = 'main';
     element.appendChild(section);
   }
 }
