@@ -118,7 +118,23 @@ html {
         font-size: 23px;
         line-height: 28px;
         margin-bottom: 24px;
-}}
+    }
+    &.disclaimer{
+        p {
+            font-size: 0.8em;
+            line-height: 28px;
+        }
+        picture {
+            width: inst;
+            display: block;
+            padding: 20px 0;
+            img {
+                height: 75px;
+                width: auto;
+            }
+        }
+    }
+}
 
 @media screen and (min-width: 1199px) {
     .section h2 {
