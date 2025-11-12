@@ -3,7 +3,7 @@
 
 /* Mesclei o reset do bundle.min.js e do style.min.css para não precisar baixar os dois(junto com várias outras classes que não necessariamente serão usadas) */
 @import url("../styles/resets.css");
-@import url("../styles/main.css");
+/* @import url("../styles/main.css"); */
 
 /* @import url("../styles/screen-1199-up.css") screen and (min-width: 1199px); */
 
@@ -28,6 +28,15 @@
 
     /* fonts - nome vindo de main.css do site original */
     --font-family-sans-serif: var(--body-font-family);
+
+    /* Cores relacionadas ao Swiper, vindo de main.css */
+    --brad-color-cta: 59, 105, 255;
+    --brad-color-cta-light: 87, 129, 255;
+    --swiper-theme-color: #007aff;
+    --swiper-navigation-size: 44px;
+    --brad-color-icon: 204, 9, 47;
+    --brad-color-neutral-0: 255, 255, 255;
+    --brad-border-radius-pill: 999px;
 }
 
 /* vindo de main.css do site original */
@@ -45,13 +54,29 @@ main {
     background: #F0F1F5;
     border-radius: 24px 24px 0 0;
     margin-top: -64px;
+    min-width: 256px;
 }
+
+p {
+    margin: 0;
+    font-size: 16px;
+    line-height: 24px;
+}
+
+@media screen and (min-width: 1199px) {
+    main{
+        border-radius: 56px 56px 0 0;
+        margin-top: -48px;
+    }
+}
+
+
 
 /* vindo de main.css do site original, desativei pois não funciona legal no meu navegador */
 
-/* html {
+html {
     scroll-behavior: smooth;
-} */
+}
 
 /* Se as fontes customizadas não poderem ser carregadas, serão utilizadas as seguintes. */
 
@@ -69,4 +94,61 @@ main {
     font-family: "bradesco-normal-400-fallback";
     size-adjust: 92%;
     src: local("Verdana");
+}
+
+/** Esconde se for menor que 1024 */
+@media (max-width: 1023px) {
+    .desktop-only {
+        display: none;
+    }
+}
+
+/** Esconde se for maior que 1024 */
+@media (min-width: 1023px) {
+    .mobile-only {
+        display: none;
+    }
+}
+
+.section{
+    min-width: 256px;
+
+    h2 {
+        margin: 0;
+        font-size: 23px;
+        line-height: 28px;
+        margin-bottom: 24px;
+}}
+
+@media screen and (min-width: 1199px) {
+    .section h2 {
+        font-size: 40px;
+        line-height: 48px;
+        margin-bottom: 64px;
+    }
+}
+
+
+
+main>.section {
+    padding: 24px;
+}
+
+@media screen and (min-width: 1199px) {
+    main>.section {
+        max-width: 1440px;
+        padding: 56px 56px 64px;
+    }
+}
+
+@media (min-width: 1024px) and (max-width:1279px) {
+    .hidden-md {
+        display:none!important
+    }
+}
+
+@media (min-width: 1280px) {
+    .hidden-lg {
+        display:none!important
+    }
 }

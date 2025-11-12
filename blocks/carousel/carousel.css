@@ -1,6 +1,7 @@
-.section.carousel-container {
+/* Enzo */
+.carousel.block {
     width: 100%;
-    min-width: 100%;
+    min-width: 0px;
 
     h3 p {
         all: inherit;
@@ -306,7 +307,8 @@
             --swiper-wrapper-transition-timing-function,
             initial
         );
-        width: 100%;
+        /* Enzo */
+        width: 0vw;
         z-index: 1;
     }
 
@@ -387,6 +389,7 @@
     }
 
     .nav-pagination {
+        justify-content: center;
         display: flex;
         gap: 5px;
         margin: 30px auto;

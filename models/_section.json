@@ -67,7 +67,8 @@
         "columns",
         "fragment",
         "carousel",
-        "card-grid"
+        "card-grid",
+        "show-only"
       ]
     }
   ]
