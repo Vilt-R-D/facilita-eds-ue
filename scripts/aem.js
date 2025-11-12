@@ -677,6 +677,10 @@ async function loadSection(section, loadCallback) {
   }
   if (moveTo) {
     const element = document.querySelector(moveTo);
+    element.dataset.aueType = 'container';
+    element.dataset.aueResource = 'urn:aemconnection:/content/facilita-eds-ue/vilt-facilita/jcr:content/root_header';
+    element.dataset.aueLabel = 'Header';
+    element.dataset.aueFilter = 'main';
     element.appendChild(section);
   }
 }
