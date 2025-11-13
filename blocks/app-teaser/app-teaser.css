@@ -1,0 +1,224 @@
+main {
+    padding-top: 80px;
+}
+
+.section.app-teaser-container {
+    width: 100%;
+}
+
+.block.app-teaser {
+    h2 {
+        margin-bottom: inherit;
+    }
+
+    &.lp-openaccount {
+        background: #fff;
+        display: flex;
+        justify-content: center;
+        width: 100%;
+    }
+
+    &.lp-openaccount > .lp-container {
+        position: relative;
+        min-width: 100%;
+    }
+
+    &.lp-openaccount .lp-banner {
+        position: relative;
+        border-radius: 16px;
+        background: linear-gradient(
+            180deg,
+            #cc092f 0%,
+            #cc092f 39.9%,
+            #9d0d21 89.9%,
+            #9d0d21 100%
+        );
+        display: grid;
+        color: #fff;
+        z-index: 1;
+        width: 100%;
+    }
+
+    &.lp-openaccount header {
+        position: relative;
+        padding: 24px;
+        display: grid;
+        gap: 16px;
+        z-index: 1;
+    }
+
+    &.lp-openaccount h2 {
+        line-height: 32px;
+    }
+
+    &.lp-openaccount h3 {
+        margin: 0;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 24px;
+    }
+
+    &.lp-openaccount .lp-action {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    &.lp-openaccount figure img {
+        position: relative;
+        max-width: 100%;
+        height: auto;
+    }
+
+    &.lp-openaccount .lp-action a,
+    &.lp-openaccount .lp-action img {
+        display: block;
+    }
+
+    &.lp-openaccount figure {
+        position: relative;
+        display: grid;
+        justify-items: center;
+        margin: 0;
+        z-index: 1;
+    }
+
+    &.lp-openaccount figure figcaption {
+        display: none;
+    }
+
+    &.lp-openaccount figure > picture {
+        width: calc(100% + 28px);
+        text-align: center;
+    }
+
+    &.lp-openaccount .lp-qrcode img {
+        display: block;
+    }
+
+    &.lp-openaccount .lp-banner i {
+        position: absolute;
+        left: 26px;
+        bottom: -16px;
+    }
+
+    &.lp-openaccount .lp-banner i svg {
+        display: block;
+        width: 149px;
+        height: 158px;
+    }
+
+    @media screen and (width >= 1199px) {
+        &.lp-openaccount {
+            background: none;
+        }
+
+        &.lp-openaccount .lp-banner {
+            height: 480px;
+            grid-template-columns: 42.25% auto;
+        }
+
+        &.lp-openaccount header {
+            align-self: center;
+            padding-left: 112px;
+        }
+
+        &.lp-openaccount h2 {
+            font-size: 40px;
+            line-height: 40px;
+        }
+
+        &.lp-openaccount h3,
+        &.lp-openaccount p {
+            font-weight: 400;
+            max-width: 433px;
+            font-size: 24px;
+            line-height: 28px;
+        }
+
+        &.lp-openaccount .lp-action {
+            padding-top: 16px;
+            flex-direction: row;
+        }
+
+        &.lp-openaccount figure {
+            height: inherit;
+            display: flex;
+            align-items: center;
+        }
+
+        &.lp-openaccount figure > picture {
+            width: auto;
+        }
+
+        &.lp-openaccount figure figcaption {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            position: absolute;
+            bottom: 40px;
+            right: 40px;
+        }
+
+        &.lp-openaccount figure figcaption small {
+            display: block;
+            width: 112px;
+            font-size: 12px;
+            line-height: 16px;
+        }
+
+        .lp-header .lp-topbar {
+            padding: 24px 55px;
+        }
+
+        &.lp-openaccount > .lp-container::before,
+        &.lp-openaccount > .lp-container::after,
+        &.lp-openaccount .lp-banner::before,
+        &.lp-openaccount .lp-banner::after {
+            content: "";
+            position: absolute;
+            display: block;
+            width: 379px;
+            height: 426px;
+            background: linear-gradient(
+                241.13deg,
+                #cc092f 10.66%,
+                #b81570 90.65%
+            );
+            clip-path: polygon(0 51%, 100% 0%, 100% 50%, 0% 100%);
+        }
+
+        &.lp-openaccount > .lp-container::before {
+            width: 322px;
+            height: 362px;
+            top: 159px;
+            left: -23px;
+        }
+
+        &.lp-openaccount > .lp-container::after {
+            top: 30px;
+            right: -31px;
+        }
+
+        &.lp-openaccount .lp-banner::before {
+            top: 38px;
+            left: -38px;
+        }
+
+        &.lp-openaccount .lp-banner::after {
+            width: 305px;
+            height: 343px;
+            top: 0;
+            right: 84px;
+        }
+
+        &.lp-openaccount .lp-banner i {
+            inset: 144px 366px auto auto;
+        }
+
+        &.lp-openaccount .lp-banner i svg {
+            width: 306px;
+            height: 326px;
+        }
+    }
+}

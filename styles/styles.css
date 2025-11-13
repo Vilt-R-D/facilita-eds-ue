@@ -3,6 +3,7 @@
 
 /* Mesclei o reset do bundle.min.js e do style.min.css para não precisar baixar os dois(junto com várias outras classes que não necessariamente serão usadas) */
 @import url("../styles/resets.css");
+
 /* @import url("../styles/main.css"); */
 
 /* @import url("../styles/screen-1199-up.css") screen and (min-width: 1199px); */
@@ -51,7 +52,7 @@ main {
     display: grid;
     justify-items: center;
     grid-auto-columns: 1fr;
-    background: #F0F1F5;
+    background: #f0f1f5;
     border-radius: 24px 24px 0 0;
     margin-top: -64px;
     min-width: 256px;
@@ -63,14 +64,12 @@ p {
     line-height: 24px;
 }
 
-@media screen and (min-width: 1199px) {
-    main{
+@media screen and (width >= 1199px) {
+    main {
         border-radius: 56px 56px 0 0;
         margin-top: -48px;
     }
 }
-
-
 
 /* vindo de main.css do site original, desativei pois não funciona legal no meu navegador */
 
@@ -97,20 +96,20 @@ html {
 }
 
 /** Esconde se for menor que 1024 */
-@media (max-width: 1023px) {
+@media (width <= 1023px) {
     .desktop-only {
         display: none;
     }
 }
 
 /** Esconde se for maior que 1024 */
-@media (min-width: 1023px) {
+@media (width >= 1023px) {
     .mobile-only {
         display: none;
     }
 }
 
-.section{
+.section {
     min-width: 256px;
 
     h2 {
@@ -119,15 +118,18 @@ html {
         line-height: 28px;
         margin-bottom: 24px;
     }
-    &.disclaimer{
+
+    &.disclaimer {
         p {
             font-size: 0.8em;
             line-height: 28px;
         }
+
         picture {
-            width: inst;
+            /* width: inst; */
             display: block;
             padding: 20px 0;
+
             img {
                 height: 75px;
                 width: auto;
@@ -136,7 +138,7 @@ html {
     }
 }
 
-@media screen and (min-width: 1199px) {
+@media screen and (width >= 1199px) {
     .section h2 {
         font-size: 40px;
         line-height: 48px;
@@ -144,27 +146,26 @@ html {
     }
 }
 
-
-
-main>.section {
+main > .section {
     padding: 24px;
 }
 
-@media screen and (min-width: 1199px) {
-    main>.section {
+@media screen and (width >= 1199px) {
+    main > .section {
+        width: 100%;
         max-width: 1440px;
         padding: 56px 56px 64px;
     }
 }
 
-@media (min-width: 1024px) and (max-width:1279px) {
+@media (width >= 1024px) and (width <= 1279px) {
     .hidden-md {
-        display:none!important
+        display: none !important;
     }
 }
 
-@media (min-width: 1280px) {
+@media (width >= 1280px) {
     .hidden-lg {
-        display:none!important
+        display: none !important;
     }
 }

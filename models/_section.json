@@ -72,7 +72,8 @@
         "fragment",
         "carousel",
         "card-grid",
-        "show-only"
+        "show-only",
+        "app-teaser"
       ]
     }
   ]

@@ -18,8 +18,13 @@
       "fragment",
       "carousel",
       "card-grid",
-      "show-only"
+      "show-only",
+      "app-teaser"
     ]
+  },
+  {
+    "id": "app-teaser",
+    "components": []
   },
   {
     "id": "card-grid",
