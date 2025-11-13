@@ -1,0 +1,250 @@
+.lp-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 24px;
+    box-sizing: border-box;
+
+    @media (width >= 1199px) {
+        padding: 56px 56px 64px;
+    }
+}
+
+.lp-container h1 {
+    margin: 0;
+    font-size: 40px;
+    line-height: 36px;
+
+    @media (width >= 1199px) {
+        font-size: 80px;
+        line-height: 72px;
+    }
+}
+
+h2, .lp-container h2 {
+    margin: 0;
+    font-size: 23px;
+    line-height: 28px;
+
+    @media (width >= 1199px) {
+        font-size: 40px;
+        line-height: 48px;
+    }
+}
+
+.lp-container p {
+    margin: 0;
+    font-size: 16px;
+    line-height: 24px;
+}
+
+.lp-authorize {
+    background: #fff;
+
+    @media (width >= 1199px) {
+        background: none;
+    }
+}
+
+.lp-authorize .lp-banner {
+    display: grid;
+
+    @media (width >= 1199px) {
+        grid-template-columns: 46.25% auto;
+        padding-left: 48px;
+        background: #fff;
+        border-radius: 16px;
+        gap: 32px;
+    }
+}
+
+.lp-authorize header {
+    display: grid;
+    gap: 12px;
+
+    @media (width >= 1199px) {
+        align-self: center;
+    }
+}
+
+.lp-authorize h2 {
+    line-height: 32px;
+    color: var(--color-red);
+
+    @media (width >= 1199px) {
+        font-size: 40px;
+        line-height: 40px;
+        white-space: pre-line;
+        padding-bottom: 10px;
+    }
+}
+
+.lp-authorize h3 {
+    margin: 0;
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 400;
+
+    @media (width >= 1199px) {
+        max-width: 524px;
+        font-size: 20px;
+        line-height: 28px;
+    }
+
+}
+
+.lp-authorize p {
+    @media (width >= 1199px) {
+        max-width: 524px;
+        font-size: 20px;
+        line-height: 28px;
+    }
+}
+
+.lp-action {
+    @media (width >= 1199px) {
+        padding-top: 10px;
+    }
+}
+
+.lp-authorize .lp-action .lp-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    line-height: 20px;
+    border: 1px solid var(--color-red);
+    border-radius: 24px;
+    min-height: 48px;
+    margin-top: 16px;
+    margin-bottom: 20px;
+    text-decoration: none;
+
+    a {
+        color: var(--color-red);
+    }
+
+    @media (width >= 1199px) {
+        display: none;
+    }
+
+}
+
+.lp-authorize .lp-qrcode {
+    display: none;
+
+    @media (width >= 1199px) {
+        display: inline-flex;
+        align-items: center;
+        padding: 4px 4px 4px 24px;
+        border-radius: 12px;
+        gap: 16px;
+        background: var(--color-gray);
+    }
+}
+
+.lp-authorize .lp-qrcode img {
+    display: block;
+    max-width: 115px;
+    height: 115px;
+}
+
+.lp-authorize .lp-qrcode small {
+    @media (width >= 1199px) {
+        display: block;
+        width: 68px;
+        font-size: 12px;
+        line-height: 16px;
+    }
+}
+
+.lp-authorize .txt-seguranca p {
+    font-size: 14px;
+    line-height: 1.5em;
+    padding-bottom: 40px;
+
+    @media (width >= 1199px) {
+        padding-bottom: 0;
+    }
+}
+
+.lp-authorize figure {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin: 0;
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+.lp-authorize .lp-step {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 120px;
+    aspect-ratio: 156 / 120;
+
+    @media (width >= 1199px) {
+        min-height: 244px;
+        aspect-ratio: 328 / 244;
+    }
+}
+
+.lp-authorize .lp-step:first-child {
+    position: relative;
+}
+
+/*
+.lp-authorize .lp-step svg {
+    width: 100%;
+}
+*/
+
+.lp-authorize .lp-step:nth-child(1) {
+    background: #D12249;
+}
+
+/*
+.lp-authorize .lp-step:nth-child(1) i {
+    width: 50%;
+}
+*/
+
+.lp-authorize .lp-step img {
+    width: 32px;
+    height: 32px;
+
+    @media (width >= 1199px) {
+        width: 56px;
+        height: 56px;
+    }
+}
+
+.lp-authorize .lp-step:nth-child(1) span {
+    position: absolute;
+    display: flex;
+    inset: 0;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    line-height: 18px;
+    color: #fff;
+    padding-bottom: 1.15em;
+
+    @media (width >= 1199px) {
+        font-size: 19px;
+        line-height: 19px;
+    }
+}
+
+.lp-authorize .lp-step:nth-child(2) {
+    background: #C01E42;
+}
+
+.lp-authorize .lp-step:nth-child(3) {
+    background: #B42041;
+}
+
+.lp-authorize .lp-step:nth-child(4) {
+    background: #9F213D;
+}

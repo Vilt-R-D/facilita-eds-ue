@@ -448,5 +448,76 @@
         ]
       }
     ]
+  },
+  {
+    "id": "teaser",
+    "fields": [
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "text",
+        "label": "Texto"
+      },
+      {
+        "component": "container",
+        "label": "QR Code (Desktop)",
+        "description": "Seção para o usuário apontar a câmera, apenas em desktop.",
+        "name": "qrcode",
+        "valueType": "string",
+        "collapsible": true,
+        "fields": [
+          {
+            "component": "reference",
+            "name": "qrImg",
+            "label": "Imagem do QR Code",
+            "valueType": "string"
+          },
+          {
+            "component": "text",
+            "name": "qrTxt",
+            "label": "Descrição",
+            "description": "Texto ao lado do QR Code",
+            "valueType": "string"
+          }
+        ]
+      },
+      {
+        "component": "container",
+        "label": "Botão (Mobile)",
+        "description": "Botão para o usuário ser redirecionado, apenas em mobile.",
+        "name": "btn",
+        "valueType": "string",
+        "collapsible": true,
+        "fields": [
+          {
+            "component": "text",
+            "name": "link",
+            "label": "Link do botão"
+          },
+          {
+            "component": "text",
+            "name": "linkText",
+            "label": "Texto do botão"
+          }
+        ]
+      },
+      {
+        "component": "richtext",
+        "name": "disclaimer",
+        "label": "Disclaimer",
+        "description": "Texto abaixo do redirecionamento."
+      }
+    ]
+  },
+  {
+    "id": "teaser-icon",
+    "fields": [
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "icon",
+        "label": "Ícone"
+      }
+    ]
   }
 ]

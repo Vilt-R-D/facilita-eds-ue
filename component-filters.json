@@ -19,7 +19,8 @@
       "carousel",
       "card-grid",
       "show-only",
-      "app-teaser"
+      "app-teaser",
+      "teaser"
     ]
   },
   {
@@ -58,6 +59,12 @@
     "components": [
       "logo-header",
       "background-header"
+    ]
+  },
+  {
+    "id": "teaser",
+    "components": [
+      "teaser-icon"
     ]
   }
 ]
