@@ -54,6 +54,10 @@
     ]
   },
   {
+    "id": "footer",
+    "components": []
+  },
+  {
     "id": "hero",
     "components": [
       "logo-header",
