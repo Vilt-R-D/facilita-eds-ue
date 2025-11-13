@@ -64,6 +64,12 @@ main {
         gap: 16px;
     }
 
+    &.lp-openaccount figure img {
+        position: relative;
+        max-width: 100%;
+        height: auto;
+    }
+
     &.lp-openaccount .lp-action a,
     &.lp-openaccount .lp-action img {
         display: block;
@@ -84,12 +90,6 @@ main {
     &.lp-openaccount figure > picture {
         width: calc(100% + 28px);
         text-align: center;
-    }
-
-    &.lp-openaccount figure img {
-        position: relative;
-        max-width: 100%;
-        height: auto;
     }
 
     &.lp-openaccount .lp-qrcode img {
@@ -170,10 +170,11 @@ main {
         .lp-header .lp-topbar {
             padding: 24px 55px;
         }
-        &.lp-openaccount > .lp-container:before,
-        &.lp-openaccount > .lp-container:after,
-        &.lp-openaccount .lp-banner:before,
-        &.lp-openaccount .lp-banner:after {
+
+        &.lp-openaccount > .lp-container::before,
+        &.lp-openaccount > .lp-container::after,
+        &.lp-openaccount .lp-banner::before,
+        &.lp-openaccount .lp-banner::after {
             content: "";
             position: absolute;
             display: block;
@@ -187,24 +188,24 @@ main {
             clip-path: polygon(0 51%, 100% 0%, 100% 50%, 0% 100%);
         }
 
-        &.lp-openaccount > .lp-container:before {
+        &.lp-openaccount > .lp-container::before {
             width: 322px;
             height: 362px;
             top: 159px;
             left: -23px;
         }
 
-        &.lp-openaccount > .lp-container:after {
+        &.lp-openaccount > .lp-container::after {
             top: 30px;
             right: -31px;
         }
 
-        &.lp-openaccount .lp-banner:before {
+        &.lp-openaccount .lp-banner::before {
             top: 38px;
             left: -38px;
         }
 
-        &.lp-openaccount .lp-banner:after {
+        &.lp-openaccount .lp-banner::after {
             width: 305px;
             height: 343px;
             top: 0;
@@ -212,10 +213,7 @@ main {
         }
 
         &.lp-openaccount .lp-banner i {
-            top: 144px;
-            right: 366px;
-            left: auto;
-            bottom: auto;
+            inset: 144px 366px auto auto;
         }
 
         &.lp-openaccount .lp-banner i svg {

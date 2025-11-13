@@ -1,16 +1,15 @@
-import './main.js';
 import {
-  loadFooter,
+  decorateBlocks,
   decorateButtons,
   decorateIcons,
   decorateSections,
-  decorateBlocks,
   decorateTemplateAndTheme,
-  waitForFirstImage,
+  loadCSS,
   loadSection,
   loadSections,
-  loadCSS,
+  waitForFirstImage,
 } from './aem.js';
+import './main.js';
 
 /**
  * Moves all the attributes from a given elmenet to another given element.
