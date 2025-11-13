@@ -514,6 +514,24 @@
         "name": "disclaimer",
         "label": "Disclaimer",
         "description": "Texto abaixo do redirecionamento."
+      },
+      {
+        "component": "reference",
+        "name": "icons",
+        "label": "Ícones",
+        "multi": true
+      }
+    ]
+  },
+  {
+    "id": "teaser-icon",
+    "fields": [
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "icon",
+        "label": "Ícone",
+        "multi": false
       }
     ]
   }

@@ -267,6 +267,21 @@
               }
             }
           }
+        },
+        {
+          "title": "Ícone",
+          "id": "teaser-icon",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block/item",
+                "template": {
+                  "name": "Ícone",
+                  "model": "teaser-icon"
+                }
+              }
+            }
+          }
         }
       ]
     }
