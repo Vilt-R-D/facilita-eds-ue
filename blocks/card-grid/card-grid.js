@@ -1,4 +1,5 @@
 import { createOptimizedPicture } from '../../scripts/aem.js';
+import { moveInstrumentation } from '../../scripts/scripts.js';
 
 /**
  * loads and decorates the hero, mainly the nav
@@ -59,6 +60,8 @@ export default async function decorate(block) {
 
     const link = linkDiv.querySelector('a');
     link.replaceChildren(linkSpan.cloneNode(true));
+
+    moveInstrumentation(card, article);
 
     article.replaceChildren(header, ...text, link);
     lpCards.appendChild(article);
