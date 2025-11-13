@@ -64,6 +64,14 @@
           "required": true
         },
         {
+          "component": "reference",
+          "valueType": "string",
+          "name": "image",
+          "label": "Imagem Principal",
+          "multi": false,
+          "required": true
+        },
+        {
           "component": "richtext",
           "valueType": "string",
           "name": "qr-text",
