@@ -1,17 +1,19 @@
-function extractRceTags(element) {
+function extractRteTags(element) {
   return [...element.firstElementChild.children];
 }
 
 export default function decorate(block) {
-  const [titleDiv, textDiv, qrImgDiv, qrTxtDiv, linkDiv, disclaimerDiv] = block.children;
+  const [titleDiv, textDiv, qrImgDiv, qrTxtDiv, linkDiv, disclaimerDiv, ...icons] = block.children;
+
+  console.log(icons);
 
   block.parentElement.classList.add('lp-authorize', 'lp-container');
 
   block.classList.add('lp-banner');
 
   const headerEl = document.createElement('header');
-  extractRceTags(titleDiv).forEach((el) => headerEl.append(el));
-  extractRceTags(textDiv).forEach((el) => headerEl.append(el));
+  extractRteTags(titleDiv).forEach((el) => headerEl.append(el));
+  extractRteTags(textDiv).forEach((el) => headerEl.append(el));
 
   const actionDiv = document.createElement('div');
   actionDiv.classList.add('lp-action');
@@ -31,7 +33,7 @@ export default function decorate(block) {
   actionDiv.append(anchorEl, qrDiv);
   headerEl.append(actionDiv);
 
-  extractRceTags(disclaimerDiv).forEach((el) => {
+  extractRteTags(disclaimerDiv).forEach((el) => {
     if (el.tagName === 'P') el.classList.add('txt-seguranca');
     headerEl.append(el);
   });
@@ -49,6 +51,8 @@ export default function decorate(block) {
       const spanEl = document.createElement('span');
       spanEl.textContent = 'Oi BIA ;)';
       iEl.append(spanEl);
+    } else {
+      svgEl.append(icons[i].querySelector('picture'));
     }
   }
 

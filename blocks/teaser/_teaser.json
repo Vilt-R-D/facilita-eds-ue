@@ -15,6 +15,21 @@
           }
         }
       }
+    },
+    {
+      "title": "Ícone",
+      "id": "teaser-icon",
+      "plugins": {
+        "xwalk": {
+          "page": {
+            "resourceType": "core/franklin/components/block/v1/block/item",
+            "template": {
+              "name": "Ícone",
+              "model": "teaser-icon"
+            }
+          }
+        }
+      }
     }
   ],
   "models": [
@@ -83,9 +98,34 @@
           "name": "disclaimer",
           "label": "Disclaimer",
           "description": "Texto abaixo do redirecionamento."
+        },
+        {
+          "component": "reference",
+          "name": "icons",
+          "label": "Ícones",
+          "multi": true
+        }
+      ]
+    },
+    {
+      "id": "teaser-icon",
+      "fields": [
+        {
+          "component": "reference",
+          "valueType": "string",
+          "name": "icon",
+          "label": "Ícone",
+          "multi": false
         }
       ]
     }
   ],
-  "filters": []
+  "filters": [
+    {
+      "id": "teaser",
+      "components": [
+        "teaser-icon"
+      ]
+    }
+  ]
 }
