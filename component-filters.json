@@ -22,6 +22,10 @@
     ]
   },
   {
+    "id": "app-teaser",
+    "components": []
+  },
+  {
     "id": "card-grid",
     "components": [
       "card"

@@ -161,6 +161,68 @@
     ]
   },
   {
+    "id": "app-teaser",
+    "fields": [
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "title",
+        "label": "Título",
+        "required": true
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "description",
+        "label": "Texto",
+        "required": true
+      },
+      {
+        "component": "aem-content",
+        "name": "link-1",
+        "label": "Link 1",
+        "required": true
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "link-1-image",
+        "label": "Imagem do Link 1",
+        "multi": false,
+        "required": true
+      },
+      {
+        "component": "aem-content",
+        "name": "link-2",
+        "label": "Link 2",
+        "required": true
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "link-2-image",
+        "label": "Imagem do Link 2",
+        "multi": false,
+        "required": true
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "qr-text",
+        "label": "Texto do QRCode",
+        "required": true
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "qrcode",
+        "label": "QRCode",
+        "multi": false,
+        "required": true
+      }
+    ]
+  },
+  {
     "id": "card-grid",
     "fields": [
       {
