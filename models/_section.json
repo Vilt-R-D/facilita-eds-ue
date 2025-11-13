@@ -73,7 +73,8 @@
         "carousel",
         "card-grid",
         "show-only",
-        "app-teaser"
+        "app-teaser",
+        "footer"
       ]
     }
   ]
