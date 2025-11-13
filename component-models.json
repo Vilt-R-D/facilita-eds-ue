@@ -332,22 +332,47 @@
         "description": "Texto rico abaixo do título."
       },
       {
-        "component": "reference",
-        "name": "qrcode",
+        "component": "container",
         "label": "QR Code (Desktop)",
-        "description": "QR Code abaixo do texto, apenas em Desktop."
+        "description": "Seção para o usuário apontar a câmera, apenas em desktop.",
+        "name": "qrcode",
+        "valueType": "string",
+        "collapsible": true,
+        "fields": [
+          {
+            "component": "reference",
+            "name": "qrImg",
+            "label": "Imagem do QR Code",
+            "valueType": "string"
+          },
+          {
+            "component": "text",
+            "name": "qrTxt",
+            "label": "Descrição",
+            "description": "Texto ao lado do QR Code",
+            "valueType": "string"
+          }
+        ]
       },
       {
-        "component": "text",
-        "name": "link",
-        "label": "Link do botão (Mobile)",
-        "description": "Ao clicar no botão, o usuário será redirecionado. Apenas em mobile, abaixo do texto."
-      },
-      {
-        "component": "text",
-        "name": "linkText",
-        "label": "Texto do botão",
-        "description": "Texto descritivo ao redirecionamento."
+        "component": "container",
+        "label": "Botão (Mobile)",
+        "description": "Botão para o usuário ser redirecionado, apenas em mobile.",
+        "name": "btn",
+        "valueType": "string",
+        "collapsible": true,
+        "fields": [
+          {
+            "component": "text",
+            "name": "link",
+            "label": "Link do botão"
+          },
+          {
+            "component": "text",
+            "name": "linkText",
+            "label": "Texto do botão"
+          }
+        ]
       },
       {
         "component": "richtext",

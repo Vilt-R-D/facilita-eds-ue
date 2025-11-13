@@ -3,7 +3,7 @@ function extractRceTags(element) {
 }
 
 export default function decorate(block) {
-  const [titleDiv, textDiv, qrDiv, linkDiv, disclaimerDiv] = block.children;
+  const [titleDiv, textDiv, qrImgDiv, qrTxtDiv, linkDiv, disclaimerDiv] = block.children;
 
   block.parentElement.classList.add('lp-authorize', 'lp-container');
 
@@ -16,15 +16,21 @@ export default function decorate(block) {
   const actionDiv = document.createElement('div');
   actionDiv.classList.add('lp-action');
 
-  qrDiv.firstElementChild.classList.add('lp-qrcode');
+  const qrPictureEl = qrImgDiv.querySelector('picture');
+  const qrTxtEl = qrTxtDiv.querySelector('p');
   const smallEl = document.createElement('small');
-  smallEl.textContent = 'Acesse pela câmera do celular';
-  qrDiv.firstElementChild.prepend(smallEl);
+  smallEl.textContent = qrTxtEl.textContent;
 
-  linkDiv.firstElementChild.classList.add('lp-btn');
-  actionDiv.append(qrDiv, linkDiv);
+  const qrDiv = document.createElement('div');
+  qrDiv.classList.add('lp-qrcode');
+  qrDiv.append(smallEl, qrPictureEl);
 
+  const anchorEl = linkDiv.querySelector('a');
+  anchorEl.classList.add('lp-btn');
+
+  actionDiv.append(anchorEl, qrDiv);
   headerEl.append(actionDiv);
+
   extractRceTags(disclaimerDiv).forEach((el) => {
     if (el.tagName === 'P') el.classList.add('txt-seguranca');
     headerEl.append(el);
