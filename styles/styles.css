@@ -51,7 +51,7 @@ main {
     display: grid;
     justify-items: center;
     grid-auto-columns: 1fr;
-    background: #F0F1F5;
+    background: #f0f1f5;
     border-radius: 24px 24px 0 0;
     margin-top: -64px;
     min-width: 256px;
@@ -64,13 +64,11 @@ p {
 }
 
 @media screen and (min-width: 1199px) {
-    main{
+    main {
         border-radius: 56px 56px 0 0;
         margin-top: -48px;
     }
 }
-
-
 
 /* vindo de main.css do site original, desativei pois não funciona legal no meu navegador */
 
@@ -110,7 +108,7 @@ html {
     }
 }
 
-.section{
+.section {
     min-width: 256px;
 
     h2 {
@@ -119,7 +117,8 @@ html {
         line-height: 28px;
         margin-bottom: 24px;
     }
-    &.disclaimer{
+
+    &.disclaimer {
         p {
             font-size: 0.8em;
             line-height: 28px;
@@ -144,27 +143,26 @@ html {
     }
 }
 
-
-
-main>.section {
+main > .section {
     padding: 24px;
 }
 
 @media screen and (min-width: 1199px) {
-    main>.section {
+    main > .section {
+        width: 100%;
         max-width: 1440px;
         padding: 56px 56px 64px;
     }
 }
 
-@media (min-width: 1024px) and (max-width:1279px) {
+@media (min-width: 1024px) and (max-width: 1279px) {
     .hidden-md {
-        display:none!important
+        display: none !important;
     }
 }
 
 @media (min-width: 1280px) {
     .hidden-lg {
-        display:none!important
+        display: none !important;
     }
 }
