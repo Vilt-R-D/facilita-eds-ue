@@ -119,7 +119,10 @@ h2, .lp-container h2 {
     margin-top: 16px;
     margin-bottom: 20px;
     text-decoration: none;
-    color: var(--color-red);
+
+    a {
+        color: var(--color-red);
+    }
 
     @media (width >= 1199px) {
         display: none;
@@ -143,17 +146,19 @@ h2, .lp-container h2 {
 .lp-authorize .lp-qrcode img {
     display: block;
     max-width: 115px;
+    height: 115px;
 }
 
 .lp-authorize .lp-qrcode small {
     @media (width >= 1199px) {
+        display: block;
         width: 68px;
         font-size: 12px;
         line-height: 16px;
     }
 }
 
-.lp-authorize .txt-seguranca {
+.lp-authorize .txt-seguranca p {
     font-size: 14px;
     line-height: 1.5em;
     padding-bottom: 40px;
@@ -185,20 +190,34 @@ h2, .lp-container h2 {
     }
 }
 
-.lp-authorize .lp-step i {
+.lp-authorize .lp-step:first-child {
     position: relative;
 }
 
+/*
 .lp-authorize .lp-step svg {
     width: 100%;
 }
+*/
 
 .lp-authorize .lp-step:nth-child(1) {
     background: #D12249;
 }
 
+/*
 .lp-authorize .lp-step:nth-child(1) i {
     width: 50%;
+}
+*/
+
+.lp-authorize .lp-step img {
+    width: 32px;
+    height: 32px;
+
+    @media (width >= 1199px) {
+        width: 56px;
+        height: 56px;
+    }
 }
 
 .lp-authorize .lp-step:nth-child(1) span {
@@ -222,22 +241,10 @@ h2, .lp-container h2 {
     background: #C01E42;
 }
 
-.lp-authorize .lp-step:nth-child(2) i {
-    width: 50%;
-}
-
 .lp-authorize .lp-step:nth-child(3) {
     background: #B42041;
 }
 
-.lp-authorize .lp-step:nth-child(3) i {
-    width: 28.675%;
-}
-
 .lp-authorize .lp-step:nth-child(4) {
     background: #9F213D;
-}
-
-.lp-authorize .lp-step:nth-child(4) i {
-    width: 25%;
 }

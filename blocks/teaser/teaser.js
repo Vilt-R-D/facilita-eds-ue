@@ -1,60 +1,57 @@
-function extractRteTags(element) {
-  return [...element.firstElementChild.children];
-}
-
 export default function decorate(block) {
-  const [titleDiv, textDiv, qrImgDiv, qrTxtDiv, linkDiv, disclaimerDiv, ...icons] = block.children;
-
-  console.log(icons);
+  const [textDiv, qrImgDiv, qrTxtDiv, linkDiv, disclaimerDiv, ...icons] = block.children;
 
   block.parentElement.classList.add('lp-authorize', 'lp-container');
-
   block.classList.add('lp-banner');
 
   const headerEl = document.createElement('header');
-  extractRteTags(titleDiv).forEach((el) => headerEl.append(el));
-  extractRteTags(textDiv).forEach((el) => headerEl.append(el));
+  headerEl.append(textDiv);
 
   const actionDiv = document.createElement('div');
   actionDiv.classList.add('lp-action');
 
-  const qrPictureEl = qrImgDiv.querySelector('picture');
-  const qrTxtEl = qrTxtDiv.querySelector('p');
-  const smallEl = document.createElement('small');
-  smallEl.textContent = qrTxtEl.textContent;
-
   const qrDiv = document.createElement('div');
+
+  const qrTxtEl = qrTxtDiv.querySelector('p');
+  if (qrTxtEl) {
+    const smallEl = document.createElement('small');
+    smallEl.textContent = qrTxtEl.textContent;
+    qrTxtDiv.replaceChildren(smallEl);
+  }
+
+  qrDiv.append(qrTxtDiv, qrImgDiv);
   qrDiv.classList.add('lp-qrcode');
-  qrDiv.append(smallEl, qrPictureEl);
 
+  linkDiv.classList.add('lp-btn');
+  actionDiv.append(qrDiv);
   const anchorEl = linkDiv.querySelector('a');
-  anchorEl.classList.add('lp-btn');
+  if (anchorEl) {
+    actionDiv.append(linkDiv);
+  } else {
+    linkDiv.remove();
+  }
 
-  actionDiv.append(anchorEl, qrDiv);
-  headerEl.append(actionDiv);
+  disclaimerDiv.classList.add('txt-seguranca');
+  headerEl.append(actionDiv, disclaimerDiv);
 
-  extractRteTags(disclaimerDiv).forEach((el) => {
-    if (el.tagName === 'P') el.classList.add('txt-seguranca');
-    headerEl.append(el);
-  });
-
-  const biaGridEl = document.createElement('figure');
+  const gridEl = document.createElement('figure');
   for (let i = 0; i < 4; i += 1) {
-    const boxEl = document.createElement('div');
-    boxEl.classList.add('lp-step');
-    const iEl = document.createElement('i');
-    boxEl.append(iEl);
-    const svgEl = document.createElement('svg');
-    iEl.append(svgEl);
-    biaGridEl.append(boxEl);
     if (i === 0) {
+      const gridBoxEl = document.createElement('div');
+      gridBoxEl.classList.add('lp-step');
       const spanEl = document.createElement('span');
       spanEl.textContent = 'Oi BIA ;)';
-      iEl.append(spanEl);
+      gridBoxEl.append(spanEl);
+      gridEl.append(gridBoxEl);
+    } else if (icons[i - 1]) {
+      icons[i - 1].classList.add('lp-step');
+      gridEl.append(icons[i - 1]);
     } else {
-      svgEl.append(icons[i].querySelector('picture'));
+      const gridBoxEl = document.createElement('div');
+      gridBoxEl.classList.add('lp-step');
+      gridEl.append(gridBoxEl);
     }
   }
 
-  block.replaceChildren(headerEl, biaGridEl);
+  block.append(headerEl, gridEl);
 }

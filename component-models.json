@@ -455,16 +455,8 @@
       {
         "component": "richtext",
         "valueType": "string",
-        "name": "title",
-        "label": "Título",
-        "description": "Título do componente, ao topo."
-      },
-      {
-        "component": "richtext",
-        "valueType": "string",
         "name": "text",
-        "label": "Texto",
-        "description": "Texto rico abaixo do título."
+        "label": "Texto"
       },
       {
         "component": "container",
@@ -514,12 +506,6 @@
         "name": "disclaimer",
         "label": "Disclaimer",
         "description": "Texto abaixo do redirecionamento."
-      },
-      {
-        "component": "reference",
-        "name": "icons",
-        "label": "Ícones",
-        "multi": true
       }
     ]
   },
@@ -530,8 +516,7 @@
         "component": "reference",
         "valueType": "string",
         "name": "icon",
-        "label": "Ícone",
-        "multi": false
+        "label": "Ícone"
       }
     ]
   }
