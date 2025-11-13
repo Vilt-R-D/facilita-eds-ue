@@ -119,10 +119,7 @@ h2, .lp-container h2 {
     margin-top: 16px;
     margin-bottom: 20px;
     text-decoration: none;
-
-    a {
-        color: var(--color-red);
-    }
+    color: var(--color-red);
 
     @media (width >= 1199px) {
         display: none;
