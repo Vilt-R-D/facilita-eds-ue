@@ -69,13 +69,20 @@ function decorateBackground(row) {
   if (!isUniversalEditor) {
     const srcDesktopBig = pictures[0].children[2];
     const imgDesktopFallback = pictures[0].lastElementChild;
-    const srcMobile = pictures[1].children[2];
     srcDesktopBig.setAttribute('media', '(min-width: 720px)');
-    srcMobile.setAttribute('media', '(max-width: 719px)');
-    pictureEl.append(srcDesktopBig, srcMobile, imgDesktopFallback);
+    // Se haver imagem para celular.
+    if (pictures[1]) {
+      const srcMobile = pictures[1].children[2];
+      srcMobile.setAttribute('media', '(max-width: 719px)');
+      pictureEl.append(srcDesktopBig, srcMobile, imgDesktopFallback);
+    } else {
+      pictureEl.append(srcDesktopBig, imgDesktopFallback);
+    }
   } else {
     const imgDesktop = pictures[0].firstElementChild;
     [imgDesktop.src] = imgDesktop.src.split('?');
+
+    
     const imgMobile = pictures[1].firstElementChild;
     const srcMobile = document.createElement('source');
     srcMobile.setAttribute('media', '(max-width: 719px)');
@@ -122,15 +129,15 @@ function decorateAnchor(row) {
  */
 function classifyRow(row) {
   // A div contém filhas picture?
-  const firstCol = row.children[0];
-  if (firstCol.children[0].matches('picture')) {
+  const firstCol = row.firstElementChild;
+  if (firstCol.firstElementChild?.matches('picture')) {
     // Pode ser tanto Logo, quanto o fundo.
-    if (firstCol.nextElementSibling.children[0].matches('p')) {
+    if (firstCol.nextElementSibling.firstElementChild?.matches('p')) {
       return 'logo';
     }
     return 'background';
   }
-  if (firstCol.children[0].matches('p')) {
+  if (firstCol.firstElementChild?.matches('p')) {
     return 'anchor';
   }
   return null;

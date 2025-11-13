@@ -47,12 +47,5 @@
       "button",
       "title"
     ]
-  },
-  {
-    "id": "hero",
-    "components": [
-      "logo-header",
-      "background-header"
-    ]
   }
 ]

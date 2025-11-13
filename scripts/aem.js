@@ -676,6 +676,7 @@ async function loadSection(section, loadCallback) {
     section.dataset.sectionStatus = 'loaded';
     section.style.display = null;
   }
+  // Não dá para fazer o hero sem essa parte.
   if (moveTo) {
     const element = document.querySelector(moveTo);
     element.appendChild(section);

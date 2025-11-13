@@ -308,6 +308,15 @@
     "id": "logo-header",
     "fields": [
       {
+        "component": "text",
+        "name": "type",
+        "label": "Tipo da Imagem",
+        "required": true,
+        "hidden": true,
+        "readOnly": true,
+        "value": "logo"
+      },
+      {
         "component": "reference",
         "valueType": "string",
         "name": "logo",
@@ -337,7 +346,21 @@
         "component": "reference",
         "valueType": "string",
         "name": "background-mobile",
-        "label": "Versão da imagem para celular"
+        "label": "Versão da imagem para celular",
+        "condition": {
+          "!": {
+            "some": [
+              {
+                "missing": [
+                  "background"
+                ]
+              },
+              [
+                "background"
+              ]
+            ]
+          }
+        }
       }
     ]
   },
@@ -349,7 +372,7 @@
         "valueType": "string",
         "name": "ancora",
         "label": "Âncora",
-        "description": "id da seção a ser redirecionado."
+        "description": "id do elemento ao qual a tela vai redirecionada."
       }
     ]
   },
