@@ -366,7 +366,8 @@ function waitForElement(selector, callback) {
 
   function applyBehaviours() {
     initModalVideo();
-    initOthersFilters();
+    
+    waitForElement('.lp-others', () => initOthersFilters());
 
     waitForElement('.swiper-container', () => {
       loadJS(window.hlx.codeBasePath + '/scripts/swiper-bundle.js', () => {

@@ -23,7 +23,8 @@ export default async function decorate(block) {
     anchor.title = `filtra ${filter}`;
     anchor.setAttribute('data-filter', index);
     anchor.innerHTML = filter;
-    anchor.href = '#';
+    // eslint-disable-next-line no-script-url
+    anchor.href = 'javascript:;';
 
     filterLI.appendChild(anchor);
     filtersUL.appendChild(filterLI);
