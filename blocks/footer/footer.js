@@ -46,7 +46,7 @@ function getSocialMediaIcon(str) {
   if (!valids.includes(socialMedia)) return null;
 
   const extension = socialMedia === 'x' ? 'png' : 'svg';
-  const icon = createOptimizedPicture(`icons/${socialMedia}.${extension}`);
+  const icon = createOptimizedPicture(`${window.hlx.codeBasePath}/icons/${socialMedia}.${extension}`);
 
   return icon;
 }

@@ -35,7 +35,7 @@ export default async function decorate(block) {
 
   const lpCards = document.createElement('div');
   lpCards.classList.add('lp-cards');
-  const linkIcon = createOptimizedPicture('icons/saiba-mais.svg');
+  const linkIcon = createOptimizedPicture(`${window.hlx.codeBasePath}/icons/saiba-mais.svg`);
   const linkSpan = document.createElement('span');
   linkSpan.textContent = 'Saiba mais ';
   linkSpan.appendChild(linkIcon.cloneNode(true));

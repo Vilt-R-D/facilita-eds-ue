@@ -51,7 +51,7 @@ export default async function decorate(block) {
   figure.replaceChildren(img, figCaption);
 
   const i = document.createElement('i');
-  const svg = createOptimizedPicture('icons/stripes-min.svg');
+  const svg = createOptimizedPicture(`${window.hlx.codeBasePath}/icons/stripes-min.svg`);
   i.replaceChildren(svg);
 
   lpBanner.replaceChildren(header, figure, i);
