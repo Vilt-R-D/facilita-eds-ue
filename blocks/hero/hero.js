@@ -80,13 +80,12 @@ function decorateBackground(row) {
     }
   } else {
     const imgDesktop = pictures[0].firstElementChild;
-    [imgDesktop.src] = imgDesktop.src.split('?');
+    [imgDesktop.src] = imgDesktop.src.split('?') ?? null;
 
-    
-    const imgMobile = pictures[1].firstElementChild;
+    const imgMobile = pictures[1]?.firstElementChild;
     const srcMobile = document.createElement('source');
     srcMobile.setAttribute('media', '(max-width: 719px)');
-    [srcMobile.srcset] = imgMobile.src.split('?');
+    [srcMobile.srcset] = imgMobile?.src.split('?') ?? [''];
     pictureEl.append(srcMobile, imgDesktop);
   }
 
@@ -124,53 +123,15 @@ function decorateAnchor(row) {
 }
 
 /**
- * @param {Element} row É uma div
- * @returns {string} 'logo', 'background' or 'anchor'
- */
-function classifyRow(row) {
-  // A div contém filhas picture?
-  const firstCol = row.firstElementChild;
-  if (firstCol.firstElementChild?.matches('picture')) {
-    // Pode ser tanto Logo, quanto o fundo.
-    if (firstCol.nextElementSibling.firstElementChild?.matches('p')) {
-      return 'logo';
-    }
-    return 'background';
-  }
-  if (firstCol.firstElementChild?.matches('p')) {
-    return 'anchor';
-  }
-  return null;
-}
-
-/**
  * loads and decorates the hero, mainly the nav
  * @param {Element} block The hero block element
  */
 export default async function decorate(block) {
-  Object.values(block.children).forEach(
-    (row, i) => {
-      const rowType = classifyRow(row);
-      if (i > 2) {
-        // console.warn('The hero block can have the max of 3 columns');
-        return;
-      }
-      let newElement = null;
-      switch (rowType) {
-        case 'logo':
-          newElement = decorateLogo(row);
-          break;
-        case 'background':
-          newElement = decorateBackground(row);
-          break;
-        case 'anchor': {
-          newElement = decorateAnchor(row);
-          break;
-        }
-        default:
-        // console.warn('Could not classify block type');
-      }
-      if (newElement != null) row.replaceWith(newElement);
-    },
-  );
+  const [rowAnchor, rowLogo, rowBackground] = block.children;
+  const elementList = [
+    decorateLogo(rowLogo),
+    decorateBackground(rowBackground),
+    decorateAnchor(rowAnchor),
+  ];
+  block.replaceChildren(...elementList);
 }
