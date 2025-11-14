@@ -1,5 +1,6 @@
 import './main.js';
 import {
+  // eslint-disable-next-line no-unused-vars
   loadFooter,
   decorateButtons,
   decorateIcons,

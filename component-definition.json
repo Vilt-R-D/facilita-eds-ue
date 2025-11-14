@@ -185,16 +185,14 @@
                   "name": "Hero",
                   "model": "hero",
                   "block_logo": {
-                    "resourceType": "core/franklin/components/block/v1/block",
+                    "sling:resourceType": "core/franklin/components/block/v1/block",
                     "name": "Logo",
-                    "model": "logo-header",
-                    "logo-head_title": "logo"
+                    "model": "logo-header"
                   },
                   "block_background": {
-                    "resourceType": "core/franklin/components/block/v1/block",
+                    "sling:resourceType": "core/franklin/components/block/v1/block",
                     "name": "Imagem de Fundo",
-                    "model": "background-header",
-                    "background-header_title": "background"
+                    "model": "background-header"
                   }
                 }
               }

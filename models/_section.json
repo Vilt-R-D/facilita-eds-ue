@@ -41,9 +41,10 @@
           ]
         },
         {
-          "component": "select",
+          "component": "multiselect",
           "name": "move-to",
           "label": "Move to",
+          "maxSize": 1,
           "options": [
             {
               "name": "Header",

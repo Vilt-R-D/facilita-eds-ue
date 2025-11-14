@@ -1,7 +1,7 @@
 /* Enzo */
 .carousel.block {
     width: 100%;
-    min-width: 0px;
+    min-width: 0;
 
     h3 p {
         all: inherit;
@@ -307,8 +307,9 @@
             --swiper-wrapper-transition-timing-function,
             initial
         );
+
         /* Enzo */
-        width: 0vw;
+        width: 0;
         z-index: 1;
     }
 
