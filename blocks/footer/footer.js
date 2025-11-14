@@ -1,3 +1,4 @@
+/* eslint-disable no-script-url */
 import { createOptimizedPicture } from '../../scripts/aem.js';
 
 function chunkArray(arr, chunkSize) {
@@ -72,7 +73,7 @@ export default async function decorate(block) {
 
   const infosLi = document.createElement('li');
   const infosAnchor = document.createElement('a');
-  infosAnchor.href = '#';
+  infosAnchor.href = 'javascript:;';
   infosAnchor.textContent = 'Informações Úteis';
   infosLi.classList.add('c-uteis__lnk', 'js-content');
   infosLi.appendChild(infosAnchor);
@@ -88,7 +89,7 @@ export default async function decorate(block) {
 
   const supportLi = document.createElement('li');
   const supportAnchor = document.createElement('a');
-  supportAnchor.href = '#';
+  supportAnchor.href = 'javascript:;';
   supportAnchor.textContent = 'Atendimento';
   supportLi.classList.add('c-uteis__lnk', 'js-content', 'is-active');
   supportLi.appendChild(supportAnchor);
@@ -104,7 +105,7 @@ export default async function decorate(block) {
 
   const sitesLi = document.createElement('li');
   const sitesAnchor = document.createElement('a');
-  sitesAnchor.href = '#';
+  sitesAnchor.href = 'javascript:;';
   sitesAnchor.textContent = 'Sites Bradesco';
   sitesLi.classList.add('c-uteis__lnk', 'js-content');
   sitesLi.appendChild(sitesAnchor);
