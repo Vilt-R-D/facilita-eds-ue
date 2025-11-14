@@ -20,7 +20,8 @@
       "card-grid",
       "show-only",
       "app-teaser",
-      "footer"
+      "footer",
+      "teaser"
     ]
   },
   {
@@ -63,6 +64,12 @@
     "components": [
       "logo-header",
       "background-header"
+    ]
+  },
+  {
+    "id": "teaser",
+    "components": [
+      "teaser-icon"
     ]
   }
 ]

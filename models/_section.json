@@ -74,7 +74,8 @@
         "card-grid",
         "show-only",
         "app-teaser",
-        "footer"
+        "footer",
+        "teaser"
       ]
     }
   ]
