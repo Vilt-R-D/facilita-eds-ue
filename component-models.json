@@ -365,6 +365,61 @@
     ]
   },
   {
+    "id": "footer",
+    "fields": [
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "info",
+        "label": "Informações Úteis",
+        "required": true
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "support",
+        "label": "Atendimento",
+        "required": true
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "sites",
+        "label": "Sites Bradesco",
+        "required": true
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "social-media",
+        "label": "Acompanhe",
+        "required": true
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "address",
+        "label": "Endereço",
+        "required": true
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "logo",
+        "label": "Logo",
+        "multi": false,
+        "required": true
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "links",
+        "label": "Links",
+        "required": true
+      }
+    ]
+  },
+  {
     "id": "fragment",
     "fields": [
       {

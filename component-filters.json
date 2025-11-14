@@ -20,6 +20,7 @@
       "card-grid",
       "show-only",
       "app-teaser",
+      "footer",
       "teaser"
     ]
   },
@@ -53,6 +54,10 @@
       "button",
       "title"
     ]
+  },
+  {
+    "id": "footer",
+    "components": []
   },
   {
     "id": "hero",
