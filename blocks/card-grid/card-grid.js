@@ -1,4 +1,5 @@
 import { createOptimizedPicture } from '../../scripts/aem.js';
+import { moveInstrumentation } from '../../scripts/scripts.js';
 
 /**
  * loads and decorates the hero, mainly the nav
@@ -23,7 +24,8 @@ export default async function decorate(block) {
     anchor.title = `filtra ${filter}`;
     anchor.setAttribute('data-filter', index);
     anchor.innerHTML = filter;
-    anchor.href = '#';
+    // eslint-disable-next-line no-script-url
+    anchor.href = 'javascript:;';
 
     filterLI.appendChild(anchor);
     filtersUL.appendChild(filterLI);
@@ -33,7 +35,7 @@ export default async function decorate(block) {
 
   const lpCards = document.createElement('div');
   lpCards.classList.add('lp-cards');
-  const linkIcon = createOptimizedPicture('icons/saiba-mais.svg');
+  const linkIcon = createOptimizedPicture(`${window.hlx.codeBasePath}/icons/saiba-mais.svg`);
   const linkSpan = document.createElement('span');
   linkSpan.textContent = 'Saiba mais ';
   linkSpan.appendChild(linkIcon.cloneNode(true));
@@ -59,6 +61,8 @@ export default async function decorate(block) {
 
     const link = linkDiv.querySelector('a');
     link.replaceChildren(linkSpan.cloneNode(true));
+
+    moveInstrumentation(card, article);
 
     article.replaceChildren(header, ...text, link);
     lpCards.appendChild(article);

@@ -1,17 +1,15 @@
-import './main.js';
 import {
-  // eslint-disable-next-line no-unused-vars
-  loadFooter,
+  decorateBlocks,
   decorateButtons,
   decorateIcons,
   decorateSections,
-  decorateBlocks,
   decorateTemplateAndTheme,
-  waitForFirstImage,
+  loadCSS,
   loadSection,
   loadSections,
-  loadCSS,
+  waitForFirstImage,
 } from './aem.js';
+import './main.js';
 
 /**
  * Moves all the attributes from a given elmenet to another given element.

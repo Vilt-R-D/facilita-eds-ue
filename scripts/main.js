@@ -233,23 +233,23 @@ function waitForElement(selector, callback) {
       slidesPerView: 1,
       breakpoints: {
         320: {
-          slidesPerView: 1.1
+          slidesPerView: 1.1,
         },
         640: {
-          slidesPerView: 2.2
+          slidesPerView: 2.2,
         },
         960: {
-          slidesPerView: 3.3
+          slidesPerView: 3.3,
         },
         1280: {
-          slidesPerView: 4.4
+          slidesPerView: 4.4,
         },
         1600: {
-          slidesPerView: 5.5
+          slidesPerView: 5.5,
         },
         1900: {
-          slidesPerView: 6.6
-        }
+          slidesPerView: 6.6,
+        },
 
       },
       breakpointsBase: 'container',
@@ -364,15 +364,41 @@ function waitForElement(selector, callback) {
     }
   }
 
+  function initFooter() {
+    const options = [...document.querySelectorAll('.c-uteis__lnk')];
+    const contents = [...document.querySelectorAll('.c-uteis__content')];
+
+    options.forEach((opt, index) => {
+
+      opt.onclick = () => {
+        options.forEach((o) => o.classList.remove('is-active'));
+        opt.classList.add('is-active');
+
+        contents.forEach((content) => {
+          content.classList.remove('a-fadeIn');
+          content.classList.add('is-closed')
+          content.classList.remove('is-open');
+        });
+
+        contents[index].classList.remove('is-closed');
+        contents[index].classList.add('is-open');
+        contents[index].classList.add('a-fadeIn');
+      };
+    });
+  };
+
   function applyBehaviours() {
     initModalVideo();
-    initOthersFilters();
+
+    waitForElement('.lp-others', () => initOthersFilters());
 
     waitForElement('.swiper-container', () => {
-      loadJS(window.hlx.codeBasePath + '/scripts/swiper-bundle.js', () => {
+      loadJS(`${window.hlx.codeBasePath}/scripts/swiper-bundle.js`, () => {
         initSwiper();
       }, document.body);
     });
+
+    waitForElement('.c-footer', () => initFooter());
 
     // initResponsiveVideo();
     // initAppButtonsHandler();

@@ -162,6 +162,76 @@
     ]
   },
   {
+    "id": "app-teaser",
+    "fields": [
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "title",
+        "label": "Título",
+        "required": true
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "description",
+        "label": "Texto",
+        "required": true
+      },
+      {
+        "component": "aem-content",
+        "name": "link-1",
+        "label": "Link 1",
+        "required": true
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "link-1-image",
+        "label": "Imagem do Link 1",
+        "multi": false,
+        "required": true
+      },
+      {
+        "component": "aem-content",
+        "name": "link-2",
+        "label": "Link 2",
+        "required": true
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "link-2-image",
+        "label": "Imagem do Link 2",
+        "multi": false,
+        "required": true
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "image",
+        "label": "Imagem Principal",
+        "multi": false,
+        "required": true
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "qr-text",
+        "label": "Texto do QRCode",
+        "required": true
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "qrcode",
+        "label": "QRCode",
+        "multi": false,
+        "required": true
+      }
+    ]
+  },
+  {
     "id": "card-grid",
     "fields": [
       {
@@ -296,6 +366,61 @@
     ]
   },
   {
+    "id": "footer",
+    "fields": [
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "info",
+        "label": "Informações Úteis",
+        "required": true
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "support",
+        "label": "Atendimento",
+        "required": true
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "sites",
+        "label": "Sites Bradesco",
+        "required": true
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "social-media",
+        "label": "Acompanhe",
+        "required": true
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "address",
+        "label": "Endereço",
+        "required": true
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "logo",
+        "label": "Logo",
+        "multi": false,
+        "required": true
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "links",
+        "label": "Links",
+        "required": true
+      }
+    ]
+  },
+  {
     "id": "fragment",
     "fields": [
       {
@@ -399,6 +524,77 @@
             "value": ""
           }
         ]
+      }
+    ]
+  },
+  {
+    "id": "teaser",
+    "fields": [
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "text",
+        "label": "Texto"
+      },
+      {
+        "component": "container",
+        "label": "QR Code (Desktop)",
+        "description": "Seção para o usuário apontar a câmera, apenas em desktop.",
+        "name": "qrcode",
+        "valueType": "string",
+        "collapsible": true,
+        "fields": [
+          {
+            "component": "reference",
+            "name": "qrImg",
+            "label": "Imagem do QR Code",
+            "valueType": "string"
+          },
+          {
+            "component": "text",
+            "name": "qrTxt",
+            "label": "Descrição",
+            "description": "Texto ao lado do QR Code",
+            "valueType": "string"
+          }
+        ]
+      },
+      {
+        "component": "container",
+        "label": "Botão (Mobile)",
+        "description": "Botão para o usuário ser redirecionado, apenas em mobile.",
+        "name": "btn",
+        "valueType": "string",
+        "collapsible": true,
+        "fields": [
+          {
+            "component": "text",
+            "name": "link",
+            "label": "Link do botão"
+          },
+          {
+            "component": "text",
+            "name": "linkText",
+            "label": "Texto do botão"
+          }
+        ]
+      },
+      {
+        "component": "richtext",
+        "name": "disclaimer",
+        "label": "Disclaimer",
+        "description": "Texto abaixo do redirecionamento."
+      }
+    ]
+  },
+  {
+    "id": "teaser-icon",
+    "fields": [
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "icon",
+        "label": "Ícone"
       }
     ]
   }
