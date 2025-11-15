@@ -10,51 +10,30 @@
  *    - Ancora
 */
 
-import { getMetadata } from '../../scripts/aem.js';
-
-/**
- * Converte um elemento img para svg.
- * @param {HTMLElement} picture
- */
-function extractSVGfromPicture(picture) {
-  const source = picture.querySelector('img').src.split('?')[0];
-  const object = document.createElement('object');
-  object.type = 'image/svg+xml';
-  object.data = source;
-
-  return object;
-}
+import { createOptimizedPicture } from '../../scripts/aem.js';
+import createSkeleton from '../../scripts/vilt.js';
 
 /**
  * @param {Element} row
  * @returns {Element} Decorated link element.
  */
 function decorateLogo(row) {
-  const isUniversalEditor = getMetadata('modified-time') !== '';
-
-  const pictureEl = row.querySelector('picture');
-  let hasSVG = pictureEl.querySelector('source[type="image/svg+xml"]') != null;
-  hasSVG ||= pictureEl.querySelector('img[src*=".svg"]') != null;
-
-  const redirectUrl = row.lastElementChild.textContent.trim();
-  const aEl = document.createElement('a');
-  aEl.href = redirectUrl;
-  aEl.title = 'bradesco';
-  aEl.className = 'lp-bradesco';
-
-  if (hasSVG && !isUniversalEditor) {
-    const svg = extractSVGfromPicture(pictureEl);
-    aEl.append(svg);
-  } else {
-    aEl.appendChild(pictureEl);
+  row.id = 'topbar';
+  const isUE = row.dataset.aueResource != null;
+  const [pictureCol, urlCol] = [...row.children];
+  if (!isUE) {
+    const optimizedPic = createOptimizedPicture(pictureCol.firstElementChild.lastElementChild.src.split('?')[0]);
+    pictureCol.firstChild.replaceWith(optimizedPic);
   }
-  const div = document.createElement('div');
-  div.id = 'topbar';
-  // div.className = 'lp-topbar';
-
-  div.appendChild(aEl);
-
-  return div;
+  if (urlCol.children.length !== 0) {
+    pictureCol.remove();
+    const anchor = urlCol.querySelector('a');
+    if (anchor) {
+      anchor.innerHTML = '';
+      anchor.appendChild(pictureCol.firstChild);
+    }
+  }
+  return row;
 }
 
 /**
@@ -62,43 +41,47 @@ function decorateLogo(row) {
  * @returns {Element} Decorated Picture element.
  */
 function decorateBackground(row) {
-  const pictures = row.querySelectorAll('picture');
-  const pictureEl = document.createElement('picture');
-  // Pegar a imagem grande de desktop e a original como fallback. Também pegar a para celular.
-  const isUniversalEditor = pictures[0].childElementCount <= 1;
-  if (!isUniversalEditor) {
-    const srcDesktopBig = pictures[0].children[2];
-    const imgDesktopFallback = pictures[0].lastElementChild;
-    const srcMobile = pictures[1].children[2];
-    srcDesktopBig.setAttribute('media', '(min-width: 720px)');
-    srcMobile.setAttribute('media', '(max-width: 719px)');
-    pictureEl.append(srcDesktopBig, srcMobile, imgDesktopFallback);
-  } else {
-    const imgDesktop = pictures[0].firstElementChild;
-    [imgDesktop.src] = imgDesktop.src.split('?');
-    const imgMobile = pictures[1].firstElementChild;
-    const srcMobile = document.createElement('source');
-    srcMobile.setAttribute('media', '(max-width: 719px)');
-    [srcMobile.srcset] = imgMobile.src.split('?');
-    pictureEl.append(srcMobile, imgDesktop);
+  const isUE = row.dataset.aueResource != null;
+  row.id = 'hero-container';
+  const [desktopPicture, mobilePicture] = [...row.children].map((columns) => columns.querySelector('picture'));
+  if (desktopPicture) {
+    if (isUE) {
+      desktopPicture.id = 'hero-background';
+      desktopPicture.className = 'desktop-only';
+      if (mobilePicture) {
+        mobilePicture.className = 'mobile-only';
+        mobilePicture.id = 'hero-background';
+      }
+      return row;
+    }
+    const optimizedPicDesktop = createOptimizedPicture(desktopPicture.lastElementChild.src, '', true);
+    optimizedPicDesktop.id = 'hero-background';
+    if (mobilePicture) {
+      const optimizedPicMobile = createOptimizedPicture(mobilePicture.lastElementChild.src, '', true);
+      const mobileSource = optimizedPicMobile.children[2];
+      mobileSource.media = '(max-width: 600px)';
+      optimizedPicDesktop.prepend(mobileSource);
+      row.lastElementChild.remove();
+    }
+    row.firstElementChild.replaceWith(optimizedPicDesktop);
+    return row;
   }
-
-  pictureEl.id = 'hero-background';
-  // pictureEl.className = 'lp-video';
-
-  return pictureEl;
+  row.appendChild(createSkeleton('500px', '1800px'));
+  return row;
 }
 
 /**
  * @param {Element} row
- * @returns {Element} Decorated Nav element.
+ * @returns {Element | null} Decorated Nav element.
  */
 function decorateAnchor(row) {
-  const anchorID = row.textContent.trim();
-  const anchorEl = document.createElement('a');
+  const col = row.firstElementChild;
+  if (col.children.length === 0) {
+    return row;
+  }
+  const anchor = col.querySelector('a');
+  anchor.innerHTML = '';
   const iconEl = document.createElement('i');
-  anchorEl.href = `#${anchorID}`;
-
   const svgs = Array.from({ length: 2 }, () => {
     const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
     const use = document.createElementNS('http://www.w3.org/2000/svg', 'use');
@@ -109,31 +92,11 @@ function decorateAnchor(row) {
 
   iconEl.append(...svgs);
   const nav = document.createElement('nav');
-  anchorEl.appendChild(nav);
+  anchor.appendChild(nav);
   nav.appendChild(iconEl);
   nav.id = 'hero-anchor';
-
-  return anchorEl;
-}
-
-/**
- * @param {Element} row É uma div
- * @returns {string} 'logo', 'background' or 'anchor'
- */
-function classifyRow(row) {
-  // A div contém filhas picture?
-  const firstCol = row.children[0];
-  if (firstCol.children[0].matches('picture')) {
-    // Pode ser tanto Logo, quanto o fundo.
-    if (firstCol.nextElementSibling.children[0].matches('p')) {
-      return 'logo';
-    }
-    return 'background';
-  }
-  if (firstCol.children[0].matches('p')) {
-    return 'anchor';
-  }
-  return null;
+  row.replaceChildren(nav);
+  return row;
 }
 
 /**
@@ -141,29 +104,8 @@ function classifyRow(row) {
  * @param {Element} block The hero block element
  */
 export default async function decorate(block) {
-  Object.values(block.children).forEach(
-    (row, i) => {
-      const rowType = classifyRow(row);
-      if (i > 2) {
-        // console.warn('The hero block can have the max of 3 columns');
-        return;
-      }
-      let newElement = null;
-      switch (rowType) {
-        case 'logo':
-          newElement = decorateLogo(row);
-          break;
-        case 'background':
-          newElement = decorateBackground(row);
-          break;
-        case 'anchor': {
-          newElement = decorateAnchor(row);
-          break;
-        }
-        default:
-        // console.warn('Could not classify block type');
-      }
-      if (newElement != null) row.replaceWith(newElement);
-    },
-  );
+  const [rowAnchor, rowLogo, rowBackground] = block.children;
+  decorateAnchor(rowAnchor);
+  decorateLogo(rowLogo);
+  decorateBackground(rowBackground);
 }

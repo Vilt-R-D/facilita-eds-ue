@@ -144,9 +144,10 @@
         ]
       },
       {
-        "component": "select",
+        "component": "multiselect",
         "name": "move-to",
         "label": "Move to",
+        "maxSize": 1,
         "options": [
           {
             "name": "Header",
@@ -443,8 +444,12 @@
         "component": "text",
         "valueType": "string",
         "name": "logo-redirect",
-        "label": "URL de redirecionamento",
-        "description": "Local para onde o usuário será redirecionado ao clicar na logo."
+        "label": "URL de Redirecionamento",
+        "description": "Local para onde o usuário será redirecionado ao clicar na logo.",
+        "validation": {
+          "regExp": "^https?:\\/\\/(?:www\\.)?[-a-zA-Z0-9@:%._\\+~#=]{1,256}\\.[a-zA-Z0-9()]{1,6}\\b(?:[-a-zA-Z0-9()@:%_\\+.~#?&\\/=]*)$",
+          "customErrorMsg": "URL não identificada."
+        }
       }
     ]
   },
@@ -455,14 +460,28 @@
         "component": "reference",
         "valueType": "string",
         "name": "background",
-        "label": "Imagem do Header",
+        "label": "Versão Padrão",
         "required": true
       },
       {
         "component": "reference",
         "valueType": "string",
         "name": "background-mobile",
-        "label": "Versão da imagem para celular"
+        "label": "Versão para Celular",
+        "condition": {
+          "!": {
+            "some": [
+              {
+                "missing": [
+                  "background"
+                ]
+              },
+              [
+                "background"
+              ]
+            ]
+          }
+        }
       }
     ]
   },
@@ -474,7 +493,11 @@
         "valueType": "string",
         "name": "ancora",
         "label": "Âncora",
-        "description": "id da seção a ser redirecionado."
+        "description": "ID do elemento ao qual a tela vai redirecionada.",
+        "validation": {
+          "regExp": "^#.*$",
+          "customErrorMsg": "Inicie a referência ao ID do elemento com o símbolo: #"
+        }
       }
     ]
   },

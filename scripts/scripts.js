@@ -76,7 +76,8 @@ function buildAutoBlocks() {
  */
 // eslint-disable-next-line import/prefer-default-export
 export function decorateMain(main) {
-  main.classList.add('lp-wrapper');
+  // Enzo
+  // main.classList.add('lp-wrapper');
   // hopefully forward compatible button decoration
   decorateButtons(main);
   decorateIcons(main);

@@ -216,7 +216,16 @@
                 "template": {
                   "name": "Hero",
                   "model": "hero",
-                  "filter": "hero"
+                  "block_logo": {
+                    "sling:resourceType": "core/franklin/components/block/v1/block",
+                    "name": "Logo",
+                    "model": "logo-header"
+                  },
+                  "block_background": {
+                    "sling:resourceType": "core/franklin/components/block/v1/block",
+                    "name": "Imagem de Fundo",
+                    "model": "background-header"
+                  }
                 }
               }
             }

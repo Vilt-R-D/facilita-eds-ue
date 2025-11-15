@@ -38,7 +38,7 @@
   pointer-events: none;
   display: inline;
   width: 168px;
-  height: 38px;
+  height: auto;
 }
 
 #hero-anchor {

@@ -488,7 +488,8 @@ function decorateSections(main) {
         wrappers.push(wrapper);
         defaultContent = e.tagName !== 'DIV' || !e.className;
         if (defaultContent) wrapper.classList.add('default-content-wrapper');
-        if (e.tagName === 'H2') wrapper.classList.add('lp-container');
+        // Enzo
+        // if (e.tagName === 'H2') wrapper.classList.add('lp-container');
       }
       wrappers[wrappers.length - 1].append(e);
     });
@@ -655,6 +656,17 @@ async function waitForFirstImage(section) {
 }
 
 /**
+   * @param {string} str
+   * @param {str} currentValue
+   * @param {number} i
+   */
+function reduceToClassSelector(str, currentValue) {
+  // eslint-disable-next-line no-param-reassign
+  str += `.${currentValue},`;
+  return str;
+}
+
+/**
  * Loads all blocks in a section.
  * @param {Element} section The section element
  */
@@ -674,10 +686,14 @@ async function loadSection(section, loadCallback) {
     if (loadCallback) await loadCallback(section);
     section.dataset.sectionStatus = 'loaded';
     section.style.display = null;
-  }
-  if (moveTo) {
-    const element = document.querySelector(moveTo);
-    element.appendChild(section);
+
+    const movedElement = document.querySelector(`${moveTo}>:is(${[...section.classList].reduce(reduceToClassSelector, '').slice(0, -1)})`);
+    if (moveTo && !movedElement) {
+      const element = document.querySelector(moveTo);
+      element.append(section);
+    } else if (moveTo && movedElement) {
+      movedElement.replaceWith(section);
+    }
   }
 }
 

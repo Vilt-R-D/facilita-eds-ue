@@ -126,7 +126,6 @@ html {
         }
 
         picture {
-            /* width: inst; */
             display: block;
             padding: 20px 0;
 
@@ -166,6 +165,29 @@ main > .section {
 
 @media (width >= 1280px) {
     .hidden-lg {
-        display: none !important;
+        display: none !important
+    }
+}
+
+.skeleton {
+    margin: 32px auto;
+    border-radius: 40px;
+    box-shadow:
+        -14px -3px 80px -5px rgb(255 255 255 / 94%) inset,
+        5px 20px 40px rgb(0 0 0 / 2.5%);
+    background-image: linear-gradient(45deg, rgb(256 256 256 / 0%) 45%, rgb(255 255 255 / 60%) 50%, rgb(256 256 256 / 0%) 55%);
+    background-repeat: repeat;
+    background-size: 2000px 2000px;
+    background-position-y: 50%;
+    animation: shimmer 1500ms infinite linear;
+}
+
+@keyframes shimmer {
+    from {
+        background-position-x: 0;
+    }
+
+    to {
+        background-position-x: 2000px;
     }
 }
