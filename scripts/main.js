@@ -89,7 +89,7 @@ function waitForElement(selector, callback) {
     }
 
     if (document.readyState === 'complete') {
-      fetch('https://youtube.com/favicon.ico').then(() => {
+      if (true) {
         let ytPlayer;
 
         function loadPlayerScripts(videoId) {
@@ -158,7 +158,8 @@ function waitForElement(selector, callback) {
             $modalVideo.open = true;
           }
         });
-      }).catch((err) => {
+      }
+      else {
         const $videoFallback = document.createElement('video');
         $videoFallback.width = 482;
         $videoFallback.controls = true;
