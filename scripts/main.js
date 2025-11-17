@@ -192,7 +192,7 @@ function waitForElement(selector, callback) {
             $modalVideo.open = true;
           }
         });
-      });
+      };
     }
   }
 
