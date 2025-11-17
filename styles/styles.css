@@ -149,6 +149,10 @@ main > .section {
 }
 
 @media screen and (width >= 1199px) {
+    main > .section:first-child {
+        padding-top: 0;
+    }
+
     main > .section {
         width: 100%;
         max-width: 1440px;

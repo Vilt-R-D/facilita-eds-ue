@@ -86,9 +86,17 @@ export default async function decorate(block) {
     const figureCaption = document.createElement('figcaption');
     const youtubeAnchor = document.createElement('a');
     const youtubeVideoId = youtubeLink.includes('/embed/') ? youtubeLink.split('/embed/')[1] : '';
+    const youtubeVideoTitle = cardTitleDiv.textContent.trim()
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g, '')
+      .toLowerCase()
+      .replace(/[^a-zA-Z0-9 ]/g, '')
+      .replaceAll(' ', '-');
     youtubeAnchor.setAttribute('data-video-id', youtubeVideoId);
-    youtubeAnchor.href = '#consorcio';
+    youtubeAnchor.setAttribute('aria-label', youtubeVideoTitle);
+    youtubeAnchor.href = `#${youtubeVideoTitle}`;
     figureCaption.replaceChildren(youtubeAnchor);
+
 
     pictureFigure.classList.add('lp-videocard');
     pictureFigure.replaceChildren(picture, figureCaption);
