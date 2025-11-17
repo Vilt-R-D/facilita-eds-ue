@@ -176,6 +176,22 @@
           }
         },
         {
+          "title": "Fale com a Bia",
+          "id": "fale-com-a-bia",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Fale com a Bia",
+                  "model": "fale-com-a-bia",
+                  "filter": "fale-com-a-bia"
+                }
+              }
+            }
+          }
+        },
+        {
           "title": "Footer",
           "id": "footer",
           "plugins": {

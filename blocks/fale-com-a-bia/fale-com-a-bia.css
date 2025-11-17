@@ -1,0 +1,321 @@
+.fale-com-a-bia.block {
+    #chatbia-button a::before {
+        all: unset;
+    }
+
+    #chatbia-qrcode a::before {
+        animation: blink 2s infinite;
+        border: 10px solid #f70343;
+        border-radius: 100%;
+        content: "";
+        display: block;
+        height: 72px;
+        left: 50%;
+        opacity: 0.25;
+        position: absolute;
+        transform: translate(-50%, -50%);
+        top: 45.9%;
+        width: 72px;
+    }
+
+    .container-chatbia-qrcode {
+        cursor: pointer;
+    }
+
+    #chatbia-qrcode {
+        bottom: 50px;
+        position: fixed;
+        right: 25px;
+        transition: 0.5s ease-in-out;
+        z-index: 1001;
+    }
+
+    #chatbia-qrcode.show {
+        opacity: 1;
+        right: -0.75rem;
+    }
+
+    #chatbia-qrcode-button {
+        border-radius: 100%;
+        -webkit-font-smoothing: subpixel-antialiased;
+        height: 72px;
+        transform: scale(1, 1) translate(-32%, 32%) translateZ(0);
+        width: 72px;
+    }
+
+    #chatbia-qrcode-button a {
+        display: block;
+        height: 78px;
+        overflow: hidden;
+        width: 72px;
+    }
+
+    #chatbia-qrcode-button a::before {
+        animation: blink 2s infinite;
+        background: linear-gradient(133deg, #f70343 0, #b61d6f 100%) 0 0
+            no-repeat;
+        border-radius: 100%;
+        content: "";
+        display: block;
+        height: 72px;
+        left: 50%;
+        opacity: 0.25;
+        position: absolute;
+        transform: translate(-50%, -50%);
+        top: 50%;
+        width: 72px;
+    }
+
+    .container-bia-qrcode img {
+        margin-top: 5px;
+        width: 154px;
+        height: 154px;
+    }
+
+    #chatbia-qrcode-button a img,
+    #chatbia-qrcode-button a svg {
+        max-width: none;
+        position: relative;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    #chatbia-qrcode-balloon {
+        bottom: calc(100% - 16px);
+        height: 0;
+        overflow: hidden;
+        padding: 0;
+        position: absolute;
+        right: 2.75rem;
+        transition: 0.5s ease-in-out;
+        width: 0;
+    }
+
+    #chatbia-qrcode-balloon .balloon {
+        background: #3b69ff 0 0 no-repeat padding-box;
+        border-radius: 4px;
+        box-shadow: 0 4px 12px rgb(0 0 0 / 16%);
+        height: 100%;
+        padding: 0;
+        position: relative;
+        transition: 0.5s ease-in-out;
+        visibility: hidden;
+        width: 100%;
+    }
+
+    #chatbia-qrcode-balloon .balloon::before {
+        background: rgb(0 0 0 / 48%) 0 0 no-repeat padding-box;
+        content: "";
+        display: block;
+        height: 100vh;
+        left: 100vw;
+        opacity: 0;
+        position: fixed;
+        top: -100vh;
+        transition: opacity 0.5s ease-in-out;
+        width: 100vw;
+        visibility: hidden;
+        z-index: -1;
+    }
+
+    #chatbia-qrcode-balloon .balloon::after {
+        border: solid #fff0;
+        border-color: #fff0;
+        border-top-color: #3b69ff;
+        border-width: 0;
+        content: "";
+        height: 0;
+        margin-right: -8px;
+        opacity: 0;
+        pointer-events: none;
+        position: absolute;
+        right: 0;
+        top: 100%;
+        transition: 0.5s ease-in-out;
+        width: 0;
+    }
+
+    #chatbia-qrcode-balloon a#chatbia-qrcode-fechar {
+        background: url("https://assets.bradesco/content/dam/portal-bradesco/assets/common/chatbia/svg/icone-fechar.svg")
+            no-repeat;
+        display: block;
+        height: 8px;
+        opacity: 0;
+        position: absolute;
+        right: 16px;
+        top: 16px;
+        transition: 0.5s ease-in-out;
+        width: 8px;
+    }
+
+    .container-bia-qrcode p {
+        line-height: inherit;
+    }
+
+    #chatbia-qrcode-balloon p {
+        color: #fff;
+        font-size: 13px;
+        line-height: 16px;
+        height: 80px;
+        margin-bottom: 0;
+        margin-top: 0;
+        opacity: 0;
+        overflow: hidden;
+        transition: 0.5s ease-in-out;
+        width: 249px;
+    }
+
+    #chatbia-qrcode-balloon.show {
+        height: 128px;
+        padding: 8px;
+        right: 1.25rem;
+        width: 326px;
+    }
+
+    html.ie.no-supports.no-cssfilters #chatbia-qrcode-balloon.show {
+        overflow: visible;
+    }
+
+    #chatbia-qrcode-balloon.show .balloon {
+        padding: 16px 45px 16px 16px;
+        visibility: visible;
+    }
+
+    #chatbia-qrcode-balloon.show .balloon::before {
+        height: 100vh;
+        left: 0;
+        opacity: 1;
+        top: 0;
+        width: 100vw;
+        visibility: visible;
+    }
+
+    #chatbia-qrcode-balloon.show .balloon::after {
+        border-width: 8px;
+        margin-right: -8px;
+        opacity: 1;
+        right: 2.25rem;
+    }
+
+    #chatbia-qrcode-balloon.show a#chatbia-qrcode-fechar {
+        opacity: 1;
+    }
+
+    #chatbia-qrcode-balloon.show p {
+        opacity: 1;
+    }
+
+    .container-bia-qrcode {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        position: fixed;
+        text-align: center;
+        right: -310px;
+        bottom: 5rem;
+        width: 310px;
+        height: 465px;
+        background: #fff;
+        box-shadow: 0 6px 12px #00000052;
+        border-radius: 10px 10px 0;
+        padding: 1rem;
+        gap: 5px;
+        z-index: 1000;
+        transform: scale(0.9);
+    }
+
+    .container-bia-qrcode p.title {
+        color: #000;
+        font-weight: 700;
+        font-size: 18px;
+    }
+
+    .container-bia-qrcode p.subtitle {
+        color: #000;
+        font-weight: 600;
+        font-size: 14px;
+    }
+
+    .container-bia-qrcode p.description {
+        color: #000;
+        font-weight: 600;
+        text-align: left;
+        font-size: 14px;
+    }
+
+    .chatbia-close {
+        background: url("https://assets.bradesco/content/dam/portal-bradesco/assets/common/chatbia/img/chatbia-close.svg");
+        background-repeat: no-repeat;
+        background-position-x: center;
+        background-position-y: center;
+        background-size: contain;
+        display: none;
+        justify-content: center;
+        align-items: center;
+        width: 108px;
+        height: 110px;
+    }
+
+    .chatbia-close-img {
+        width: 20px;
+        height: 20px;
+    }
+
+    @media screen and (width >= 1023px) {
+        #chatbia-qrcode.show {
+            right: 0;
+            display: block !important;
+        }
+
+        body.chatbia-desktop #chatbia-qrcode {
+            display: block !important;
+        }
+    }
+
+    @media (width >= 769px) {
+        #chatbia,
+        #chatbia-button {
+            display: none;
+        }
+    }
+
+    @media (width <= 768px) {
+        .container-chatbia-qrcode {
+            display: none;
+        }
+
+        #chatbia {
+            display: flex;
+        }
+    }
+
+    @keyframes blink {
+        0% {
+            opacity: 0.25;
+        }
+
+        50% {
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 0.25;
+        }
+    }
+
+    @keyframes blink {
+        0% {
+            opacity: 0.25;
+        }
+
+        50% {
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 0.25;
+        }
+    }
+}

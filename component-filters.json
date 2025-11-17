@@ -21,7 +21,8 @@
       "show-only",
       "app-teaser",
       "footer",
-      "teaser"
+      "teaser",
+      "fale-com-a-bia"
     ]
   },
   {
@@ -54,6 +55,10 @@
       "button",
       "title"
     ]
+  },
+  {
+    "id": "fale-com-a-bia",
+    "components": []
   },
   {
     "id": "footer",
