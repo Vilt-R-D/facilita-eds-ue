@@ -5,3 +5,5 @@ dompurify.min.js
 # Disable lint for migrated JS from prod
 scripts/main.js
 scripts/swiper-bundle.js
+scripts/js-cookie.min.js
+scripts/cookies.js
