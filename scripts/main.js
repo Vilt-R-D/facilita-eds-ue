@@ -158,8 +158,7 @@ function waitForElement(selector, callback) {
             $modalVideo.open = true;
           }
         });
-      }
-      else {
+      } else {
         const $videoFallback = document.createElement('video');
         $videoFallback.width = 482;
         $videoFallback.controls = true;
@@ -192,7 +191,7 @@ function waitForElement(selector, callback) {
             $modalVideo.open = true;
           }
         });
-      };
+      }
     }
   }
 
@@ -401,6 +400,7 @@ function waitForElement(selector, callback) {
   function applyBehaviours() {
     waitForElement('.lp-swiper', initModalVideo);
     waitForElement('.lp-others', () => initOthersFilters());
+    waitForElement('.c-footer', () => initFooter());
 
     waitForElement('.swiper-container', () => {
       loadJS(`${window.hlx.codeBasePath}/scripts/swiper-bundle.js`, () => {
@@ -410,14 +410,18 @@ function waitForElement(selector, callback) {
       }, document.body);
     });
 
-    waitForElement('.c-footer', () => initFooter());
-
     waitForElement('.js-cookie', () => {
       loadJS(`${window.hlx.codeBasePath}/scripts/js-cookie.min.js`, () => {
         loadJS(`${window.hlx.codeBasePath}/scripts/cookies.js`, () => {
           initCookies();
           bindToggleCollapse();
         }, document.body);
+      }, document.body);
+    });
+
+    waitForElement('.container-chatbia-qrcode', () => {
+      loadJS(`${window.hlx.codeBasePath}/scripts/chatbia-qrcode.js`, () => {
+
       }, document.body);
     });
 
