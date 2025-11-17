@@ -58,8 +58,7 @@ function getCookiesCTA() {
 
   const cookiesDiv = document.createElement('div');
   cookiesDiv.id = 'cookies';
-  cookiesDiv.className = 'cookies js-cookie is-hidden is-hidden';
-  cookiesDiv.style.display = 'block';
+  cookiesDiv.className = 'cookies js-cookie is-hidden';
 
   const contentDiv = document.createElement('div');
   contentDiv.className = 'cookies__content';
