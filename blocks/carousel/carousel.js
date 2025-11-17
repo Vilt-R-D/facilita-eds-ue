@@ -97,7 +97,6 @@ export default async function decorate(block) {
     youtubeAnchor.href = `#${youtubeVideoTitle}`;
     figureCaption.replaceChildren(youtubeAnchor);
 
-
     pictureFigure.classList.add('lp-videocard');
     pictureFigure.replaceChildren(picture, figureCaption);
 
