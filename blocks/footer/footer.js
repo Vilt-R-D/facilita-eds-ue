@@ -263,6 +263,7 @@ export default async function decorate(block) {
   ] = block.children;
 
   block.classList.add('c-footer');
+  console.log({ infosDiv, supportDiv, sitesDiv, socialMediaDiv, addressDiv, logoDiv, linksDiv })
 
   const cUteis = document.createElement('div');
   cUteis.classList.add('c-uteis');
