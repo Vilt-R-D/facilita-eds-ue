@@ -387,6 +387,26 @@ function waitForElement(selector, callback) {
     });
   };
 
+  function initCookies() {
+    const anchor = document.querySelector('a[title="Preferência Cookies"]');
+    if (!anchor) return;
+
+    anchor.href = 'javascript:showCookie();';
+  };
+
+  function bindToggleCollapse() {
+    // Seleciona todos os botões dentro dos headers de conteúdo do modal de cookies
+    const toggleButtons = document.querySelectorAll('#cookieModal .header-content button');
+    toggleButtons.forEach((button, index) => {
+
+      button.addEventListener('click', function () {
+        const collapseId = 'collapseContent0' + (index + 1);
+
+        toggleCollapse(collapseId, this);
+      });
+    });
+  }
+
   function applyBehaviours() {
     initModalVideo();
 
@@ -399,6 +419,15 @@ function waitForElement(selector, callback) {
     });
 
     waitForElement('.c-footer', () => initFooter());
+
+    waitForElement('.js-cookie', () => {
+      loadJS(`${window.hlx.codeBasePath}/scripts/js-cookie.min.js`, () => {
+        loadJS(`${window.hlx.codeBasePath}/scripts/cookies.js`, () => {
+          initCookies();
+          bindToggleCollapse();
+        }, document.body)
+      }, document.body)
+    })
 
     // initResponsiveVideo();
     // initAppButtonsHandler();
@@ -417,3 +446,4 @@ function waitForElement(selector, callback) {
 //     window.location.href = url;
 //   }
 // }
+
