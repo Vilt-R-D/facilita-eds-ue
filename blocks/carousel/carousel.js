@@ -1,3 +1,19 @@
+function htmlToPlainText(htmlString) {
+  const tempDiv = document.createElement('div');
+  tempDiv.innerHTML = htmlString.replaceAll('&nbsp;', ' ');
+
+  return tempDiv.textContent || tempDiv.innerText;
+}
+
+function normalizeStr(str) {
+  return str.normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .toLowerCase()
+    .replace(/[^a-zA-Z0-9 ]/g, '')
+    .split(' ')
+    .join('-');
+}
+
 /**
  * loads and decorates the hero, mainly the nav
  * @param {Element} block The hero block element
@@ -86,12 +102,8 @@ export default async function decorate(block) {
     const figureCaption = document.createElement('figcaption');
     const youtubeAnchor = document.createElement('a');
     const youtubeVideoId = youtubeLink.includes('/embed/') ? youtubeLink.split('/embed/')[1] : '';
-    const youtubeVideoTitle = cardTitleDiv.textContent.trim()
-      .normalize('NFD')
-      .replace(/[\u0300-\u036f]/g, '')
-      .toLowerCase()
-      .replace(/[^a-zA-Z0-9 ]/g, '')
-      .replaceAll(' ', '-');
+    const cardTitleText = cardTitleDiv.children[0].innerHTML.split('<br>').join(' ');
+    const youtubeVideoTitle = normalizeStr(htmlToPlainText(cardTitleText));
     youtubeAnchor.setAttribute('data-video-id', youtubeVideoId);
     youtubeAnchor.setAttribute('aria-label', youtubeVideoTitle);
     youtubeAnchor.href = `#${youtubeVideoTitle}`;
