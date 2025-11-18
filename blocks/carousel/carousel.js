@@ -56,7 +56,7 @@ export default async function decorate(block) {
 
   cards.forEach((card) => {
     const children = [...card.children];
-    if(!children.every((c) => c.children && c.children.length > 0)) return;
+    if (!children.every((c) => c.children && c.children.length > 0)) return;
 
     const [pictureDiv, youtubeLinkDiv, iconDiv, cardTitleDiv, lpActions, cardLinkDiv,
       qrCodeDiv] = children;
