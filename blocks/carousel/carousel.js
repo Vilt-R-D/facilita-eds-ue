@@ -69,8 +69,8 @@ export default async function decorate(block) {
     const lpSlide = document.createElement('div');
     lpSlide.classList.add('lp-slide');
 
-    lpActions.children[0].classList.add('desk-only');
-    const buttonText = lpActions.children[0].textContent.replace(' pelo app', '');
+    lpActions.children?.[0].classList.add('desk-only');
+    const buttonText = lpActions.children?.[0].textContent.replace(' pelo app', '');
     const buttonSpan = document.createElement('span');
     buttonSpan.textContent = buttonText;
     cardAnchor.replaceChildren(buttonSpan);
