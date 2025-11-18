@@ -95,7 +95,13 @@ export default async function decorate(block) {
     youtubeAnchor.setAttribute('data-video-id', youtubeVideoId);
     youtubeAnchor.setAttribute('aria-label', youtubeVideoTitle);
     youtubeAnchor.href = `#${youtubeVideoTitle}`;
-    figureCaption.replaceChildren(youtubeAnchor);
+
+    const icon = document.createElement('i');
+    const iconImgEl = document.createElement('img');
+    iconImgEl.setAttribute('src', `${window.hlx.codeBasePath}/icons/play-btn-min.svg`);
+    icon.replaceChildren(iconImgEl);
+
+    figureCaption.replaceChildren(youtubeAnchor, icon);
 
     pictureFigure.classList.add('lp-videocard');
     pictureFigure.replaceChildren(picture, figureCaption);
