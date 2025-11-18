@@ -17,6 +17,10 @@
 - **Preview**: [https://main--facilita-eds-ue--vilt-r-d.aem.live/](https://main--facilita-eds-ue--vilt-r-d.aem.page)
 - **Live**: [https://main--facilita-eds-ue--vilt-r-d.aem.page/](https://main--facilita-eds-ue--vilt-r-d.aem.page)
 
+## Avisos
+
+O arquivo `helix-query.xml` foi excluído pois, como mencionado na introdução [desse](https://www.aem.live/developer/indexing) artigo, não funciona mais.
+
 
 ## Prerequisites
 
