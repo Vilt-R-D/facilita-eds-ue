@@ -54,18 +54,18 @@ export default async function decorate(block) {
 
   navPagination.replaceChildren(leftButton, bradPagination, rightButton);
 
-  cards.forEach((c) => {
-    const [pictureDiv, youtubeLinkDiv, iconDiv, cardTitleDiv, lpActions, cardLinkDiv,
-      qrCodeDiv] = c.children;
+  cards.forEach((card) => {
+    const children = [...card.children];
+    if (!children.every((c) => c.children && c.children.length > 0)) return;
 
-    // Youtuber link is a required attribute.
-    // If it's not present, then cards was not properly authored.
-    if (!youtubeLinkDiv.querySelector('a')) return;
+    const [pictureDiv, youtubeLinkDiv, iconDiv, cardTitleDiv, lpActions, cardLinkDiv,
+      qrCodeDiv] = children;
+
     const youtubeLink = youtubeLinkDiv.querySelector('a').href;
 
     const cardAnchor = cardLinkDiv.querySelector('a');
 
-    c.classList.add('swiper-slide');
+    card.classList.add('swiper-slide');
     const lpSlide = document.createElement('div');
     lpSlide.classList.add('lp-slide');
 
@@ -125,7 +125,7 @@ export default async function decorate(block) {
     qrCodeFigure.replaceChildren(qrCode);
 
     lpSlide.replaceChildren(lpActions, pictureFigure, article, qrCodeFigure);
-    c.replaceChildren(lpSlide);
+    card.replaceChildren(lpSlide);
   });
 
   lpContainer.replaceChildren(swiperWrapper, navPagination);
