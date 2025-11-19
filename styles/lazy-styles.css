@@ -1,3 +1,4 @@
 /* add global styles that can be loaded post LCP here */
 @import url("https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css");
 @import url("../styles/cookies.css");
+@import url("../styles/resets.css");

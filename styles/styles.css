@@ -1,6 +1,5 @@
 /* Importa código para normalizar o padrão do CSS entre os navegadores. */
 @import url("../styles/normalize.css");
-@import url("../styles/resets.css");
 
 :root {
     /* colors - vindo de main.css do site original */
