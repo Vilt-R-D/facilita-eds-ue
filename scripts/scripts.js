@@ -10,7 +10,6 @@ import {
   waitForFirstImage,
 } from './aem.js';
 import './main.js';
-import { appendGTM } from './gtm.js';
 
 /**
  * Moves all the attributes from a given elmenet to another given element.
@@ -144,7 +143,6 @@ async function loadPage() {
   await loadEager(document);
   await loadLazy(document);
   loadDelayed();
-  appendGTM();
 }
 
 loadPage();

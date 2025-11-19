@@ -389,13 +389,10 @@ function waitForElement(selector, callback) {
 
       }, document.body);
     });
-
-    waitForElement('.c-footer', startGTM);
-
+    
     // initResponsiveVideo();
     // initAppButtonsHandler();
     // initScrollTo();
-
     // initJSLazy();
     // fixAcessib();
   }
