@@ -56,10 +56,9 @@ export default async function decorate(block) {
 
   cards.forEach((card) => {
     const children = [...card.children];
-    if (!children.every((c) => c.children && c.children.length > 0)) return;
 
-    const [pictureDiv, youtubeLinkDiv, iconDiv, cardTitleDiv, lpActions, cardLinkDiv,
-      qrCodeDiv] = children;
+    const [pictureDiv, youtubeLinkDiv, iconDiv, cardTitleDiv, qrCodeDiv,
+      cardLinkDiv, lpActions, anchorIconDiv, devicesBoolean] = children;
 
     const youtubeLink = youtubeLinkDiv.querySelector('a').href;
 
@@ -73,13 +72,26 @@ export default async function decorate(block) {
     const buttonText = lpActions.children[0].textContent.replace(' pelo app', '');
     const buttonSpan = document.createElement('span');
     buttonSpan.textContent = buttonText;
+
     cardAnchor.replaceChildren(buttonSpan);
-    cardAnchor.classList.add('mobile-only');
+    const iEl = document.createElement('i');
+    const iPictureEl = anchorIconDiv.querySelector('picture');
+    if (iPictureEl) {
+      iPictureEl.classList.add('logo-whats');
+      iEl.append(iPictureEl);
+      cardAnchor.append(iEl);
+    }
     cardAnchor.target = '_blank';
     cardAnchor.title = buttonText.toLowerCase();
 
     lpActions.classList.add('lp-actions');
-    lpActions.replaceChildren(cardAnchor, ...lpActions.children);
+    const boolean = devicesBoolean.querySelector('p');
+    if (boolean && boolean.textContent === 'false') {
+      cardAnchor.classList.add('mobile-only');
+      lpActions.replaceChildren(cardAnchor, ...lpActions.children);
+    } else {
+      lpActions.replaceChildren(cardAnchor);
+    }
 
     const picture = pictureDiv.querySelector('picture');
     const pictureFigure = document.createElement('figure');

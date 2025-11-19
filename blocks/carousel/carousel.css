@@ -52,12 +52,19 @@
     i img {
         min-height: 100%;
         min-width: 100%;
+
     }
 
     .lp-qrcode img {
         display: block;
         width: 152px;
         height: 152px;
+    }
+
+    .logo-whats img {
+        width: 24px;
+        height: 24px;
+        margin: -3px 0;
     }
 
     .lp-videocard figcaption {
