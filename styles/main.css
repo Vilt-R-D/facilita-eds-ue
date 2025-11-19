@@ -450,3 +450,7 @@ dialog:-internal-dialog-in-top-layer::backdrop {
     font-size: 12px;
 }
 
+/* Hide cookies on main.css while cookies.css are loaded via lazy-load */
+.cookies__closed {
+    display: none;
+}
