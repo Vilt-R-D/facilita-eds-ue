@@ -1,3 +1,5 @@
+import { appendGTM, startGTM } from './gtm.js';
+
 // add delayed functionality here
 async function loadIcons() {
   // Vamos baixar as definições SVG.
@@ -13,3 +15,5 @@ async function loadIcons() {
 }
 
 loadIcons();
+appendGTM();
+startGTM();

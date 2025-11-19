@@ -1,3 +1,5 @@
+import { startGTM } from "./gtm.js";
+
 function waitForElement(selector, callback) {
   const interval = setInterval(() => {
     const element = document.querySelector(selector);
@@ -88,111 +90,74 @@ function waitForElement(selector, callback) {
       }
     }
 
-    if (document.readyState === 'complete') {
-      if (true) {
-        let ytPlayer;
+    let ytPlayer;
 
-        function loadPlayerScripts(videoId) {
-          // 2. This code loads the IFrame Player API code asynchronously.
-          const tag = document.createElement('script');
+    function loadPlayerScripts(videoId) {
+      // 2. This code loads the IFrame Player API code asynchronously.
+      const tag = document.createElement('script');
 
-          tag.src = 'https://www.youtube.com/iframe_api';
-          const firstScriptTag = document.getElementsByTagName('script')[0];
-          firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+      tag.src = 'https://www.youtube.com/iframe_api';
+      const firstScriptTag = document.getElementsByTagName('script')[0];
+      firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
-          // 3. This function creates an <iframe> (and YouTube player)
-          //    after the API code downloads.
+      // 3. This function creates an <iframe> (and YouTube player)
+      //    after the API code downloads.
 
-          window.onYouTubeIframeAPIReady = () => {
-            // eslint-disable-next-line no-undef
-            ytPlayer = new YT.Player('yt-player', {
-              height: '874',
-              width: '492',
-              videoId: videoId || '',
-              events: {
-                onReady: onPlayerReady,
-                onStateChange: onPlayerStateChange,
-              },
-            });
-          };
-        }
-
-        // 4. The API will call this function when the video player is ready.
-        function onPlayerReady(event) {
-          event.target.playVideo();
-        }
-
-        // 5. The API calls this function when the player's state changes.
-        //    The function indicates that when playing a video (state=1),
-        //    the player should play for six seconds and then stop.
-        let done = false;
-        function onPlayerStateChange(event) {
-          if (event.data == YT.PlayerState.PLAYING && !done) {
-            setTimeout(stopVideo, 6000);
-            done = true;
-          }
-        }
-
-        function stopVideo() {
-          ytPlayer.stopVideo();
-        }
-
-        if ($initalVideo) loadPlayerScripts($initalVideo.dataset.videoId);
-        if (document.querySelector('.lp-modalvideo') === null) return;
-        document.querySelector('.lp-modalvideo').addEventListener('click', (event) => {
-          if (event.target.closest('.lp-modalclose') || event.target === $modalVideo) {
-            $modalVideo.open = false;
-            stopVideo();
-            removeHash();
-          }
+      window.onYouTubeIframeAPIReady = () => {
+        // eslint-disable-next-line no-undef
+        ytPlayer = new YT.Player('yt-player', {
+          height: '874',
+          width: '492',
+          videoId: videoId || '',
+          events: {
+            onReady: onPlayerReady,
+            onStateChange: onPlayerStateChange,
+          },
         });
+      };
+    }
 
-        document.querySelector('.lp-swiper').addEventListener('click', (event) => {
-          const $videoButton = event.target.closest('a[data-video-id]');
-          if ($videoButton) {
-            if (ytPlayer) {
-              ytPlayer.loadVideoById($videoButton.dataset.videoId);
-            } else {
-              loadPlayerScripts($videoButton.dataset.videoId);
-            }
-            $modalVideo.open = true;
-          }
-        });
-      } else {
-        const $videoFallback = document.createElement('video');
-        $videoFallback.width = 482;
-        $videoFallback.controls = true;
-        $videoFallback.autoplay = true;
+    // 4. The API will call this function when the video player is ready.
+    function onPlayerReady(event) {
+      event.target.playVideo();
+    }
 
-        if ($initalVideo) {
-          $videoFallback.src = $initalVideo.dataset.videoFallback;
-        }
-
-        document.querySelector('#yt-player').replaceWith($videoFallback);
-
-        function stopVideo() {
-          $videoFallback.pause();
-          $videoFallback.currentTime = 0;
-        }
-
-        document.querySelector('.lp-modalvideo').addEventListener('click', (event) => {
-          if (event.target.closest('.lp-modalclose') || event.target === $modalVideo) {
-            $modalVideo.open = false;
-            stopVideo();
-            removeHash();
-          }
-        });
-
-        document.querySelector('.lp-swiper').addEventListener('click', (event) => {
-          console.log(event, event.target.closest('a[data-video-id]'));
-          const $videoButton = event.target.closest('a[data-video-id]');
-          if ($videoButton) {
-            $videoFallback.src = $videoButton.dataset.videoFallback;
-            $modalVideo.open = true;
-          }
-        });
+    // 5. The API calls this function when the player's state changes.
+    //    The function indicates that when playing a video (state=1),
+    //    the player should play for six seconds and then stop.
+    let done = false;
+    function onPlayerStateChange(event) {
+      if (event.data == YT.PlayerState.PLAYING && !done) {
+        setTimeout(stopVideo, 6000);
+        done = true;
       }
     }
+
+    function stopVideo() {
+      ytPlayer.stopVideo();
+    }
+
+    if ($initalVideo) loadPlayerScripts($initalVideo.dataset.videoId);
+    if (document.querySelector('.lp-modalvideo') === null) return;
+    document.querySelector('.lp-modalvideo').addEventListener('click', (event) => {
+      if (event.target.closest('.lp-modalclose') || event.target === $modalVideo) {
+        stopVideo();
+        removeHash();
+        $modalVideo.open = false;
+      }
+    });
+
+    document.querySelector('.lp-swiper').addEventListener('click', (event) => {
+      const $videoButton = event.target.closest('a[data-video-id]');
+      if ($videoButton) {
+        if (ytPlayer) {
+          ytPlayer.loadVideoById($videoButton.dataset.videoId);
+        } else {
+          loadPlayerScripts($videoButton.dataset.videoId);
+        }
+        $modalVideo.open = true;
+      }
+    });
   }
 
   function initAppButtonsHandler() {
@@ -424,11 +389,10 @@ function waitForElement(selector, callback) {
 
       }, document.body);
     });
-
+    
     // initResponsiveVideo();
     // initAppButtonsHandler();
     // initScrollTo();
-
     // initJSLazy();
     // fixAcessib();
   }
