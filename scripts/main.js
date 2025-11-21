@@ -218,7 +218,7 @@ function waitForElement(selector, callback) {
   }
 
   function initSwiper() {
-    const carouselSwiper = new Swiper('.swiper-container', {
+    new Swiper('.swiper-container', {
       allowTouchMove: true,
       simulateTouch: true,
       spaceBetween: 16,
@@ -256,10 +256,6 @@ function waitForElement(selector, callback) {
         prevEl: '.swiper-button-prev',
       },
     });
-
-    setInterval(() => {
-      carouselSwiper.update();
-    }, 5000);
   }
 
   function initOthersFilters() {
