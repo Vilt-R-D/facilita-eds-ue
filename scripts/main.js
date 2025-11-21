@@ -218,11 +218,10 @@ function waitForElement(selector, callback) {
   }
 
   function initSwiper() {
-    new Swiper('.swiper-container', {
+    const swiper = new Swiper('.swiper-container', {
       allowTouchMove: true,
       simulateTouch: true,
       spaceBetween: 16,
-      resizeObserver: true,
       observer: true,
       slidesPerView: 1,
       breakpoints: {
@@ -256,6 +255,10 @@ function waitForElement(selector, callback) {
         nextEl: '.swiper-button-next',
         prevEl: '.swiper-button-prev',
       },
+    });
+
+    window.addEventListener('resize', () => {
+      swiper.update();
     });
   }
 
