@@ -58,7 +58,9 @@ export default async function decorate(block) {
     const children = [...card.children];
 
     const [pictureDiv, youtubeLinkDiv, iconDiv, cardTitleDiv, qrCodeDiv,
-      cardLinkDiv, lpActions, anchorIconDiv, devicesBoolean] = children;
+      cardLinkDiv, cardTextDiv, anchorIconDiv, devicesBoolean] = children;
+
+    if (!pictureDiv || !youtubeLinkDiv || !iconDiv || !cardTitleDiv || !qrCodeDiv || !cardLinkDiv || !cardTextDiv || !anchorIconDiv || !devicesBoolean) return;
 
     const youtubeLink = youtubeLinkDiv.querySelector('a').href;
 
@@ -68,30 +70,30 @@ export default async function decorate(block) {
     const lpSlide = document.createElement('div');
     lpSlide.classList.add('lp-slide');
 
-    lpActions.children[0].classList.add('desk-only');
-    const buttonText = lpActions.children[0].textContent.replace(' pelo app', '');
+    const lpActions = document.createElement('div');
+    lpActions.classList.add('lp-actions');
+    const buttonTextDesk = document.createElement('p');
+    buttonTextDesk.classList.add('desk-only');
+    buttonTextDesk.textContent = cardTextDiv.textContent;
+    const buttonText = cardTextDiv.textContent.replace(' pelo app', '');
     const buttonSpan = document.createElement('span');
     buttonSpan.textContent = buttonText;
 
     cardAnchor.replaceChildren(buttonSpan);
     const iEl = document.createElement('i');
     const iPictureEl = anchorIconDiv.querySelector('picture');
-    if (iPictureEl) {
-      iPictureEl.classList.add('logo-whats');
-      iEl.append(iPictureEl);
-      cardAnchor.append(iEl);
-    }
+    iEl.append(iPictureEl);
+    cardAnchor.append(iEl);
+
     cardAnchor.target = '_blank';
     cardAnchor.title = buttonText.toLowerCase();
+    lpActions.replaceChildren(cardAnchor, buttonTextDesk);
 
-    lpActions.classList.add('lp-actions');
     const boolean = devicesBoolean.querySelector('p');
     if (boolean && boolean.textContent === 'false') {
       cardAnchor.classList.add('mobile-only');
       lpActions.replaceChildren(cardAnchor, ...lpActions.children);
-    } else {
-      lpActions.replaceChildren(cardAnchor);
-    }
+    } else lpActions.replaceChildren(cardAnchor);
 
     const picture = pictureDiv.querySelector('picture');
     const pictureFigure = document.createElement('figure');
