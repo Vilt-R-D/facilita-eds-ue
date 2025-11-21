@@ -60,12 +60,6 @@ export default async function decorate(block) {
     const [pictureDiv, youtubeLinkDiv, iconDiv, cardTitleDiv, qrCodeDiv,
       cardLinkDiv, cardTextDiv, anchorIconDiv, devicesBoolean] = children;
 
-    if (!pictureDiv || !youtubeLinkDiv || !iconDiv || !cardTitleDiv || !qrCodeDiv || !cardLinkDiv || !cardTextDiv || !anchorIconDiv || !devicesBoolean) return;
-
-    const youtubeLink = youtubeLinkDiv.querySelector('a').href;
-
-    const cardAnchor = cardLinkDiv.querySelector('a');
-
     card.classList.add('swiper-slide');
     const lpSlide = document.createElement('div');
     lpSlide.classList.add('lp-slide');
@@ -79,6 +73,8 @@ export default async function decorate(block) {
     const buttonSpan = document.createElement('span');
     buttonSpan.textContent = buttonText;
 
+    const cardAnchor = cardLinkDiv.querySelector('a');
+    if(!cardAnchor) return;
     cardAnchor.replaceChildren(buttonSpan);
     const iEl = document.createElement('i');
     const iPictureEl = anchorIconDiv.querySelector('picture');
@@ -99,6 +95,7 @@ export default async function decorate(block) {
     const pictureFigure = document.createElement('figure');
     const figureCaption = document.createElement('figcaption');
     const youtubeAnchor = document.createElement('a');
+    const youtubeLink = youtubeLinkDiv.querySelector('a').href;
     const youtubeVideoId = youtubeLink.includes('/embed/') ? youtubeLink.split('/embed/')[1] : '';
     const youtubeVideoTitle = cardTitleDiv.textContent.trim()
       .normalize('NFD')
