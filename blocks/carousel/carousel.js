@@ -60,6 +60,8 @@ export default async function decorate(block) {
     const [pictureDiv, youtubeLinkDiv, iconDiv, cardTitleDiv, qrCodeDiv,
       cardLinkDiv, cardTextDiv, anchorIconDiv, devicesBoolean] = children;
 
+    if (!anchorIconDiv || !devicesBoolean) return;
+
     card.classList.add('swiper-slide');
     const lpSlide = document.createElement('div');
     lpSlide.classList.add('lp-slide');
@@ -74,7 +76,7 @@ export default async function decorate(block) {
     buttonSpan.textContent = buttonText;
 
     const cardAnchor = cardLinkDiv.querySelector('a');
-    if(!cardAnchor) return;
+    if (!cardAnchor) return;
     cardAnchor.replaceChildren(buttonSpan);
     const iEl = document.createElement('i');
     const iPictureEl = anchorIconDiv.querySelector('picture');
