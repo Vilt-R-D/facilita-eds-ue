@@ -245,6 +245,7 @@ function waitForElement(selector, callback) {
         },
 
       },
+      breakpointsBase: 'container',
       pagination: {
         el: '.brad-pagination',
         type: 'bullets',
@@ -256,7 +257,9 @@ function waitForElement(selector, callback) {
       },
     });
 
-    window.carouselSwiper = carouselSwiper;
+    setInterval(() => {
+      carouselSwiper.update();
+    }, 5000);
   }
 
   function initOthersFilters() {
