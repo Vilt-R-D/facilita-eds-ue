@@ -222,6 +222,8 @@ function waitForElement(selector, callback) {
       allowTouchMove: true,
       simulateTouch: true,
       spaceBetween: 16,
+      resizeObserver: true,
+      observer: true,
       slidesPerView: 1,
       breakpoints: {
         320: {
