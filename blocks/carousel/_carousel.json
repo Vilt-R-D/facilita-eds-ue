@@ -96,7 +96,8 @@
           "valueType": "string",
           "name": "cardIcon",
           "label": "Ícone do botão",
-          "description": "Vísivel apenas em mobile ou caso ative o check abaixo."
+          "description": "Vísivel apenas em mobile ou caso ative o check abaixo.",
+          "required": true
         },
         {
           "component": "boolean",
