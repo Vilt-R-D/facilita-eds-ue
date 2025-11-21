@@ -62,7 +62,6 @@
       "fields": [
         {
           "component": "reference",
-          "valueType": "string",
           "name": "logo",
           "label": "Logo do Cabeçalho",
           "description": "Logo que aparecerá no canto superior esquerdo."
@@ -70,6 +69,7 @@
         {
           "component": "text",
           "valueType": "string",
+          "valueFormat": "regexp",
           "name": "logo-redirect",
           "label": "URL de Redirecionamento",
           "description": "Local para onde o usuário será redirecionado ao clicar na logo.",
@@ -117,9 +117,9 @@
       "fields": [
         {
           "component": "text",
-          "valueType": "string",
           "name": "ancora",
           "label": "Âncora",
+          "valueFormat": "regexp",
           "description": "ID do elemento ao qual a tela vai redirecionada.",
           "validation": {
             "regExp": "^#.*$",
