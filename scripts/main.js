@@ -218,7 +218,7 @@ function waitForElement(selector, callback) {
   }
 
   function initSwiper() {
-    const swiper = new Swiper('.swiper-container', {
+    const carouselSwiper = new Swiper('.swiper-container', {
       allowTouchMove: true,
       simulateTouch: true,
       spaceBetween: 16,
@@ -245,7 +245,6 @@ function waitForElement(selector, callback) {
         },
 
       },
-      breakpointsBase: 'container',
       pagination: {
         el: '.brad-pagination',
         type: 'bullets',
@@ -257,9 +256,7 @@ function waitForElement(selector, callback) {
       },
     });
 
-    window.addEventListener('resize', () => {
-      swiper.update();
-    });
+    window.carouselSwiper = carouselSwiper;
   }
 
   function initOthersFilters() {
