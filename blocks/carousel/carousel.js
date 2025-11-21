@@ -72,42 +72,59 @@ export default async function decorate(block) {
 
   cards.forEach((card) => {
     const children = [...card.children];
-    if (!children.every((c) => c.children && c.children.length > 0)) return;
 
-    const [pictureDiv, youtubeLinkDiv, iconDiv, cardTitleDiv, lpActions, cardLinkDiv,
-      qrCodeDiv] = children;
-
-    const youtubeLink = youtubeLinkDiv.querySelector('a').href;
-
-    const cardAnchor = cardLinkDiv.querySelector('a');
+    const [pictureDiv, youtubeLinkDiv, iconDiv, cardTitleDiv, qrCodeDiv,
+      cardLinkDiv, cardTextDiv, anchorIconDiv, devicesBoolean] = children;
 
     card.classList.add('swiper-slide');
     const lpSlide = document.createElement('div');
     lpSlide.classList.add('lp-slide');
 
-    lpActions.children[0].classList.add('desk-only');
-    const buttonText = lpActions.children[0].textContent.replace(' pelo app', '');
+    const lpActions = document.createElement('div');
+    lpActions.classList.add('lp-actions');
+    const buttonTextDesk = document.createElement('p');
+    buttonTextDesk.classList.add('desk-only');
+    buttonTextDesk.textContent = cardTextDiv.textContent;
+    const buttonText = cardTextDiv.textContent.replace(' pelo app', '');
     const buttonSpan = document.createElement('span');
     buttonSpan.textContent = buttonText;
+
+    const cardAnchor = cardLinkDiv.querySelector('a');
+    if (!cardAnchor) return;
     cardAnchor.replaceChildren(buttonSpan);
-    cardAnchor.classList.add('mobile-only');
+    const iEl = document.createElement('i');
+    const iPictureEl = anchorIconDiv.querySelector('picture');
+    iEl.append(iPictureEl);
+    cardAnchor.append(iEl);
+
     cardAnchor.target = '_blank';
     cardAnchor.title = buttonText.toLowerCase();
+    lpActions.replaceChildren(cardAnchor, buttonTextDesk);
 
-    lpActions.classList.add('lp-actions');
-    lpActions.replaceChildren(cardAnchor, ...lpActions.children);
+    const boolean = devicesBoolean.querySelector('p');
+    if (boolean && boolean.textContent === 'false') {
+      cardAnchor.classList.add('mobile-only');
+      lpActions.replaceChildren(cardAnchor, ...lpActions.children);
+    } else lpActions.replaceChildren(cardAnchor);
 
     const picture = pictureDiv.querySelector('picture');
     const pictureFigure = document.createElement('figure');
     const figureCaption = document.createElement('figcaption');
     const youtubeAnchor = document.createElement('a');
+    const youtubeLink = youtubeLinkDiv.querySelector('a').href;
     const youtubeVideoId = youtubeLink.includes('/embed/') ? youtubeLink.split('/embed/')[1] : '';
     const cardTitleText = cardTitleDiv.children[0].innerHTML.split('<br>').join(' ');
     const youtubeVideoTitle = normalizeStr(htmlToPlainText(cardTitleText));
     youtubeAnchor.setAttribute('data-video-id', youtubeVideoId);
     youtubeAnchor.setAttribute('aria-label', youtubeVideoTitle);
     youtubeAnchor.href = `#${youtubeVideoTitle}`;
-    figureCaption.replaceChildren(youtubeAnchor);
+
+    const icon = document.createElement('i');
+    const iconImgEl = document.createElement('img');
+    iconImgEl.setAttribute('src', `${window.hlx.codeBasePath}/icons/play-btn-min.svg`);
+    icon.replaceChildren(iconImgEl);
+
+    figureCaption.replaceChildren(youtubeAnchor, icon);
 
     pictureFigure.classList.add('lp-videocard');
     pictureFigure.replaceChildren(picture, figureCaption);
