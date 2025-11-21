@@ -237,9 +237,10 @@
         height: 20px;
     }
 
-    .lp-slide .lp-actions a i svg {
-        width: inherit;
-        height: inherit;
+    .lp-slide .lp-actions a i img:not([src*=".svg"]) {
+        width: 24px;
+        height: 24px;
+        margin: -3px 0;
     }
 
     .swiper-button-next,

@@ -323,26 +323,38 @@
         "required": true
       },
       {
-        "component": "text",
-        "valueType": "string",
-        "name": "button-text",
-        "label": "Texto do Botão",
-        "required": true
-      },
-      {
-        "component": "aem-content",
-        "name": "link",
-        "label": "Link de Redirecionamento",
-        "description": "Link de Redirecionamento do Card.",
-        "required": true
-      },
-      {
         "component": "reference",
         "valueType": "string",
         "name": "qrcode",
         "label": "QRCode do Card",
         "multi": false,
         "required": true
+      },
+      {
+        "component": "aem-content",
+        "name": "link",
+        "label": "Link do botão",
+        "required": true
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "button-text",
+        "label": "Texto do botão",
+        "required": true
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "cardIcon",
+        "label": "Ícone do botão",
+        "description": "Vísivel apenas em mobile ou caso ative o check abaixo.",
+        "required": true
+      },
+      {
+        "component": "boolean",
+        "label": "Link disponível em desktop e mobile",
+        "name": "all-devices"
       }
     ]
   },
