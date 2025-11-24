@@ -188,6 +188,29 @@
     ]
   },
   {
+    "id": "show-only-content",
+    "fields": [
+      {
+        "component": "richtext",
+        "name": "rte",
+        "label": "Rich Text",
+        "valueType": "string"
+      },
+      {
+        "component": "reference",
+        "name": "image",
+        "label": "Image",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "name": "imageAlt",
+        "label": "Image alternative text",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
     "id": "app-teaser",
     "fields": [
       {

@@ -26,6 +26,13 @@
     ]
   },
   {
+    "id": "show-only",
+    "components": [
+      "title",
+      "show-only-content"
+    ]
+  },
+  {
     "id": "app-teaser",
     "components": []
   },
