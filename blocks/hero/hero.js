@@ -24,6 +24,7 @@ function decorateLogo(row) {
   if (!isUE) {
     const optimizedPic = createOptimizedPicture(pictureCol.firstElementChild.lastElementChild.src.split('?')[0]);
     pictureCol.firstChild.replaceWith(optimizedPic);
+    pictureCol.lastElementChild.lastElementChild.fetchPriority = 'high';
   }
   if (urlCol.children.length !== 0) {
     pictureCol.remove();
