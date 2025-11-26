@@ -148,10 +148,6 @@ main > .section {
         max-width: 1440px;
         padding: 56px 56px 64px;
     }
-
-    main > .section:first-child {
-        padding-top: 0;
-    }
 }
 
 @media (width >= 1024px) and (width <= 1279px) {
@@ -181,6 +177,10 @@ main > .section {
     background-size: 2000px 2000px;
     background-position-y: 50%;
     animation: shimmer 1500ms infinite linear;
+}
+
+.no-padding{
+    padding: none;
 }
 
 @keyframes shimmer {

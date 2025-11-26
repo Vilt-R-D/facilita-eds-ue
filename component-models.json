@@ -134,12 +134,12 @@
         "label": "Style",
         "options": [
           {
-            "name": "Highlight",
-            "value": "highlight"
-          },
-          {
             "name": "Disclaimer",
             "value": "disclaimer"
+          },
+          {
+            "name": "No Padding",
+            "value": "no-padding"
           }
         ]
       },
