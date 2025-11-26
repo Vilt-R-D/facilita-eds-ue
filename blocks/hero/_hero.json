@@ -74,7 +74,7 @@
           "label": "URL de Redirecionamento",
           "description": "Local para onde o usuário será redirecionado ao clicar na logo.",
           "validation": {
-            "regExp": "^https?:\\/\\/(?:www\\.)?[-a-zA-Z0-9@:%._\\+~#=]{1,256}\\.[a-zA-Z0-9()]{1,6}\\b(?:[-a-zA-Z0-9()@:%_\\+.~#?&\\/=]*)$",
+            "regExp": "^https?:\\/\\/(?:www\\.)?[-a-zA-Z0-9@:%._\\+~#=]{1,256}\\.[a-zA-Z0-9()]{1,64}\\b(?:[-a-zA-Z0-9()@:%_\\+.~#?&\\/=]*)$",
             "customErrorMsg": "URL não identificada."
           }
         }
