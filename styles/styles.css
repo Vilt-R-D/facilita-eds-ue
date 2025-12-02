@@ -180,7 +180,7 @@ main > .section {
 }
 
 .no-padding{
-    padding: none;
+    padding: 0;
 }
 
 @keyframes shimmer {

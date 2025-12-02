@@ -7,7 +7,7 @@
 .section.card-grid-container {
     .lp-others .lp-filters {
         overflow: hidden;
-        margin: 0 -24px 34px -24px;
+        margin: 0 -24px 34px;
     }
 
     .lp-others .lp-cards {
@@ -145,7 +145,6 @@
     }
 
     @media screen and (width >= 1199px) {
-
         .lp-filters h3,
         .lp-filters ul {
             padding: 0;

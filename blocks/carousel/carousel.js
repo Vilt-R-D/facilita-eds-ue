@@ -27,6 +27,7 @@ export default async function decorate(block) {
   const modalAnchor = document.createElement('a');
   modalAnchor.classList.add('lp-modalclose');
   modalAnchor.textContent = 'X';
+  modalAnchor.href = '#';
 
   const modalDiv = document.createElement('div');
   modalDiv.id = 'yt-player';
@@ -122,6 +123,7 @@ export default async function decorate(block) {
     const icon = document.createElement('i');
     const iconImgEl = document.createElement('img');
     iconImgEl.setAttribute('src', `${window.hlx.codeBasePath}/icons/play-btn-min.svg`);
+    iconImgEl.alt = 'Tocar vídeo';
     icon.replaceChildren(iconImgEl);
 
     figureCaption.replaceChildren(youtubeAnchor, icon);
