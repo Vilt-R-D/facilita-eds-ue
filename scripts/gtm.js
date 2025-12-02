@@ -99,7 +99,7 @@ export function startGTM() {
   const carouselCards = [...document.querySelectorAll('.lp-slide')];
   carouselCards.forEach((card) => {
     const button = card.querySelector('.lp-actions');
-    const text = button.querySelector('p');
+    const text = button.querySelector('p') || button.querySelector('span');
     const anchor = button.querySelector('a');
     const video = card.querySelector('.lp-videocard a');
     const videoTitle = video.getAttribute('aria-label');
