@@ -1,0 +1,112 @@
+/* De reset.bundle.min.css */
+
+* {
+    box-sizing: border-box;
+    list-style: none;
+    margin: 0;
+    outline: 0;
+
+    /* outline: none; */
+    padding: 0;
+    text-decoration: none;
+    -webkit-font-smoothing: antialiased;
+    -webkit-tap-highlight-color: rgb(255 255 255 / 0%);
+    font-size: 16px
+}
+
+::after,::before {
+    box-sizing: inherit;
+    text-decoration: inherit;
+    vertical-align: inherit
+}
+
+hr {
+    overflow: visible
+}
+
+em {
+    font-style: normal
+}
+
+article,aside,details,figcaption,figure,footer,header,main,menu,nav,section,summary {
+    display: block
+}
+
+summary {
+    display: list-item
+}
+
+button,fieldset,input,select,textarea {
+    background-color: hsl(0deg 0% 100% / 0%);
+    border-style: none;
+    color: inherit
+}
+
+input::-webkit-inner-spin-button,input::-webkit-outer-spin-button {
+    appearance: none;
+    margin: 0
+}
+
+input[type="number"] {
+    appearance: textfield
+}
+
+progress {
+    vertical-align: baseline
+}
+
+audio,canvas,progress,video {
+    display: inline-block
+}
+
+audio:not([controls]) {
+    display: none;
+    height: 0
+}
+
+[hidden] {
+    display: none!important
+}
+
+
+/* De style.min.css */
+
+/* Removido por ser redundante */
+
+/* {
+    box-sizing: border-box;
+    outline: 0
+} */
+
+body {
+    margin: 0;
+}
+
+button,input,select,textarea {
+    font-family: inherit;
+    line-height: inherit;
+    font-size: 100%;
+    margin: 0;
+    vertical-align: baseline
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0
+}
+
+a {
+    text-decoration: none
+}
+
+footer {
+    color: #fff;
+    display: block;
+    width: 100%;
+    bottom: 0;
+    font-family: Bradesco,sans-serif;
+    letter-spacing: .5px;
+    position: relative;
+    z-index: 999!important;
+}

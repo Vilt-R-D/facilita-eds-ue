@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink" width="108" height="108" viewBox="0 0 108 108">
+    <defs>
+        <style>.a,.d,.e,.f{fill:#fff;}.a{opacity:0;}.b{fill:url(#c);}.c{fill:none;stroke:#fff;stroke-linecap:round;stroke-linejoin:round;}.e{font-size:9px;}.e,.f{font-family:Bradesco, BradescoSans-Medium, Bradesco Sans;font-weight:500;}.f{font-size:17px;}.g{filter:url(#a);}</style>
+        <filter id="a" x="0" y="0" width="108" height="108" filterUnits="userSpaceOnUse">
+            <feOffset dy="3" input="SourceAlpha"/>
+            <feGaussianBlur stdDeviation="6" result="b"/>
+            <feFlood flood-color="#fff" flood-opacity="0.161"/>
+            <feComposite operator="in" in2="b"/>
+            <feComposite in="SourceGraphic"/>
+        </filter>
+        <linearGradient id="c" x1="0.091" y1="0.164" x2="0.826" y2="0.845" gradientUnits="objectBoundingBox">
+            <stop offset="0" stop-color="#f70343"/>
+            <stop offset="1" stop-color="#b61d6f"/>
+        </linearGradient>
+    </defs>
+    <g transform="translate(18 15)">
+        <g class="g" transform="matrix(1, 0, 0, 1, -18, -15)">
+            <circle class="a" cx="36" cy="36" r="36" transform="translate(18 15)"/>
+        </g>
+        <circle class="b" cx="32" cy="32" r="32" transform="translate(4 4)"/>
+        <g transform="translate(44 32.943)">
+            <path class="c" d="M1121.1,58.155a1.487,1.487,0,0,0-1.516-1.457h-10.615a1.488,1.488,0,0,0-1.516,1.457V69.811l3.033-2.914h9.1a1.487,1.487,0,0,0,1.516-1.457Z" transform="translate(-1107.448 -56.698)"/>
+            <g transform="translate(2.435 4.138)">
+                <path class="d" d="M1256.47,126.534a1.081,1.081,0,0,1,1.143,1.141,1.13,1.13,0,1,1-1.143-1.141Z" transform="translate(-1255.353 -126.375)"/>
+                <path class="d" d="M1256.47,126.534a1.081,1.081,0,0,1,1.143,1.141,1.13,1.13,0,1,1-1.143-1.141Z" transform="translate(-1252.134 -126.375)"/>
+                <path class="d" d="M1256.47,126.534a1.081,1.081,0,0,1,1.143,1.141,1.13,1.13,0,1,1-1.143-1.141Z" transform="translate(-1248.833 -126.375)"/>
+            </g>
+        </g>
+        <text class="e" transform="translate(37 28)">
+            <tspan x="-22.55" y="0">Fale com a</tspan>
+        </text>
+        <text class="f" transform="translate(27 46)">
+            <tspan x="-13.226" y="0">BIA</tspan>
+        </text>
+    </g>
+</svg>

@@ -1,3 +1,10 @@
 # Arquivos que não serão "lintados"
 helix-importer-ui
 dompurify.min.js
+
+# Disable lint for migrated JS from prod
+scripts/main.js
+scripts/chatbia-qrcode.js
+scripts/swiper-bundle.js
+scripts/js-cookie.min.js
+scripts/cookies.js

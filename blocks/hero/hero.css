@@ -1,37 +1,78 @@
-.hero-container .hero-wrapper {
-  max-width: unset;
-  padding: 0;
-}
-
-.hero {
-  position: relative;
-  padding: 40px 24px;
-  min-height: 300px;
-}
-
-.hero h1 {
-  max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
-  color: var(--background-color);
-}
-
-.hero picture {
-  position: absolute;
-  z-index: -1;
-  inset: 0;
-  object-fit: cover;
+/* Lembre-se de manter isso no topo do seu CSS */
+* {
   box-sizing: border-box;
 }
 
-.hero img {
-  object-fit: cover;
+.hero {
+  display: block;
+  position: relative;
   width: 100%;
-  height: 100%;
 }
 
-@media (width >= 900px) {
+#hero-background {
+  width: 100%;
+  position: relative;
+  z-index: 0;
+}
+
+#hero-background img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+#topbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 24px;
+  z-index: 1;
+
+  a {
+    display: inline-block;
+  }
+}
+
+#topbar object, #topbar img {
+  pointer-events: none;
+  display: inline;
+  width: 168px;
+  height: auto;
+}
+
+#hero-anchor {
+  position: absolute;
+  left: 50%;
+  margin-left: -30px;
+  bottom: 80px;
+  width: 60px;
+  height: 60px;
+  background: rgb(255 255 255 / 30%);
+  border-radius: 50%;
+  backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: rotate(90deg);
+  z-index: 1;
+
+  i {
+    display: flex; 
+  }
+
+  svg {
+    display: block;
+    width: 10px;
+    height: 18px;
+    color: #fff;
+  }
+}
+
+@media (width >= 1190px) {
   .hero {
-    padding: 40px 32px;
+    #topbar {
+      padding: 24px 55px;
+    }
   }
 }

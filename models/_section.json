@@ -31,8 +31,28 @@
           "label": "Style",
           "options": [
             {
-              "name": "Highlight",
-              "value": "highlight"
+              "name": "Disclaimer",
+              "value": "disclaimer"
+            },
+            {
+              "name": "No Padding",
+              "value": "no-padding"
+            }
+          ]
+        },
+        {
+          "component": "multiselect",
+          "name": "move-to",
+          "label": "Move to",
+          "maxSize": 1,
+          "options": [
+            {
+              "name": "Header",
+              "value": "header"
+            },
+            {
+              "name": "Footer",
+              "value": "footer"
             }
           ]
         }
@@ -50,7 +70,14 @@
         "hero",
         "cards",
         "columns",
-        "fragment"
+        "fragment",
+        "carousel",
+        "card-grid",
+        "show-only",
+        "app-teaser",
+        "footer",
+        "teaser",
+        "fale-com-a-bia"
       ]
     }
   ]

@@ -17,7 +17,7 @@ function sampleRUM(checkpoint, data) {
   try {
     window.hlx = window.hlx || {};
     if (!window.hlx.rum) {
-      sampleRUM.enhance = () => {};
+      sampleRUM.enhance = () => { };
       const param = new URLSearchParams(window.location.search).get('rum');
       const weight = (param === 'on' && 1)
         || (window.SAMPLE_PAGEVIEWS_AT_RATE === 'high' && 10)
@@ -477,15 +477,19 @@ function decorateIcons(element, prefix = '') {
  * @param {Element} main The container element
  */
 function decorateSections(main) {
+  // Para todas as divs filhas diretas de main que ainda não entraram começaram a serem tratadas.
   main.querySelectorAll(':scope > div:not([data-section-status])').forEach((section) => {
     const wrappers = [];
     let defaultContent = false;
+    // [] converte uma coleção para array.
     [...section.children].forEach((e) => {
       if ((e.tagName === 'DIV' && e.className) || !defaultContent) {
         const wrapper = document.createElement('div');
         wrappers.push(wrapper);
         defaultContent = e.tagName !== 'DIV' || !e.className;
         if (defaultContent) wrapper.classList.add('default-content-wrapper');
+        // Enzo
+        // if (e.tagName === 'H2') wrapper.classList.add('lp-container');
       }
       wrappers[wrappers.length - 1].append(e);
     });
@@ -652,12 +656,26 @@ async function waitForFirstImage(section) {
 }
 
 /**
+   * @param {string} str
+   * @param {str} currentValue
+   * @param {number} i
+   */
+function reduceToClassSelector(str, currentValue) {
+  // eslint-disable-next-line no-param-reassign
+  str += `.${currentValue},`;
+  return str;
+}
+
+/**
  * Loads all blocks in a section.
  * @param {Element} section The section element
  */
 
 async function loadSection(section, loadCallback) {
   const status = section.dataset.sectionStatus;
+  // Metadata customizado para mover a seção para Header ou Footer.
+  const { moveTo } = section.dataset;
+
   if (!status || status === 'initialized') {
     section.dataset.sectionStatus = 'loading';
     const blocks = [...section.querySelectorAll('div.block')];
@@ -668,6 +686,14 @@ async function loadSection(section, loadCallback) {
     if (loadCallback) await loadCallback(section);
     section.dataset.sectionStatus = 'loaded';
     section.style.display = null;
+
+    const movedElement = document.querySelector(`${moveTo}>:is(${[...section.classList].reduce(reduceToClassSelector, '').slice(0, -1)})`);
+    if (moveTo && !movedElement) {
+      const element = document.querySelector(moveTo);
+      element.append(section);
+    } else if (moveTo && movedElement) {
+      movedElement.replaceWith(section);
+    }
   }
 }
 

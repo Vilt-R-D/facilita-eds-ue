@@ -1,0 +1,159 @@
+function htmlToPlainText(htmlString) {
+  const tempDiv = document.createElement('div');
+  tempDiv.innerHTML = htmlString.replaceAll('&nbsp;', ' ');
+
+  return tempDiv.textContent || tempDiv.innerText;
+}
+
+function normalizeStr(str) {
+  return str.normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .toLowerCase()
+    .replace(/[^a-zA-Z0-9 ]/g, '')
+    .split(' ')
+    .join('-');
+}
+
+/**
+ * loads and decorates the hero, mainly the nav
+ * @param {Element} block The hero block element
+ */
+export default async function decorate(block) {
+  block.parentElement.parentElement.classList.add('lp-facilities');
+  const cards = [...block.children];
+
+  const dialog = document.createElement('dialog');
+  dialog.classList.add('lp-modalvideo');
+  const modalAnchor = document.createElement('a');
+  modalAnchor.classList.add('lp-modalclose');
+  modalAnchor.textContent = 'X';
+  modalAnchor.href = '#';
+
+  const modalDiv = document.createElement('div');
+  modalDiv.id = 'yt-player';
+
+  const modalIframe = document.createElement('iframe');
+  modalIframe.width = '520';
+  modalIframe.height = '315';
+  modalIframe.allowFullscreen = 'true';
+
+  modalDiv.replaceChildren(modalIframe);
+  dialog.replaceChildren(modalAnchor, modalDiv);
+
+  const lpSwiper = document.createElement('div');
+  lpSwiper.classList.add('lp-swiper');
+
+  const lpContainer = document.createElement('div');
+  lpContainer.classList.add('lp-container');
+  lpContainer.classList.add('swiper-container');
+
+  const swiperWrapper = document.createElement('div');
+  swiperWrapper.classList.add('swiper-wrapper');
+  swiperWrapper.replaceChildren(...cards);
+
+  const navPagination = document.createElement('div');
+  navPagination.classList.add('nav-pagination');
+
+  const leftButton = document.createElement('button');
+  leftButton.classList.add('brad-btn', 'brad-btn-icon', 'swiper-button-prev');
+  const leftButtonEm = document.createElement('em');
+  leftButtonEm.classList.add('btn-icon', 'i', 'icon-ui-chevron-left');
+  leftButton.replaceChildren(leftButtonEm);
+
+  const bradPagination = document.createElement('div');
+  bradPagination.classList.add('brad-pagination', 'swiper-pagination-clickable', 'swiper-pagination-bullets', 'swiper-pagination-horizontal');
+
+  const rightButton = document.createElement('button');
+  rightButton.classList.add('brad-btn', 'brad-btn-icon', 'swiper-button-next');
+  const rightButtonEm = document.createElement('em');
+  rightButtonEm.classList.add('btn-icon', 'i', 'icon-ui-chevron-right');
+  rightButton.replaceChildren(rightButtonEm);
+
+  navPagination.replaceChildren(leftButton, bradPagination, rightButton);
+
+  cards.forEach((card) => {
+    const children = [...card.children];
+
+    const [pictureDiv, youtubeLinkDiv, iconDiv, cardTitleDiv, qrCodeDiv,
+      cardLinkDiv, cardTextDiv, anchorIconDiv, devicesBoolean] = children;
+
+    card.classList.add('swiper-slide');
+    const lpSlide = document.createElement('div');
+    lpSlide.classList.add('lp-slide');
+
+    const lpActions = document.createElement('div');
+    lpActions.classList.add('lp-actions');
+    const buttonTextDesk = document.createElement('p');
+    buttonTextDesk.classList.add('desk-only');
+    buttonTextDesk.textContent = cardTextDiv.textContent;
+    const buttonText = cardTextDiv.textContent.replace(' pelo app', '');
+    const buttonSpan = document.createElement('span');
+    buttonSpan.textContent = buttonText;
+
+    const cardAnchor = cardLinkDiv.querySelector('a');
+    if (!cardAnchor) return;
+    cardAnchor.replaceChildren(buttonSpan);
+    const iEl = document.createElement('i');
+    const iPictureEl = anchorIconDiv.querySelector('picture');
+    iEl.append(iPictureEl);
+    cardAnchor.append(iEl);
+
+    cardAnchor.target = '_blank';
+    cardAnchor.title = buttonText.toLowerCase();
+    lpActions.replaceChildren(cardAnchor, buttonTextDesk);
+
+    const boolean = devicesBoolean.querySelector('p');
+    if (boolean && boolean.textContent === 'false') {
+      cardAnchor.classList.add('mobile-only');
+      lpActions.replaceChildren(cardAnchor, ...lpActions.children);
+    } else lpActions.replaceChildren(cardAnchor);
+
+    const picture = pictureDiv.querySelector('picture');
+    const pictureFigure = document.createElement('figure');
+    const figureCaption = document.createElement('figcaption');
+    const youtubeAnchor = document.createElement('a');
+    const youtubeLink = youtubeLinkDiv.querySelector('a').href;
+    const youtubeVideoId = youtubeLink.includes('/embed/') ? youtubeLink.split('/embed/')[1] : '';
+    const cardTitleText = cardTitleDiv.children[0].innerHTML.split('<br>').join(' ');
+    const youtubeVideoTitle = normalizeStr(htmlToPlainText(cardTitleText));
+    youtubeAnchor.setAttribute('data-video-id', youtubeVideoId);
+    youtubeAnchor.setAttribute('aria-label', youtubeVideoTitle);
+    youtubeAnchor.href = `#${youtubeVideoTitle}`;
+
+    const icon = document.createElement('i');
+    const iconImgEl = document.createElement('img');
+    iconImgEl.setAttribute('src', `${window.hlx.codeBasePath}/icons/play-btn-min.svg`);
+    iconImgEl.alt = 'Tocar vídeo';
+    icon.replaceChildren(iconImgEl);
+
+    figureCaption.replaceChildren(youtubeAnchor, icon);
+
+    pictureFigure.classList.add('lp-videocard');
+    pictureFigure.replaceChildren(picture, figureCaption);
+
+    const article = document.createElement('article');
+    article.classList.add('lp-content');
+    const header = document.createElement('header');
+    header.style.minHeight = 'fit-content';
+    const i = document.createElement('i');
+    i.replaceChildren(iconDiv.querySelector('img'));
+    const h3 = document.createElement('h3');
+    const cardTitle = cardTitleDiv.children;
+    h3.replaceChildren(...cardTitle);
+    header.replaceChildren(i, h3);
+    article.replaceChildren(header);
+
+    const qrCode = qrCodeDiv.querySelector('picture');
+    const qrCodeFigure = document.createElement('figure');
+    qrCodeFigure.classList.add('lp-qrcode');
+    qrCodeFigure.classList.add('desk-only');
+    qrCodeFigure.replaceChildren(qrCode);
+
+    lpSlide.replaceChildren(lpActions, pictureFigure, article, qrCodeFigure);
+    card.replaceChildren(lpSlide);
+  });
+
+  lpContainer.replaceChildren(swiperWrapper, navPagination);
+  lpSwiper.replaceChildren(lpContainer);
+  block.replaceChildren(lpSwiper, dialog);
+}

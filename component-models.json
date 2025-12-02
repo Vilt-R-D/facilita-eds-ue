@@ -134,10 +134,162 @@
         "label": "Style",
         "options": [
           {
-            "name": "Highlight",
-            "value": "highlight"
+            "name": "Disclaimer",
+            "value": "disclaimer"
+          },
+          {
+            "name": "No Padding",
+            "value": "no-padding"
           }
         ]
+      },
+      {
+        "component": "multiselect",
+        "name": "move-to",
+        "label": "Move to",
+        "maxSize": 1,
+        "options": [
+          {
+            "name": "Header",
+            "value": "header"
+          },
+          {
+            "name": "Footer",
+            "value": "footer"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "show-only",
+    "fields": [
+      {
+        "component": "radio-group",
+        "label": "Show on:",
+        "name": "classes",
+        "value": "",
+        "valueType": "string",
+        "options": [
+          {
+            "name": "Desktop",
+            "value": "desktop-only"
+          },
+          {
+            "name": "Mobile",
+            "value": "mobile-only"
+          },
+          {
+            "name": "Both",
+            "value": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "show-only-content",
+    "fields": [
+      {
+        "component": "richtext",
+        "name": "rte",
+        "label": "Rich Text",
+        "valueType": "string"
+      },
+      {
+        "component": "reference",
+        "name": "image",
+        "label": "Image",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "name": "imageAlt",
+        "label": "Image alternative text",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "app-teaser",
+    "fields": [
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "title",
+        "label": "Título",
+        "required": true
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "description",
+        "label": "Texto",
+        "required": true
+      },
+      {
+        "component": "aem-content",
+        "name": "link-1",
+        "label": "Link 1",
+        "required": true
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "link-1-image",
+        "label": "Imagem do Link 1",
+        "multi": false,
+        "required": true
+      },
+      {
+        "component": "aem-content",
+        "name": "link-2",
+        "label": "Link 2",
+        "required": true
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "link-2-image",
+        "label": "Imagem do Link 2",
+        "multi": false,
+        "required": true
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "image",
+        "label": "Imagem Principal",
+        "multi": false,
+        "required": true
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "qr-text",
+        "label": "Texto do QRCode",
+        "required": true
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "qrcode",
+        "label": "QRCode",
+        "multi": false,
+        "required": true
+      }
+    ]
+  },
+  {
+    "id": "card-grid",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "filters",
+        "label": "Filtros",
+        "multi": true,
+        "required": true
       }
     ]
   },
@@ -147,16 +299,111 @@
       {
         "component": "reference",
         "valueType": "string",
-        "name": "image",
-        "label": "Image",
-        "multi": false
+        "name": "card-icon",
+        "label": "Ícone do Card",
+        "multi": false,
+        "required": true
       },
       {
         "component": "richtext",
-        "name": "text",
-        "value": "",
-        "label": "Text",
-        "valueType": "string"
+        "valueType": "string",
+        "name": "title",
+        "label": "Título do Card",
+        "required": true
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "description",
+        "label": "Texto do Card",
+        "required": true
+      },
+      {
+        "component": "aem-content",
+        "name": "link",
+        "label": "Link de Redirecionamento",
+        "description": "Link de Redirecionamento do Card.",
+        "required": true
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "tag",
+        "label": "Categoria do Card",
+        "required": true
+      }
+    ]
+  },
+  {
+    "id": "carousel",
+    "fields": []
+  },
+  {
+    "id": "carousel-card",
+    "fields": [
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "card-image",
+        "label": "Imagem do Card",
+        "multi": false,
+        "required": true
+      },
+      {
+        "component": "aem-content",
+        "name": "youtube-video",
+        "label": "Vídeo do Youtube",
+        "description": "Link do Vídeo do Youtube que será aberto ao clicar no card.",
+        "required": true
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "icon",
+        "label": "Ícone do Card",
+        "multi": false,
+        "required": true
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "title",
+        "label": "Título do Card",
+        "required": true
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "qrcode",
+        "label": "QRCode do Card",
+        "multi": false,
+        "required": true
+      },
+      {
+        "component": "aem-content",
+        "name": "link",
+        "label": "Link do botão",
+        "required": true
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "button-text",
+        "label": "Texto do botão",
+        "required": true
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "cardIcon",
+        "label": "Ícone do botão",
+        "description": "Vísivel apenas em mobile ou caso ative o check abaixo.",
+        "required": true
+      },
+      {
+        "component": "boolean",
+        "label": "Link disponível em desktop e mobile",
+        "name": "all-devices"
       }
     ]
   },
@@ -180,6 +427,95 @@
     ]
   },
   {
+    "id": "fale-com-a-bia",
+    "fields": [
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "icon",
+        "label": "Ícone da BIA",
+        "multi": false,
+        "required": true
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "title",
+        "label": "Título",
+        "required": true
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "subtitle",
+        "label": "Subtítulo",
+        "required": true
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "description",
+        "label": "Descrição",
+        "required": true
+      }
+    ]
+  },
+  {
+    "id": "footer",
+    "fields": [
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "info",
+        "label": "Informações Úteis",
+        "required": true
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "support",
+        "label": "Atendimento",
+        "required": true
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "sites",
+        "label": "Sites Bradesco",
+        "required": true
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "social-media",
+        "label": "Acompanhe",
+        "required": true
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "address",
+        "label": "Endereço",
+        "required": true
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "logo",
+        "label": "Logo",
+        "multi": false,
+        "required": true
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "links",
+        "label": "Links",
+        "required": true
+      }
+    ]
+  },
+  {
     "id": "fragment",
     "fields": [
       {
@@ -190,28 +526,144 @@
     ]
   },
   {
-    "id": "hero",
+    "id": "logo-header",
     "fields": [
       {
         "component": "reference",
-        "valueType": "string",
-        "name": "image",
-        "label": "Image",
-        "multi": false
+        "name": "logo",
+        "label": "Logo do Cabeçalho",
+        "description": "Logo que aparecerá no canto superior esquerdo."
       },
       {
         "component": "text",
         "valueType": "string",
-        "name": "imageAlt",
-        "label": "Alt",
-        "value": ""
+        "valueFormat": "regexp",
+        "name": "logo-redirect",
+        "label": "URL de Redirecionamento",
+        "description": "Local para onde o usuário será redirecionado ao clicar na logo.",
+        "validation": {
+          "regExp": "^https?:\\/\\/(?:www\\.)?[-a-zA-Z0-9@:%._\\+~#=]{1,256}\\.[a-zA-Z0-9()]{1,64}\\b(?:[-a-zA-Z0-9()@:%_\\+.~#?&\\/=]*)$",
+          "customErrorMsg": "URL não identificada."
+        }
+      }
+    ]
+  },
+  {
+    "id": "background-header",
+    "fields": [
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "background",
+        "label": "Versão Padrão",
+        "required": true
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "background-mobile",
+        "label": "Versão para Celular",
+        "condition": {
+          "!": {
+            "some": [
+              {
+                "missing": [
+                  "background"
+                ]
+              },
+              [
+                "background"
+              ]
+            ]
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "hero",
+    "fields": [
+      {
+        "component": "text",
+        "name": "ancora",
+        "label": "Âncora",
+        "valueFormat": "regexp",
+        "description": "ID do elemento ao qual a tela vai redirecionada.",
+        "validation": {
+          "regExp": "^#.*$",
+          "customErrorMsg": "Inicie a referência ao ID do elemento com o símbolo: #"
+        }
+      }
+    ]
+  },
+  {
+    "id": "teaser",
+    "fields": [
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "text",
+        "label": "Texto"
+      },
+      {
+        "component": "container",
+        "label": "QR Code (Desktop)",
+        "description": "Seção para o usuário apontar a câmera, apenas em desktop.",
+        "name": "qrcode",
+        "valueType": "string",
+        "collapsible": true,
+        "fields": [
+          {
+            "component": "reference",
+            "name": "qrImg",
+            "label": "Imagem do QR Code",
+            "valueType": "string"
+          },
+          {
+            "component": "text",
+            "name": "qrTxt",
+            "label": "Descrição",
+            "description": "Texto ao lado do QR Code",
+            "valueType": "string"
+          }
+        ]
+      },
+      {
+        "component": "container",
+        "label": "Botão (Mobile)",
+        "description": "Botão para o usuário ser redirecionado, apenas em mobile.",
+        "name": "btn",
+        "valueType": "string",
+        "collapsible": true,
+        "fields": [
+          {
+            "component": "text",
+            "name": "link",
+            "label": "Link do botão"
+          },
+          {
+            "component": "text",
+            "name": "linkText",
+            "label": "Texto do botão"
+          }
+        ]
       },
       {
         "component": "richtext",
-        "name": "text",
-        "value": "",
-        "label": "Text",
-        "valueType": "string"
+        "name": "disclaimer",
+        "label": "Disclaimer",
+        "description": "Texto abaixo do redirecionamento."
+      }
+    ]
+  },
+  {
+    "id": "teaser-icon",
+    "fields": [
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "icon",
+        "label": "Ícone"
       }
     ]
   }

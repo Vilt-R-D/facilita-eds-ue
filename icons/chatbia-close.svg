@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24" viewBox="0 0 24 24">
+  <defs>
+    <clipPath id="clip-path">
+      <path id="Fill_1" data-name="Fill 1" d="M13.061,12,23.78,1.281A.75.75,0,0,0,22.719.219L12,10.94,1.28.219A.75.75,0,0,0,.219,1.281L10.94,12,.219,22.719a.75.75,0,0,0,1.06,1.062L12,13.061l10.719,10.72a.75.75,0,0,0,1.06-1.062Z" transform="translate(0)" fill="#fff"/>
+    </clipPath>
+  </defs>
+  <g id="Grupo_57" data-name="Grupo 57" transform="translate(4.558 4.558)">
+    <g id="Grupo_de_máscara_59" data-name="Grupo de máscara 59" transform="translate(-4.558 -4.558)" clip-path="url(#clip-path)">
+      <g id="Cor" transform="translate(-6.156 -6.156)">
+        <rect id="_01._Cores_04._Petroleo_100" data-name="01. Cores/04. Petroleo 100" width="36.312" height="36.312" transform="translate(0 0)" fill="#fff"/>
+      </g>
+    </g>
+  </g>
+</svg>

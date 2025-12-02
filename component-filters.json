@@ -15,13 +15,37 @@
       "hero",
       "cards",
       "columns",
-      "fragment"
+      "fragment",
+      "carousel",
+      "card-grid",
+      "show-only",
+      "app-teaser",
+      "footer",
+      "teaser",
+      "fale-com-a-bia"
     ]
   },
   {
-    "id": "cards",
+    "id": "show-only",
+    "components": [
+      "title",
+      "show-only-content"
+    ]
+  },
+  {
+    "id": "app-teaser",
+    "components": []
+  },
+  {
+    "id": "card-grid",
     "components": [
       "card"
+    ]
+  },
+  {
+    "id": "carousel",
+    "components": [
+      "carousel-card"
     ]
   },
   {
@@ -37,6 +61,20 @@
       "image",
       "button",
       "title"
+    ]
+  },
+  {
+    "id": "fale-com-a-bia",
+    "components": []
+  },
+  {
+    "id": "footer",
+    "components": []
+  },
+  {
+    "id": "teaser",
+    "components": [
+      "teaser-icon"
     ]
   }
 ]

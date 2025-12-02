@@ -1,0 +1,96 @@
+{
+  "definitions": [
+    {
+      "title": "Hero",
+      "id": "hero",
+      "plugins": {
+        "xwalk": {
+          "page": {
+            "resourceType": "core/franklin/components/block/v1/block",
+            "template": {
+              "name": "Hero",
+              "model": "hero",
+              "block_logo": {
+                "sling:resourceType": "core/franklin/components/block/v1/block",
+                "name": "Logo",
+                "model": "logo-header"
+              }
+            }
+          }
+        }
+      }
+    }
+  ],
+  "models": [
+    {
+      "id": "hero",
+      "fields": [
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "ancora",
+          "label": "Âncora",
+          "description": "id do elemento ao qual a tela vai redirecionada."
+        },
+        {
+          "component": "container",
+          "name": "background-container",
+          "label": "Imagem de Fundo",
+          "collapsible": true,
+          "fields": [
+            {
+              "component": "reference",
+              "valueType": "string",
+              "name": "background",
+              "label": "Versão Padrão",
+              "required": true
+            },
+            {
+              "component": "reference",
+              "valueType": "string",
+              "name": "background-mobile",
+              "label": "Versão para Celular",
+              "condition": {
+                "!": {
+                  "some": [
+                    {
+                      "missing": [
+                        "background"
+                      ]
+                    },
+                    [
+                      "background"
+                    ]
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        {
+          "component": "container",
+          "name": "logo-container",
+          "label": "Logotipo",
+          "collapsible": true,
+          "fields": [
+            {
+              "component": "reference",
+              "valueType": "string",
+              "name": "logo",
+              "label": "Logo do Cabeçalho",
+              "description": "Logo que aparecerá no canto superior esquerdo."
+            },
+            {
+              "component": "text",
+              "valueType": "string",
+              "name": "logo-redirect",
+              "label": "URL de redirecionamento",
+              "description": "Local para onde o usuário será redirecionado ao clicar na logo."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "filters": []
+}

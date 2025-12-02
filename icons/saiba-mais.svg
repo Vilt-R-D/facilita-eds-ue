@@ -1,0 +1,10 @@
+<svg id="ui-chevron-right" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="16" height="16" viewBox="0 0 16 16">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Retângulo_112766" data-name="Retângulo 112766" width="16" height="16" transform="translate(0 16) rotate(-90)" fill="#cc092f" opacity="0"/>
+    </clipPath>
+  </defs>
+  <g id="Grupo_de_máscara_122416" data-name="Grupo de máscara 122416" clip-path="url(#clip-path)">
+    <path id="Caminho_714385" data-name="Caminho 714385" d="M11.782.226a.726.726,0,0,0-1.053,0L6,5.134,1.271.226a.727.727,0,0,0-1.053,0,.793.793,0,0,0,0,1.093L5.474,6.774a.727.727,0,0,0,1.053,0l5.255-5.455A.793.793,0,0,0,11.782.226Z" transform="translate(4.5 14) rotate(-90)" fill="#3b69ff"/>
+  </g>
+</svg>
