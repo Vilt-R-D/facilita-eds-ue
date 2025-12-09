@@ -1,0 +1,64 @@
+/* Accordion block styles - Bradesco theme */
+.accordion {
+  width: 100%;
+  border-radius: 12px;
+  background: var(--color-gray);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+  overflow: hidden;
+}
+
+.accordion-item + .accordion-item {
+  border-top: 1px solid #e6e7eb;
+}
+
+.accordion-header {
+  font-family: var(--heading-font-family);
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--color-red);
+  background: var(--color-gray);
+  cursor: pointer;
+  padding: 20px 24px;
+  outline: none;
+  transition: background 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.accordion-header:focus {
+  background: #f7f7fa;
+}
+
+.accordion-header::after {
+  content: '\25BC';
+  font-size: 1em;
+  margin-left: 12px;
+  transition: transform 0.2s;
+}
+
+.accordion-item.open .accordion-header::after {
+  transform: rotate(180deg);
+}
+
+.accordion-content {
+  padding: 0 24px 20px 24px;
+  background: #fff;
+  color: var(--text-color);
+  font-size: 1rem;
+  line-height: 1.6;
+  display: block;
+  animation: accordion-in 0.2s;
+}
+
+@keyframes accordion-in {
+  from { opacity: 0; transform: translateY(-8px); }
+  to { opacity: 1; transform: none; }
+}
+
+@media (max-width: 600px) {
+  .accordion-header, .accordion-content {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+}
