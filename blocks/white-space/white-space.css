@@ -1,0 +1,76 @@
+/* Core White Space Block */
+.white-space {
+  display: block;
+  width: 100%;
+  clear: both;
+  height: 48px; /* Default height */
+}
+
+/* 
+ * Sizing Variants 
+ * Mobile-first approach (Base sizes match existing padding scales)
+ */
+
+/* Small: 24px (Matches standard section padding) */
+.white-space.small {
+  height: 24px;
+}
+
+/* Medium: 48px (Default) */
+.white-space.medium {
+  height: 48px;
+}
+
+/* Large: 64px */
+.white-space.large {
+  height: 64px;
+}
+
+/* XLarge: 96px (For major section breaks) */
+.white-space.xlarge {
+  height: 96px;
+}
+
+/* 
+ * Color Variants 
+ * Using project CSS variables
+ */
+.white-space.red {
+  background-color: var(--color-red);
+}
+
+.white-space.gray {
+  background-color: var(--color-gray);
+}
+
+.white-space.white,
+.white-space.light {
+  /* Using RGB variable from styles.css */
+  background-color: rgb(var(--brad-color-neutral-0, 255, 255, 255));
+}
+
+/* 
+ * Desktop Adjustments 
+ * Scaled up for larger screens (>= 900px)
+ */
+@media (min-width: 900px) {
+  .white-space {
+    height: 64px; /* Larger default on desktop */
+  }
+
+  .white-space.small {
+    height: 32px;
+  }
+
+  .white-space.medium {
+    height: 64px;
+  }
+
+  .white-space.large {
+    height: 128px;
+  }
+
+  .white-space.xlarge {
+    height: 192px;
+  }
+}

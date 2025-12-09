@@ -666,5 +666,46 @@
         "label": "Ícone"
       }
     ]
+  },
+  {
+    "id": "white-space",
+    "fields": [
+      {
+        "component": "multiselect",
+        "name": "classes",
+        "label": "Settings",
+        "valueType": "string",
+        "options": [
+          {
+            "name": "Size: Small",
+            "value": "small"
+          },
+          {
+            "name": "Size: Medium",
+            "value": "medium"
+          },
+          {
+            "name": "Size: Large",
+            "value": "large"
+          },
+          {
+            "name": "Size: Extra Large",
+            "value": "xlarge"
+          },
+          {
+            "name": "Color: Red",
+            "value": "red"
+          },
+          {
+            "name": "Color: Gray",
+            "value": "gray"
+          },
+          {
+            "name": "Color: White",
+            "value": "white"
+          }
+        ]
+      }
+    ]
   }
 ]
