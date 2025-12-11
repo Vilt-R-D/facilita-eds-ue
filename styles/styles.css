@@ -6,6 +6,10 @@
     --color-red: #cc092f;
     --color-gray: #f0f1f5;
     --gradient-red-rose: linear-gradient(180deg, #cc092f 0%, #b81570 100%);
+    
+    /* colors for colored headings feature */
+    --primary-color: var(--color-red);
+    --secondary-color: #3b63fb;
 
     /* colors - vindo do boilerplate original */
     --background-color: var(--color-red);
@@ -209,6 +213,14 @@ html {
                 width: auto;
             }
         }
+    }
+
+    &.colored-headings h3 {
+    color: var(--primary-color);
+    }
+    
+    &.colored-headings h4 {
+    color: var(--secondary-color);
     }
 }
 

@@ -41,6 +41,10 @@
             {
               "name": "Constrained Text",
               "value": "constrained-text"
+            },
+            {
+              "name": "Colored headings",
+              "value": "colored-headings"
             }
           ]
         },
