@@ -62,7 +62,6 @@ h1 {
     font-size: 32px;
     line-height: 40px;
     font-weight: 700;
-    color: var(--text-color);
     font-family: var(--heading-font-family);
     letter-spacing: -0.02em;
 }
@@ -72,7 +71,6 @@ p {
     font-size: 16px;
     line-height: 1.6;
     letter-spacing: 0.01em;
-    color: var(--text-color);
     font-family: var(--body-font-family);
     text-wrap: auto;
 }
@@ -163,7 +161,7 @@ html {
         font-size: 20px;
         line-height: 26px;
         font-weight: 600;
-        color: var(--text-color);
+
         font-family: var(--heading-font-family);
     }
 
@@ -172,7 +170,7 @@ html {
         font-size: 18px;
         line-height: 24px;
         font-weight: 600;
-        color: var(--text-color);
+
         font-family: var(--heading-font-family);
     }
 
@@ -181,7 +179,7 @@ html {
         font-size: 16px;
         line-height: 22px;
         font-weight: 600;
-        color: var(--text-color);
+
         font-family: var(--heading-font-family);
     }
 
@@ -190,7 +188,7 @@ html {
         font-size: 14px;
         line-height: 20px;
         font-weight: 600;
-        color: var(--text-color);
+
         font-family: var(--heading-font-family);
         text-transform: uppercase;
         letter-spacing: 0.05em;

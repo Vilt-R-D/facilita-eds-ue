@@ -18,7 +18,13 @@ export default function decorate(block) {
     const [header, ...contentEls] = item.children;
 
     if (header) {
-      header.classList.add('accordion-header');
+      // Create semantic h3 header and move only text content
+      const h3Header = document.createElement('h3');
+      h3Header.classList.add('accordion-header');
+      h3Header.className = 'accordion-header';
+      h3Header.textContent = header.textContent;
+      header.replaceWith(h3Header);
+      
       const content = document.createElement('div');
       content.className = 'accordion-content';
       content.append(...contentEls);
@@ -31,14 +37,14 @@ export default function decorate(block) {
         item.classList.add('open');
       }
 
-      header.tabIndex = 0;
-      header.setAttribute('role', 'button');
-      header.setAttribute('aria-expanded', !content.style.display || content.style.display !== 'none');
+      h3Header.tabIndex = 0;
+      h3Header.setAttribute('role', 'button');
+      h3Header.setAttribute('aria-expanded', !content.style.display || content.style.display !== 'none');
 
-      header.addEventListener('click', () => {
+      h3Header.addEventListener('click', () => {
         const isOpen = item.classList.toggle('open');
         content.style.display = isOpen ? '' : 'none';
-        header.setAttribute('aria-expanded', isOpen);
+        h3Header.setAttribute('aria-expanded', isOpen);
         if (behavior === 'single' && isOpen) {
           items.forEach((other) => {
             if (other !== item) {
@@ -52,9 +58,9 @@ export default function decorate(block) {
         }
       });
 
-      header.addEventListener('keydown', (e) => {
+      h3Header.addEventListener('keydown', (e) => {
         if (e.key === 'Enter' || e.key === ' ') {
-          header.click();
+          h3Header.click();
           e.preventDefault();
         }
       });
