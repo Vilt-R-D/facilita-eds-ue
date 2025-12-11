@@ -9,8 +9,20 @@
  * @param {Element} block The white-space block element
  */
 export default function decorate(block) {
-  // The block is a visual separator. We clear any content text
-  // that might have been added by the author (like "Small" or "50px")
-  // to ensures it renders as a pure clean space.
-  block.textContent = '';
+  // If the block has content, we treat it as a "quote" or "text" spacer
+  const content = block.textContent.trim();
+  
+  if (content) {
+    // Wrap text in a span for styling (lines, spacing)
+    const textWrapper = document.createElement('span');
+    textWrapper.className = 'white-space-text';
+    textWrapper.textContent = content;
+    
+    block.textContent = '';
+    block.appendChild(textWrapper);
+    block.classList.add('has-text');
+  } else {
+    // If empty, ensure it is truly empty for the pure spacer variants
+    block.textContent = '';
+  }
 }

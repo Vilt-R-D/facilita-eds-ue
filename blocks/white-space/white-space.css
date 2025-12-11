@@ -1,9 +1,57 @@
 /* Core White Space Block */
 .white-space {
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 100%;
   clear: both;
   height: 48px; /* Default height */
+  box-sizing: border-box;
+}
+
+/* 
+ * Text Content Styling 
+ * Wide spaced, aesthetic text
+ */
+.white-space-text {
+  position: relative;
+  display: inline-block;
+  padding: 0 24px;
+  font-family: var(--body-font-family);
+  font-size: var(--body-font-size-xs, 12px);
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--text-color, #333);
+  text-align: center;
+  font-weight: 500;
+}
+
+/* 
+ * Aesthetic Lines 
+ * Lines that the eyes can rest on
+ */
+.white-space.has-text .white-space-text::before,
+.white-space.has-text .white-space-text::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: 100vw; /* Extend well beyond the text */
+  height: 1px;
+  background-color: currentColor;
+  opacity: 0.2;
+}
+
+.white-space.has-text .white-space-text::before {
+  right: 100%;
+}
+
+.white-space.has-text .white-space-text::after {
+  left: 100%;
+}
+
+/* Ensure lines don't cause overflow */
+.white-space {
+  overflow: hidden;
 }
 
 /* 
@@ -34,19 +82,37 @@
 /* 
  * Color Variants 
  * Using project CSS variables
+ * If text is present, apply color to text/lines.
+ * If empty, keep background (legacy behavior).
  */
 .white-space.red {
   background-color: var(--color-red);
+}
+
+.white-space.has-text.red {
+  background-color: transparent;
+  color: var(--color-red);
 }
 
 .white-space.gray {
   background-color: var(--color-gray);
 }
 
+.white-space.has-text.gray {
+  background-color: transparent;
+  color: var(--color-gray);
+}
+
 .white-space.white,
 .white-space.light {
   /* Using RGB variable from styles.css */
   background-color: rgb(var(--brad-color-neutral-0, 255, 255, 255));
+}
+
+.white-space.has-text.white,
+.white-space.has-text.light {
+  background-color: transparent;
+  color: rgb(var(--brad-color-neutral-0, 255, 255, 255));
 }
 
 /* 

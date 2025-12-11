@@ -35,6 +35,12 @@
     ]
   },
   {
+    "id": "accordion",
+    "components": [
+      "accordion-item"
+    ]
+  },
+  {
     "id": "app-teaser",
     "components": []
   },

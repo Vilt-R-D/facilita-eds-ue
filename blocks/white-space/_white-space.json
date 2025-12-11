@@ -21,6 +21,12 @@
       "id": "white-space",
       "fields": [
         {
+          "component": "text",
+          "name": "text",
+          "label": "Text (Optional)",
+          "valueType": "string"
+        },
+        {
           "component": "multiselect",
           "name": "classes",
           "label": "Settings",
