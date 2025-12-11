@@ -51,10 +51,36 @@ main {
     min-width: 256px;
 }
 
-p {
+/* p {
     margin: 0;
     font-size: 16px;
     line-height: 24px;
+} */
+
+p {
+    margin: 0 0 1.5rem 0;
+    font-size: 16px;
+    line-height: 1.6;
+    letter-spacing: 0.01em;
+    color: var(--text-color);
+    font-family: var(--body-font-family);
+    text-wrap: auto;
+}
+
+@media (width >= 600px) {
+    p {
+        font-size: 17px;
+        line-height: 1.7;
+        margin-bottom: 1.75rem;
+    }
+}
+
+@media (width >= 900px) {
+    p {
+        font-size: 18px;
+        line-height: 1.75;
+        margin-bottom: 2rem;
+    }
 }
 
 @media screen and (width >= 1199px) {
@@ -104,6 +130,10 @@ html {
 
 .section {
     min-width: 256px;
+
+    &.constrained-text p {
+        max-width: 65ch;
+    }
 
     h2 {
         margin: 0;
