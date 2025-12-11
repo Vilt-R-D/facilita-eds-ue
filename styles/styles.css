@@ -57,6 +57,16 @@ main {
     line-height: 24px;
 } */
 
+h1 {
+    margin: 0 0 32px 0;
+    font-size: 32px;
+    line-height: 40px;
+    font-weight: 700;
+    color: var(--text-color);
+    font-family: var(--heading-font-family);
+    letter-spacing: -0.02em;
+}
+
 p {
     margin: 0 0 1.5rem 0;
     font-size: 16px;
@@ -87,6 +97,12 @@ p {
     main {
         border-radius: 56px 56px 0 0;
         margin-top: -48px;
+    }
+
+    h1 {
+        font-size: 48px;
+        line-height: 56px;
+        margin-bottom: 48px;
     }
 }
 
@@ -142,6 +158,44 @@ html {
         margin-bottom: 24px;
     }
 
+    h3 {
+        margin: 0 0 20px 0;
+        font-size: 20px;
+        line-height: 26px;
+        font-weight: 600;
+        color: var(--text-color);
+        font-family: var(--heading-font-family);
+    }
+
+    h4 {
+        margin: 0 0 16px 0;
+        font-size: 18px;
+        line-height: 24px;
+        font-weight: 600;
+        color: var(--text-color);
+        font-family: var(--heading-font-family);
+    }
+
+    h5 {
+        margin: 0 0 14px 0;
+        font-size: 16px;
+        line-height: 22px;
+        font-weight: 600;
+        color: var(--text-color);
+        font-family: var(--heading-font-family);
+    }
+
+    h6 {
+        margin: 0 0 12px 0;
+        font-size: 14px;
+        line-height: 20px;
+        font-weight: 600;
+        color: var(--text-color);
+        font-family: var(--heading-font-family);
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+    }
+
     &.disclaimer {
         p {
             font-size: 0.8em;
@@ -165,6 +219,30 @@ html {
         font-size: 40px;
         line-height: 48px;
         margin-bottom: 64px;
+    }
+
+    .section h3 {
+        font-size: 28px;
+        line-height: 36px;
+        margin-bottom: 32px;
+    }
+
+    .section h4 {
+        font-size: 24px;
+        line-height: 32px;
+        margin-bottom: 24px;
+    }
+
+    .section h5 {
+        font-size: 20px;
+        line-height: 28px;
+        margin-bottom: 20px;
+    }
+
+    .section h6 {
+        font-size: 16px;
+        line-height: 24px;
+        margin-bottom: 16px;
     }
 }
 
