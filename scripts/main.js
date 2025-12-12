@@ -162,7 +162,10 @@ function waitForElement(selector, callback) {
 
   function initAppButtonsHandler() {
     if (isIOS) document.querySelectorAll('.lp-action > a[href*="play.google.com"]').style.display = 'none';
-    if (isANDROID) document.querySelector('.lp-action > a[href*="apps.apple.com"]').style.display = 'none';
+    if (isANDROID){
+      const el = document.querySelector('.lp-action > a[href*="apps.apple.com"]');
+      el ? el.style.display = 'none': undefined; // Se existir, estiliza, se não, não faz nada.
+    };
   }
 
   function initScrollTo() {
