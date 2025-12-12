@@ -147,6 +147,13 @@ html {
 }
 
 .section {
+    /* Naive Image */
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+
+
     min-width: 256px;
 
     &.constrained-text p {
@@ -199,9 +206,9 @@ html {
     }
 
     &.disclaimer {
-        p {
+        p, li {
             font-size: 0.8em;
-            line-height: 28px;
+            line-height: 2.2em;
         }
 
         picture {
@@ -213,12 +220,19 @@ html {
                 width: auto;
             }
         }
+
+        ul  {
+            li {
+                list-style: inside circle;
+                line-height: 2em;
+            }
+        }
     }
 
     &.colored-headings h3 {
     color: var(--primary-color);
     }
-    
+
     &.colored-headings h4 {
     color: var(--secondary-color);
     }
