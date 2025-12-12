@@ -157,6 +157,7 @@ function setup() {
  */
 
 function init() {
+  window.doesNotLoadList = ['show-only'];
   setup();
   sampleRUM.collectBaseURL = window.origin;
   sampleRUM();
@@ -680,6 +681,8 @@ async function loadSection(section, loadCallback) {
     section.dataset.sectionStatus = 'loading';
     const blocks = [...section.querySelectorAll('div.block')];
     for (let i = 0; i < blocks.length; i += 1) {
+      // eslint-disable-next-line no-continue
+      if (window.doesNotLoadList.includes(blocks[i].dataset.blockName)) continue;
       // eslint-disable-next-line no-await-in-loop
       await loadBlock(blocks[i]);
     }
