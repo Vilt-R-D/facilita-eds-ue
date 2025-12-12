@@ -1,5 +1,10 @@
 .section.app-teaser-container {
     width: 100%;
+    background: white;
+
+    @media (width >= 1199px) {
+        background: inherit;
+    }
 }
 
 .block.app-teaser {

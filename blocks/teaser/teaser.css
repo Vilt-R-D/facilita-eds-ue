@@ -1,3 +1,13 @@
+.section.teaser-container{
+    background: white;
+    min-width: 100vw;
+
+    @media (width >= 1199px) {
+        min-width: inherit;
+        background: inherit;
+    }
+}
+
 .lp-container {
     display: flex;
     flex-direction: column;
