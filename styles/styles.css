@@ -6,6 +6,10 @@
     --color-red: #cc092f;
     --color-gray: #f0f1f5;
     --gradient-red-rose: linear-gradient(180deg, #cc092f 0%, #b81570 100%);
+    
+    /* colors for colored headings feature */
+    --primary-color: var(--color-red);
+    --secondary-color: #3b63fb;
 
     /* colors - vindo do boilerplate original */
     --background-color: var(--color-red);
@@ -51,16 +55,66 @@ main {
     min-width: 256px;
 }
 
+u, del {
+    font-size: 1em;
+    text-decoration: revert;
+}
+
+b, strong {
+    font-size: 1em;
+}
+
+em {
+    font-size: 1em;
+    font-style: oblique;
+    letter-spacing: 0.05em;
+    /* font-family: var(--body-font-family); */
+}
+
+h1 {
+    margin: 0 0 32px 0;
+    font-size: 32px;
+    line-height: 40px;
+    font-weight: 700;
+    font-family: var(--heading-font-family);
+    letter-spacing: -0.02em;
+}
+
 p {
-    margin: 0;
+    margin: 0 0 1.5rem 0;
     font-size: 16px;
-    line-height: 24px;
+    line-height: 1.6;
+    letter-spacing: 0.01em;
+    font-family: var(--body-font-family);
+    text-wrap: auto;
+}
+
+@media (width >= 600px) {
+    p {
+        font-size: 17px;
+        line-height: 1.7;
+        margin-bottom: 1.75rem;
+    }
+}
+
+@media (width >= 900px) {
+    p {
+        font-size: 18px;
+        line-height: 1.75;
+        margin-bottom: 2rem;
+    }
 }
 
 @media screen and (width >= 1199px) {
     main {
         border-radius: 56px 56px 0 0;
         margin-top: -48px;
+    }
+
+    h1 {
+        font-size: 48px;
+        line-height: 56px;
+        margin-bottom: 48px;
     }
 }
 
@@ -103,7 +157,18 @@ html {
 }
 
 .section {
+    /* Naive Image */
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+
+
     min-width: 256px;
+
+    &.constrained-text p {
+        max-width: 65ch;
+    }
 
     h2 {
         margin: 0;
@@ -112,10 +177,48 @@ html {
         margin-bottom: 24px;
     }
 
+    h3 {
+        margin: 0 0 20px 0;
+        font-size: 20px;
+        line-height: 26px;
+        font-weight: 600;
+
+        font-family: var(--heading-font-family);
+    }
+
+    h4 {
+        margin: 0 0 16px 0;
+        font-size: 18px;
+        line-height: 24px;
+        font-weight: 600;
+
+        font-family: var(--heading-font-family);
+    }
+
+    h5 {
+        margin: 0 0 14px 0;
+        font-size: 16px;
+        line-height: 22px;
+        font-weight: 600;
+
+        font-family: var(--heading-font-family);
+    }
+
+    h6 {
+        margin: 0 0 12px 0;
+        font-size: 14px;
+        line-height: 20px;
+        font-weight: 600;
+
+        font-family: var(--heading-font-family);
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+    }
+
     &.disclaimer {
-        p {
+        p, li {
             font-size: 0.8em;
-            line-height: 28px;
+            line-height: 2.2em;
         }
 
         picture {
@@ -127,6 +230,21 @@ html {
                 width: auto;
             }
         }
+
+        ul  {
+            li {
+                list-style: inside circle;
+                line-height: 2em;
+            }
+        }
+    }
+
+    &.colored-headings h3 {
+    color: var(--primary-color);
+    }
+
+    &.colored-headings h4 {
+    color: var(--secondary-color);
     }
 }
 
@@ -135,6 +253,30 @@ html {
         font-size: 40px;
         line-height: 48px;
         margin-bottom: 64px;
+    }
+
+    .section h3 {
+        font-size: 28px;
+        line-height: 36px;
+        margin-bottom: 32px;
+    }
+
+    .section h4 {
+        font-size: 24px;
+        line-height: 32px;
+        margin-bottom: 24px;
+    }
+
+    .section h5 {
+        font-size: 20px;
+        line-height: 28px;
+        margin-bottom: 20px;
+    }
+
+    .section h6 {
+        font-size: 16px;
+        line-height: 24px;
+        margin-bottom: 16px;
     }
 }
 

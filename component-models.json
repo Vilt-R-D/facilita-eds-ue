@@ -140,6 +140,14 @@
           {
             "name": "No Padding",
             "value": "no-padding"
+          },
+          {
+            "name": "Constrained Text",
+            "value": "constrained-text"
+          },
+          {
+            "name": "Colored headings",
+            "value": "colored-headings"
           }
         ]
       },
@@ -206,6 +214,44 @@
         "component": "text",
         "name": "imageAlt",
         "label": "Image alternative text",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "accordion",
+    "fields": [
+      {
+        "component": "multiselect",
+        "name": "classes",
+        "label": "Behavior",
+        "valueType": "string",
+        "options": [
+          {
+            "name": "Single Open",
+            "value": "single"
+          },
+          {
+            "name": "Collapse All by Default",
+            "value": "collapsed"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "accordion-item",
+    "fields": [
+      {
+        "component": "text",
+        "name": "title",
+        "label": "Title",
+        "valueType": "string"
+      },
+      {
+        "component": "richtext",
+        "name": "content",
+        "label": "Content",
         "valueType": "string"
       }
     ]
@@ -664,6 +710,53 @@
         "valueType": "string",
         "name": "icon",
         "label": "Ícone"
+      }
+    ]
+  },
+  {
+    "id": "white-space",
+    "fields": [
+      {
+        "component": "text",
+        "name": "text",
+        "label": "Text (Optional)",
+        "valueType": "string"
+      },
+      {
+        "component": "multiselect",
+        "name": "classes",
+        "label": "Settings",
+        "valueType": "string",
+        "options": [
+          {
+            "name": "Size: Small",
+            "value": "small"
+          },
+          {
+            "name": "Size: Medium",
+            "value": "medium"
+          },
+          {
+            "name": "Size: Large",
+            "value": "large"
+          },
+          {
+            "name": "Size: Extra Large",
+            "value": "xlarge"
+          },
+          {
+            "name": "Color: Red",
+            "value": "red"
+          },
+          {
+            "name": "Color: Gray",
+            "value": "gray"
+          },
+          {
+            "name": "Color: White",
+            "value": "white"
+          }
+        ]
       }
     ]
   }

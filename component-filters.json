@@ -22,7 +22,9 @@
       "app-teaser",
       "footer",
       "teaser",
-      "fale-com-a-bia"
+      "fale-com-a-bia",
+      "white-space",
+      "accordion"
     ]
   },
   {
@@ -30,6 +32,12 @@
     "components": [
       "title",
       "show-only-content"
+    ]
+  },
+  {
+    "id": "accordion",
+    "components": [
+      "accordion-item"
     ]
   },
   {

@@ -37,6 +37,14 @@
             {
               "name": "No Padding",
               "value": "no-padding"
+            },
+            {
+              "name": "Constrained Text",
+              "value": "constrained-text"
+            },
+            {
+              "name": "Colored headings",
+              "value": "colored-headings"
             }
           ]
         },
@@ -77,7 +85,9 @@
         "app-teaser",
         "footer",
         "teaser",
-        "fale-com-a-bia"
+        "fale-com-a-bia",
+        "white-space",
+        "accordion"
       ]
     }
   ]
