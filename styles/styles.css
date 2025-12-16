@@ -55,11 +55,21 @@ main {
     min-width: 256px;
 }
 
-/* p {
-    margin: 0;
-    font-size: 16px;
-    line-height: 24px;
-} */
+u, del {
+    font-size: 1em;
+    text-decoration: revert;
+}
+
+b, strong {
+    font-size: 1em;
+}
+
+em {
+    font-size: 1em;
+    font-style: oblique;
+    letter-spacing: 0.05em;
+    /* font-family: var(--body-font-family); */
+}
 
 h1 {
     margin: 0 0 32px 0;
