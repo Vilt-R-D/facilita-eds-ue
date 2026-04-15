@@ -666,5 +666,50 @@
         "label": "Ícone"
       }
     ]
+  },
+  {
+    "id": "vertical-carousel",
+    "fields": []
+  },
+  {
+    "id": "vertical-carousel-item",
+    "fields": [
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "image",
+        "label": "Imagem",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "imageAlt",
+        "label": "Texto alternativo da imagem"
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "title",
+        "label": "Título"
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "description",
+        "label": "Descrição"
+      },
+      {
+        "component": "aem-content",
+        "name": "cta",
+        "label": "Link do CTA"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "ctaText",
+        "label": "Texto do CTA"
+      }
+    ]
   }
 ]

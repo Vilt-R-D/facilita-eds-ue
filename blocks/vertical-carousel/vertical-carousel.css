@@ -1,0 +1,250 @@
+/* Container principal - ocupa toda a altura da viewport */
+.vertical-carousel {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* Container Swiper */
+.vertical-carousel .vc-swiper {
+    width: 100%;
+    height: 100%;
+}
+
+/* Wrapper dos slides */
+.vertical-carousel .swiper-wrapper {
+    box-sizing: content-box;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    position: relative;
+    transition-property: transform;
+    transition-timing-function: var(
+        --swiper-wrapper-transition-timing-function,
+        initial
+    );
+    z-index: 1;
+}
+
+/* Cada slide ocupa toda a viewport */
+.vertical-carousel .swiper-slide {
+    height: 100vh;
+    flex-shrink: 0;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Conteúdo do slide (imagem + texto) */
+.vertical-carousel .vc-slide-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Imagem do slide como fundo */
+.vertical-carousel .vc-slide-content > picture {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+}
+
+.vertical-carousel .vc-slide-content > picture img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Área de texto sobre a imagem */
+.vertical-carousel .vc-slide-text {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 16px;
+    padding: 24px;
+    max-width: 720px;
+    color: #fff;
+}
+
+.vertical-carousel .vc-slide-text h2 {
+    margin: 0;
+    font-size: 32px;
+    line-height: 1.2;
+    font-family: var(--heading-font-family);
+}
+
+.vertical-carousel .vc-slide-text p {
+    margin: 0;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+/* CTA (call-to-action) */
+.vertical-carousel .vc-cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 32px;
+    background: var(--color-red);
+    color: #fff;
+    border-radius: 24px;
+    font-size: 14px;
+    line-height: 20px;
+    text-decoration: none;
+    transition: background 0.3s ease;
+}
+
+.vertical-carousel .vc-cta:hover {
+    background: #e1173f;
+}
+
+/* Container de navegação */
+.vertical-carousel .vc-navigation {
+    position: absolute;
+    bottom: 32px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    z-index: 10;
+}
+
+/* Botões de navegação (prev/next) */
+.vertical-carousel .vc-button-prev,
+.vertical-carousel .vc-button-next {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: 1px solid rgb(255 255 255 / 60%);
+    background: rgb(0 0 0 / 30%);
+    color: #fff;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s ease, opacity 0.3s ease;
+    padding: 0;
+}
+
+.vertical-carousel .vc-button-prev:hover,
+.vertical-carousel .vc-button-next:hover {
+    background: rgb(0 0 0 / 50%);
+}
+
+/* Ícone de seta dentro do botão */
+.vertical-carousel .vc-nav-icon {
+    font-size: 24px;
+    line-height: 1;
+}
+
+/* Estado desabilitado nos limites do carrossel */
+.vertical-carousel .vc-button-prev.swiper-button-disabled,
+.vertical-carousel .vc-button-next.swiper-button-disabled {
+    opacity: 0.35;
+    pointer-events: none;
+    cursor: default;
+}
+
+/* Paginação (bullets) */
+.vertical-carousel .vc-pagination {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.vertical-carousel .vc-pagination .swiper-pagination-bullet {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgb(255 255 255 / 50%);
+    opacity: 1;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-block;
+    border: none;
+}
+
+.vertical-carousel .vc-pagination .swiper-pagination-bullet-active {
+    background: #fff;
+    width: 24px;
+    border-radius: 10px;
+}
+
+/* Responsive: viewport height progressivo para mobile */
+@supports (height: 100dvh) {
+    .vertical-carousel {
+        height: 100dvh;
+    }
+
+    .vertical-carousel .swiper-slide {
+        height: 100dvh;
+    }
+}
+
+/* Mobile (< 768px) */
+@media (width < 768px) {
+    .vertical-carousel .vc-slide-text {
+        padding: 16px;
+        max-width: 100%;
+        gap: 12px;
+    }
+
+    .vertical-carousel .vc-slide-text h2 {
+        font-size: 24px;
+    }
+
+    .vertical-carousel .vc-slide-text p {
+        font-size: 14px;
+    }
+
+    .vertical-carousel .vc-navigation {
+        bottom: 24px;
+        gap: 8px;
+    }
+
+    .vertical-carousel .vc-button-prev,
+    .vertical-carousel .vc-button-next {
+        width: 40px;
+        height: 40px;
+    }
+
+    .vertical-carousel .vc-nav-icon {
+        font-size: 20px;
+    }
+}
+
+/* Tablet (768px – 1023px) */
+@media (768px <= width < 1024px) {
+    .vertical-carousel .vc-slide-text {
+        max-width: 600px;
+    }
+
+    .vertical-carousel .vc-slide-text h2 {
+        font-size: 28px;
+    }
+}
+
+/* Desktop (1024px+) */
+@media (width >= 1024px) {
+    .vertical-carousel .vc-slide-text h2 {
+        font-size: 40px;
+    }
+
+    .vertical-carousel .vc-slide-text p {
+        font-size: 18px;
+    }
+
+    .vertical-carousel .vc-navigation {
+        bottom: 40px;
+    }
+}

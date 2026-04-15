@@ -64,3 +64,10 @@ URL pattern: `https://<branch>--facilita-eds-ue--vilt-r-d.aem.<page|live>`
 - **Dependencies:** Avoid adding new npm packages. If one is added, document the justification in `.docs/Pacotes Nodes.md`.
 - **CSS scoping:** Style only within your own block — do not reach outside block boundaries. Reference existing CSS variables in `styles/styles.css` before defining new ones.
 - **Branching:** Work on feature branches, PR into `main`. The `develop` branch merges into `main`.
+
+## Active Technologies
+- Vanilla JavaScript (ES6+), CSS3 + Swiper.js (already bundled at `scripts/swiper-bundle.js`), AEM EDS framework (`scripts/aem.js`) (001-vertical-carousel)
+- N/A (content delivered from AEM author) (001-vertical-carousel)
+
+## Recent Changes
+- 001-vertical-carousel: Added Vanilla JavaScript (ES6+), CSS3 + Swiper.js (already bundled at `scripts/swiper-bundle.js`), AEM EDS framework (`scripts/aem.js`)

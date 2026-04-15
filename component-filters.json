@@ -22,7 +22,8 @@
       "app-teaser",
       "footer",
       "teaser",
-      "fale-com-a-bia"
+      "fale-com-a-bia",
+      "vertical-carousel"
     ]
   },
   {
@@ -75,6 +76,12 @@
     "id": "teaser",
     "components": [
       "teaser-icon"
+    ]
+  },
+  {
+    "id": "vertical-carousel",
+    "components": [
+      "vertical-carousel-item"
     ]
   }
 ]
