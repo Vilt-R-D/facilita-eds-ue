@@ -1,19 +1,19 @@
 <!-- Sync Impact Report
-Version change: 0.0.0 → 1.0.0
-Modified principles: N/A (initial ratification)
-Added sections:
-  - Core Principles (5 principles)
-  - EDS Technical Constraints
-  - Development Workflow & Tooling
-  - Governance
+Version change: 1.0.0 → 1.1.0
+Modified principles: Development Workflow & Tooling — replaced "No test suite"
+  rule with "E2E tests" policy referencing feature 002-playwright-story-tests.
+Added sections: N/A
 Removed sections: N/A
 Templates requiring updates:
-  - .specify/templates/plan-template.md — ✅ compatible (Constitution Check section aligns)
-  - .specify/templates/spec-template.md — ✅ compatible (no conflicts)
-  - .specify/templates/tasks-template.md — ✅ compatible (no conflicts)
+  - .specify/templates/plan-template.md — ✅ compatible
+  - .specify/templates/spec-template.md — ✅ compatible
+  - .specify/templates/tasks-template.md — ✅ compatible
   - .specify/templates/checklist-template.md — ✅ compatible
   - .specify/templates/agent-file-template.md — ✅ compatible
 Follow-up TODOs: none
+
+Prior history:
+  0.0.0 → 1.0.0 (2026-04-13): Initial ratification.
 -->
 
 # Facilita EDS Constitution
@@ -117,8 +117,14 @@ manually.
   root-level config files. Runs automatically via Husky pre-commit hook
   when `_*.json` files are staged.
 - **Local dev**: `aem up` serves at `http://localhost:3000`.
-- **No test suite**: This project has no automated test framework.
-  Validation is manual via the local dev server and preview environments.
+- **E2E tests**: Playwright tests live under `/tests` per the policy
+  established by feature `002-playwright-story-tests`. Every new feature
+  contributes one `tests/<full-spec-dir-name>.ts` file containing one
+  comprehensive test per user story in its paired `spec.md`, targeting
+  the AEM EDS branch preview (pre-merge acceptance gate) and the
+  `develop` preview (post-merge regression gate). Enforcement is via
+  reviewer checklist; see `specs/002-playwright-story-tests/` for the
+  spec, contracts, and quickstart.
 - **Speckit clarify behavior**: The `/speckit.clarify` command MUST
   return all clarification questions in a single response and receive
   the user's answers in order. It MUST NOT ask questions one at a time
@@ -141,4 +147,4 @@ principles above.
 - **Runtime guidance**: See `CLAUDE.md` at the project root for
   development commands and architecture details.
 
-**Version**: 1.0.0 | **Ratified**: 2026-04-13 | **Last Amended**: 2026-04-13
+**Version**: 1.1.0 | **Ratified**: 2026-04-13 | **Last Amended**: 2026-04-20

@@ -42,6 +42,7 @@ O script usa o **merge-json-cli** e **npm-run-all**para juntar todos os arquivos
 
 > Insira os pacotes que foram adicionados ao longo do projeto.
 
-| Nome       | Quem Adicionou | Versão | Justificativa                         |
-| ---------- | :------------: | :----: | ------------------------------------- |
-| extensão-x |   @gLeirbag    |  x.x   | "Para criar x elemento, facilita ..." |
+| Nome              | Quem Adicionou | Versão  | Justificativa                                                                                                                                                                                                                                                                        |
+| ----------------- | :------------: | :-----: | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| extensão-x        |   @gLeirbag    |   x.x   | "Para criar x elemento, facilita ..."                                                                                                                                                                                                                                                |
+| @playwright/test  | feature 002    | ^1.50.0 | `devDependency`. Framework de teste E2E exigido pela política em `specs/002-playwright-story-tests/spec.md` — cada nova feature deve entregar um arquivo `tests/<nome-completo-da-pasta-do-spec>.ts` com um teste por user story, rodando contra o preview do AEM EDS (`*.aem.page`). Alternativas consideradas e rejeitadas (ver `specs/002-playwright-story-tests/research.md` §1): `playwright` sem runner (mais complexo, sem ganho), Puppeteer + Jest (ergonomia inferior para E2E moderno), Cypress (pesado, UI desnecessária). Escape hatch do Princípio II (Zero Dependências) usado conforme previsto — dependência de desenvolvimento apenas, nunca no bundle de produção. |
