@@ -21,6 +21,7 @@
       "show-only",
       "app-teaser",
       "footer",
+      "stack-carousel",
       "teaser",
       "fale-com-a-bia"
     ]
@@ -70,6 +71,12 @@
   {
     "id": "footer",
     "components": []
+  },
+  {
+    "id": "stack-carousel",
+    "components": [
+      "stack-carousel-item"
+    ]
   },
   {
     "id": "teaser",

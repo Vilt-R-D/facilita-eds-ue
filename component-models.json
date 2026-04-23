@@ -597,6 +597,90 @@
     ]
   },
   {
+    "id": "stack-carousel",
+    "fields": [
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "heading",
+        "label": "Título",
+        "required": true
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "body",
+        "label": "Texto de apoio",
+        "required": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "ctaLabel",
+        "label": "Texto do botão",
+        "required": false
+      },
+      {
+        "component": "aem-content",
+        "name": "ctaLink",
+        "label": "Link do botão",
+        "required": false
+      }
+    ]
+  },
+  {
+    "id": "stack-carousel-item",
+    "fields": [
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "title",
+        "label": "Título do card",
+        "required": true
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "description",
+        "label": "Texto do card",
+        "required": false
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "icon",
+        "label": "Ícone do card",
+        "multi": false,
+        "required": false
+      },
+      {
+        "component": "select",
+        "valueType": "string",
+        "name": "bgColor",
+        "label": "Cor de fundo do card",
+        "required": true,
+        "options": [
+          {
+            "name": "Preto",
+            "value": "black"
+          },
+          {
+            "name": "Verde escuro",
+            "value": "dark-green"
+          },
+          {
+            "name": "Verde claro",
+            "value": "bright-green"
+          },
+          {
+            "name": "Branco",
+            "value": "white"
+          }
+        ]
+      }
+    ]
+  },
+  {
     "id": "teaser",
     "fields": [
       {
