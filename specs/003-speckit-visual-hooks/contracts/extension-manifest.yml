@@ -1,0 +1,52 @@
+# Contract: visual-refs extension manifest
+#
+# This file is the canonical shape of `.specify/extensions/visual-refs/extension.yml`.
+# Implementation of FR-004 and FR-007 must produce a file that conforms to this contract.
+# The aggregator file `.specify/extensions.yml` mirrors the `hooks:` block declared here,
+# placed AS THE FIRST ENTRY under each event so the existing git auto-commit hook runs second.
+
+schema_version: "1.0"
+
+extension:
+  id: visual-refs
+  name: "Visual Reference Hooks"
+  version: "1.0.0"
+  description: >-
+    Extracts PNG/SVG references from /speckit-specify input into spec.md and
+    prepends a visual-context task to tasks.md so /speckit-implement loads
+    those images into context before any feature task runs.
+  author: facilita-eds
+  license: MIT
+
+requires:
+  speckit_version: ">=0.8.5"
+  tools: []
+
+provides:
+  commands:
+    - name: speckit.visual.extract-refs
+      file: commands/speckit.visual.extract-refs.md
+      description: "Extract PNG/SVG references from /speckit-specify input into spec.md"
+    - name: speckit.visual.prepend-task
+      file: commands/speckit.visual-refs.prepend-task.md
+      description: "Prepend a visual-context task to tasks.md based on spec.md Visual References"
+
+hooks:
+  after_specify:
+    command: speckit.visual.extract-refs
+    optional: false
+    prompt: null
+    condition: null
+    description: "Extract PNG/SVG references from /speckit-specify input into spec.md"
+  after_tasks:
+    command: speckit.visual.prepend-task
+    optional: false
+    prompt: null
+    condition: null
+    description: "Prepend a visual-context task to tasks.md based on spec.md Visual References"
+
+tags:
+  - "visual"
+  - "specify"
+  - "tasks"
+  - "implement"

@@ -72,11 +72,12 @@ URL pattern: `https://<branch>--facilita-eds-ue--vilt-r-d.aem.<page|live>`
 ## Active Technologies
 - TypeScript 5.x for test files (`tests/*.ts`). Node.js 18 LTS or newer for the Playwright runner. The existing application code remains vanilla JavaScript — TypeScript is scoped to the `tests/` tree. + `@playwright/test` (latest stable 1.x) as the only new devDependency. Playwright bundles its own TypeScript toolchain; no separate `typescript` / `ts-node` package is required for test authoring. (002-playwright-story-tests)
 - N/A. Tests operate over HTTP against AEM EDS preview URLs; no persisted state in the test project. (002-playwright-story-tests)
+- Bash 4+ (POSIX) and PowerShell 5.1 for the speckit `visual-refs` extension under `.specify/extensions/visual-refs/`. No new npm dependencies. The bash path is canonical (per `.specify/init-options.json` `"script": "sh"`); PowerShell mirror is shipped for Windows-only contributors. Same `@playwright/test` runner reused for the meta-test that drives the bash scripts via `child_process` (no browser fixture). (003-speckit-visual-hooks)
 
 ## Recent Changes
+- 003-speckit-visual-hooks: Added two mandatory speckit hooks (`after_specify`, `after_tasks`) under a new `.specify/extensions/visual-refs/` extension. The first hook extracts PNG/SVG references from the `**Input**:` line of `spec.md` into a `## Visual References` section; the second hook rewrites the leading delimited block of `tasks.md` so `/speckit-implement` loads each image into context. Both hooks fail-soft: parent commands report SUCCESS and the failure is surfaced as a stderr warning. Implemented in bash (canonical) + PowerShell (mirror), tested via Playwright meta-test `tests/003-speckit-visual-hooks.ts`.
 - 002-playwright-story-tests: Added TypeScript 5.x for test files (`tests/*.ts`). Node.js 18 LTS or newer for the Playwright runner. The existing application code remains vanilla JavaScript — TypeScript is scoped to the `tests/` tree. + `@playwright/test` (latest stable 1.x) as the only new devDependency. Playwright bundles its own TypeScript toolchain; no separate `typescript` / `ts-node` package is required for test authoring.
 
 <!-- SPECKIT START -->
-For additional context about technologies to be used, project structure,
-shell commands, and other important information, read the current plan
+Active feature plan: [specs/003-speckit-visual-hooks/plan.md](specs/003-speckit-visual-hooks/plan.md). For additional context about technologies to be used, project structure, shell commands, and other important information, read the current plan.
 <!-- SPECKIT END -->

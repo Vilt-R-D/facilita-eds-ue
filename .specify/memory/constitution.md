@@ -125,10 +125,6 @@ manually.
   `develop` preview (post-merge regression gate). Enforcement is via
   reviewer checklist; see `specs/002-playwright-story-tests/` for the
   spec, contracts, and quickstart.
-- **Speckit clarify behavior**: The `/speckit.clarify` command MUST
-  return all clarification questions in a single response and receive
-  the user's answers in order. It MUST NOT ask questions one at a time
-  in separate turns.
 
 ## Governance
 
