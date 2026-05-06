@@ -5,7 +5,9 @@ A speckit hook that threads design assets from `/speckit-specify` through `/spec
 ## What it does
 
 - **after_tasks** — `speckit.visual.prepend-task`
-  Reads the `**Input**: User description: "..."` line that `/speckit-specify` writes into `spec.md`, extracts every PNG/SVG path or http(s) URL (deduplicated, first-seen order), and rewrites the leading delimited block of `tasks.md` so `/speckit-implement` loads each image into context before any feature task runs. Idempotent: re-running `/speckit-tasks` replaces the block in place.
+  Reads the `**Input**: User description: "..."` line that `/speckit-specify` writes into `spec.md`, extracts every PNG/SVG path or http(s) URL (deduplicated, first-seen order; `<label>: <url>` pairs preserved verbatim), renumbers existing `T0\d\d` task IDs by the count of refs, and injects a `## Phase 0: Visual Context (Pre-Implementation)` section immediately before `## Phase 1:` of `tasks.md`. Each ref becomes a `- [ ] T<NNN> Load <label> into context` task so `/speckit-implement` walks the references before any feature task. Idempotent: re-running `/speckit-tasks` regenerates the section in place.
+
+The hook is fully LLM-driven. The runtime dispatches `/speckit-visual-prepend-task`, which is implemented as a Claude skill at `.claude/skills/speckit-visual-prepend-task/SKILL.md` — read that file for the binding behavior contract.
 
 ## Failure mode
 
@@ -15,21 +17,14 @@ The hook is mandatory (`optional: false`) but its failure is non-fatal:
 - The hook emits a warning to stderr in the form `[specify] Warning: visual-refs after_tasks failed: <reason>; tasks.md preserved`.
 - `tasks.md` is never partially mutated.
 
-See `specs/003-speckit-visual-hooks/contracts/visual-context-task.md` for the binding output format.
-
 ## Layout
 
 ```text
 .specify/extensions/visual-refs/
 ├── extension.yml
 ├── README.md
-├── commands/
-│   └── speckit.visual.prepend-task.md
-└── scripts/
-    ├── bash/
-    │   └── prepend-task.sh
-    └── powershell/
-        └── prepend-task.ps1
+└── commands/
+    └── speckit.visual.prepend-task.md
 ```
 
 ## Hook ordering
