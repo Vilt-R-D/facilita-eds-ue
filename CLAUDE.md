@@ -17,6 +17,7 @@ Facilita EDS is a Brazilian fintech site built on **Adobe Experience Manager Edg
 - **Run tests (develop preview, default):** `npm test`
 - **Run tests against develop regression gate (explicit):** `npm run test:develop`
 - **Run tests against a feature-branch preview (pre-merge gate):** `BASE_URL=https://<branch>--facilita-eds-ue--vilt-r-d.aem.page npm test`
+- **Run tests against local `aem up` (TDD inner loop):** `npm run test:local` (requires `aem up` running and a published target page at `/blocks/<feature-slug>` — see Constitution Principle VI)
 - **Run a single feature's tests:** `npm test -- tests/<full-spec-dir-name>.ts`
 - **One-time browser install (per machine):** `npx playwright install chromium` (required only when a test uses a `page` fixture; this feature's own meta-tests do not)
 
@@ -68,6 +69,7 @@ URL pattern: `https://<branch>--facilita-eds-ue--vilt-r-d.aem.<page|live>`
 - **CSS scoping:** Style only within your own block — do not reach outside block boundaries. Reference existing CSS variables in `styles/styles.css` before defining new ones.
 - **Branching:** Work on feature branches, PR into `main`. The `develop` branch merges into `main`.
 - **Testing:** Every new feature MUST contribute one Playwright test file at `tests/<full-spec-dir-name>.ts` containing one comprehensive test per user story in its paired `spec.md`. Tests target `https://<branch>--facilita-eds-ue--vilt-r-d.aem.page/blocks/<feature-slug>` — feature-branch preview pre-merge (acceptance gate) and `develop` preview post-merge (regression gate). Enforcement is manual via the PR reviewer checklist. Full policy: `specs/002-playwright-story-tests/spec.md`. Reviewer checklist: `specs/002-playwright-story-tests/contracts/reviewer-checklist.md`. Quickstart: `specs/002-playwright-story-tests/quickstart.md`.
+- **TDD inner loop (block features):** Per Constitution Principle VI, block work runs a local red→green loop: write the Playwright spec first, author the target page at `/blocks/<feature-slug>` via the `aem-content` MCP (`create-aem-page` → `patch-aem-page-content` → `publish-aem-content`), run `aem up`, then iterate with `npm run test:local` against `localhost:3000`.
 
 ## Active Technologies
 - TypeScript 5.x for test files (`tests/*.ts`). Node.js 18 LTS or newer for the Playwright runner. The existing application code remains vanilla JavaScript — TypeScript is scoped to the `tests/` tree. + `@playwright/test` (latest stable 1.x) as the only new devDependency. Playwright bundles its own TypeScript toolchain; no separate `typescript` / `ts-node` package is required for test authoring. (002-playwright-story-tests)

@@ -23,7 +23,7 @@ The config file MUST export (default export) a call to `defineConfig({ ... })` f
 ### `use.baseURL`
 
 - **Value**: `process.env.BASE_URL ?? 'https://develop--facilita-eds-ue--vilt-r-d.aem.page'`
-- **Rationale**: FR-005 and SC-005 require the same suite to run against feature-branch and `develop` previews by varying only the `<branch>` segment. Env-driven base URL is the mechanism; defaulting to develop matches the most common manual-run case.
+- **Rationale**: FR-005 and SC-005 require the same suite to run against feature-branch and `develop` previews by varying only the `<branch>` segment. Env-driven base URL is the mechanism; defaulting to develop matches the most common manual-run case. The same env-driven baseURL also enables Constitution Principle VI's local TDD loop via `BASE_URL=http://localhost:3000` (`npm run test:local`); see "Permitted" below.
 
 ### `projects`
 
@@ -56,8 +56,12 @@ The config file MUST export (default export) a call to `defineConfig({ ... })` f
 
 - Hardcoding `baseURL` to a specific branch (violates SC-005).
 - Per-feature subdirectories under `tests/` (violates FR-003 and the flat-layout structure decision).
-- A `webServer` block that spins up a local dev server (tests target the deployed preview; running `aem up` in CI is out of scope for this policy).
+- A `webServer` block that spins up a local dev server from inside `playwright.config.ts` (the runner MUST NOT manage `aem up` itself; running `aem up` in CI is out of scope for this policy).
 - Secrets committed to the file.
+
+## Permitted: local TDD loop via `BASE_URL`
+
+Pointing the same suite at `http://localhost:3000` by exporting `BASE_URL=http://localhost:3000` (e.g. `npm run test:local`) is **explicitly allowed** for the inner red→green TDD loop defined by Constitution Principle VI. This is a runtime env override — it does NOT add a `webServer` block and does NOT change the config file. Contributors are responsible for starting `aem up` and authoring/publishing the target page (typically via the `aem-content` MCP) before running the local suite.
 
 ## Change process
 

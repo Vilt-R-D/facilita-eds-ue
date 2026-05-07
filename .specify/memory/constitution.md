@@ -1,19 +1,23 @@
 <!-- Sync Impact Report
-Version change: 1.0.0 → 1.1.0
-Modified principles: Development Workflow & Tooling — replaced "No test suite"
-  rule with "E2E tests" policy referencing feature 002-playwright-story-tests.
-Added sections: N/A
+Version change: 1.1.0 → 1.2.0
+Modified principles: Added Principle VI (TDD-Local Loop for Blocks).
+  Development Workflow & Tooling extended with `npm run test:local`
+  for the local-loopback TDD loop served by `aem up`.
+Added sections: Principle VI under Core Principles.
 Removed sections: N/A
 Templates requiring updates:
   - .specify/templates/plan-template.md — ✅ compatible
   - .specify/templates/spec-template.md — ✅ compatible
-  - .specify/templates/tasks-template.md — ✅ compatible
+  - .specify/templates/tasks-template.md — ✅ compatible (Phase G/V
+    scaffolding lives in Principle VI, not in the template)
   - .specify/templates/checklist-template.md — ✅ compatible
   - .specify/templates/agent-file-template.md — ✅ compatible
 Follow-up TODOs: none
 
 Prior history:
   0.0.0 → 1.0.0 (2026-04-13): Initial ratification.
+  1.0.0 → 1.1.0 (2026-04-20): Replaced "No test suite" with the
+    Playwright E2E policy from feature 002-playwright-story-tests.
 -->
 
 # Facilita EDS Constitution
@@ -92,6 +96,80 @@ manually.
 - Filters MUST be updated to register new blocks in the appropriate
   containers (typically in `/models/_section.json`).
 
+### VI. TDD-Local Loop for Blocks
+
+Every feature that adds or modifies a block under `blocks/` MUST be
+developed against a real authored AEM page using the local `aem up`
+proxy. The Playwright spec is written FIRST (red), the target page is
+authored programmatically via the `aem-content` MCP server, and the
+loop iterates locally at `http://localhost:3000`.
+
+**Required loop**:
+
+1. **Red**: Write the Playwright spec at
+   `tests/<full-spec-dir-name>.ts` covering one user story. Tests
+   navigate to `/blocks/<feature-slug>`.
+2. **Author**: Create the target page via
+   `mcp__aem-content__create-aem-page` at `/blocks/<feature-slug>`.
+   Populate the block's component fields with the values the test
+   expects via `mcp__aem-content__patch-aem-page-content`.
+3. **Publish**: Promote the page with
+   `mcp__aem-content__publish-aem-content` so the preview tier serves
+   it.
+4. **Serve**: Run `aem up` (background) so `localhost:3000` proxies
+   the published content while serving the **local** block JS/CSS
+   under iteration.
+5. **Iterate**: Run `npm run test:local` (= `BASE_URL=http://localhost:3000 playwright test`).
+   Edit `blocks/<feature-slug>/<feature-slug>.{js,css}` until the
+   spec is green.
+
+**Worked example** — task shape that `/speckit-tasks` MUST emit for
+any feature that adds or modifies a block. Two phases sit between the
+test-authoring tasks and the block-implementation tasks:
+
+```markdown
+## Phase G: AEM Author Setup (MCP-driven)
+
+**Purpose**: Stand up a real authored page at `/blocks/<feature-slug>`
+so Playwright has a target to hit. Runs once per feature; idempotent
+re-runs OK.
+
+- [ ] TG01 Create page at `/blocks/<feature-slug>` via
+      `mcp__aem-content__create-aem-page`
+- [ ] TG02 Patch component fields with test-expected values via
+      `mcp__aem-content__patch-aem-page-content`
+- [ ] TG03 Publish page via `mcp__aem-content__publish-aem-content`
+
+**Checkpoint**: Page is published and serves authored markup at
+`/blocks/<feature-slug>` on the preview tier.
+
+---
+
+## Phase V: Local TDD Loop (red → green)
+
+**Purpose**: Implement the block until the spec passes against
+`localhost:3000`. Repeat steps V02–V03 until green.
+
+- [ ] TV01 Start `aem up` in the background (one-shot per session)
+- [ ] TV02 Run `npm run test:local -- tests/<full-spec-dir-name>.ts`
+      and observe failures
+- [ ] TV03 Edit `blocks/<feature-slug>/<feature-slug>.js` and
+      `blocks/<feature-slug>/<feature-slug>.css` to address failures
+- [ ] TV04 Final green run on `localhost:3000`
+
+**Checkpoint**: Spec green locally.
+```
+
+**Notes & nuances**:
+
+- MCP authoring writes content via REST and does not require the
+  block's `_<name>.json` definitions to be deployed first. The page
+  will render correctly under `aem up` even when the Universal Editor
+  cannot yet display it in author mode.
+- If MCP credentials are unavailable on a contributor's machine, the
+  fallback is manual authoring in Universal Editor at the same path,
+  followed by manual publish — the loop is otherwise unchanged.
+
 ## EDS Technical Constraints
 
 - **No block nesting**: AEM EDS does not support blocks inside blocks.
@@ -125,6 +203,10 @@ manually.
   `develop` preview (post-merge regression gate). Enforcement is via
   reviewer checklist; see `specs/002-playwright-story-tests/` for the
   spec, contracts, and quickstart.
+- **Local TDD loop**: `npm run test:local` runs the Playwright suite
+  against `http://localhost:3000` (requires `aem up` running and a
+  published target page at `/blocks/<feature-slug>`). Used for the
+  red→green inner loop during block development; see Principle VI.
 
 ## Governance
 
@@ -143,4 +225,4 @@ principles above.
 - **Runtime guidance**: See `CLAUDE.md` at the project root for
   development commands and architecture details.
 
-**Version**: 1.1.0 | **Ratified**: 2026-04-13 | **Last Amended**: 2026-04-20
+**Version**: 1.2.0 | **Ratified**: 2026-04-13 | **Last Amended**: 2026-05-07
