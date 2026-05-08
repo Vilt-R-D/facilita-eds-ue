@@ -80,5 +80,5 @@ URL pattern: `https://<branch>--facilita-eds-ue--vilt-r-d.aem.<page|live>`
 - 002-playwright-story-tests: Added TypeScript 5.x for test files (`tests/*.ts`). Node.js 18 LTS or newer for the Playwright runner. The existing application code remains vanilla JavaScript — TypeScript is scoped to the `tests/` tree. + `@playwright/test` (latest stable 1.x) as the only new devDependency. Playwright bundles its own TypeScript toolchain; no separate `typescript` / `ts-node` package is required for test authoring.
 
 <!-- SPECKIT START -->
-Active feature plan: [specs/003-speckit-visual-hooks/plan.md](specs/003-speckit-visual-hooks/plan.md). For additional context about technologies to be used, project structure, shell commands, and other important information, read the current plan.
+Active feature plan: [specs/006-card-stack-teaser/plan.md](specs/006-card-stack-teaser/plan.md). For additional context about technologies to be used, project structure, shell commands, and other important information, read the current plan.
 <!-- SPECKIT END -->

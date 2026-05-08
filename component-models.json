@@ -375,7 +375,7 @@
         "multi": false
       },
       {
-        "component": "text",
+        "component": "richtext",
         "valueType": "string",
         "name": "cardLabel",
         "label": "Texto do Card",

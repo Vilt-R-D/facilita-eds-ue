@@ -214,6 +214,18 @@ test.describe('Card Stack Teaser', () => {
     expect(seenThemes.has('white')).toBeTruthy();
     expect(seenThemes.has('black')).toBeTruthy();
 
+    // Card preto: texto branco (FR-014 + feedback do autor).
+    const blackTextColor = await page.evaluate(() => {
+      const card = document.querySelector('.card-stack-teaser__card[data-theme="black"]');
+      const label = card?.querySelector('.card-stack-teaser__card-text');
+      if (!label) return null;
+      const innerP = label.querySelector('p');
+      const target = innerP || label;
+      return getComputedStyle(target as Element).color;
+    });
+    expect(blackTextColor).not.toBeNull();
+    expect(HEX(blackTextColor as string)).toBe('#ffffff');
+
     // Default white quando inválido — força via DOM
     const defaultBg = await page.evaluate(() => {
       const card = document.querySelector('.card-stack-teaser__card');

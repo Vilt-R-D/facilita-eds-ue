@@ -82,10 +82,12 @@ export default async function decorate(block) {
       if (iconMedia) iconEl.appendChild(iconMedia);
       card.appendChild(iconEl);
 
-      const cardP = document.createElement('p');
-      cardP.className = 'card-stack-teaser__card-text';
-      cardP.textContent = cardTextCell?.textContent.trim() || '';
-      card.appendChild(cardP);
+      const cardLabelEl = document.createElement('div');
+      cardLabelEl.className = 'card-stack-teaser__card-text';
+      if (cardTextCell) {
+        while (cardTextCell.firstChild) cardLabelEl.appendChild(cardTextCell.firstChild);
+      }
+      card.appendChild(cardLabelEl);
 
       moveInstrumentation(row, card);
       stack.appendChild(card);
