@@ -377,7 +377,7 @@
       {
         "component": "text",
         "valueType": "string",
-        "name": "cardText",
+        "name": "cardLabel",
         "label": "Texto do Card",
         "required": true
       },
