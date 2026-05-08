@@ -335,6 +335,79 @@
     ]
   },
   {
+    "id": "card-stack-teaser",
+    "fields": [
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "title",
+        "label": "Título",
+        "required": true
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "text",
+        "label": "Texto",
+        "required": true
+      },
+      {
+        "component": "aem-content",
+        "name": "cta",
+        "label": "Link do CTA"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "ctaText",
+        "label": "Texto do CTA"
+      }
+    ]
+  },
+  {
+    "id": "card-stack-teaser-card",
+    "fields": [
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "cardIcon",
+        "label": "Ícone do Card",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "cardText",
+        "label": "Texto do Card",
+        "required": true
+      },
+      {
+        "component": "select",
+        "valueType": "string",
+        "name": "cardTheme",
+        "label": "Tema do Card",
+        "options": [
+          {
+            "name": "Branco",
+            "value": "white"
+          },
+          {
+            "name": "Preto",
+            "value": "black"
+          },
+          {
+            "name": "Verde Escuro",
+            "value": "dark-green"
+          },
+          {
+            "name": "Verde Claro",
+            "value": "light-green"
+          }
+        ]
+      }
+    ]
+  },
+  {
     "id": "carousel",
     "fields": []
   },
