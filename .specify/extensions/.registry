@@ -18,20 +18,6 @@
       },
       "registered_skills": [],
       "installed_at": "2026-04-13T18:02:36.920882+00:00"
-    },
-    "visual-refs": {
-      "version": "1.0.0",
-      "source": "local",
-      "manifest_hash": "sha256:f00e0a5ec7b129f514996ab3bcbdf9717e75efde96edb823b56cda1a7d024de1",
-      "enabled": true,
-      "priority": 10,
-      "registered_commands": {
-        "claude": [
-          "speckit.visual-refs.prepend-task"
-        ]
-      },
-      "registered_skills": [],
-      "installed_at": "2026-05-05T20:13:31.039175+00:00"
     }
   }
 }

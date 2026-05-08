@@ -34,7 +34,7 @@ cacophony middleware not reachable at localhost:8080 — start it with .\mvnw.cm
 
 ## Behavior
 
-1. **Locate the metadata block.** Search the relevant spec-kit file (typically `<featuredir>/spec.md`; resolve `<featuredir>` from `.specify/feature.json` — same lookup the visual-refs skill uses). Match the literal regex (multiline):
+1. **Locate the metadata block.** Search the relevant spec-kit file (typically `<featuredir>/spec.md`; resolve `<featuredir>` from `.specify/feature.json`'s `feature_directory`, falling back to a branch-name lookup if missing). Match the literal regex (multiline):
 
    ```
    <!-- cacophony:meta\s*(?<json>\{[\s\S]*?\})\s*-->

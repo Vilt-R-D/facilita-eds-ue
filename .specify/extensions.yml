@@ -107,14 +107,6 @@ hooks:
     description: Auto-commit after implementation planning
     condition: null
   after_tasks:
-  - extension: visual-refs
-    command: speckit.visual-refs.prepend-task
-    enabled: true
-    optional: false
-    prompt: null
-    description: Prepend a visual-context task to tasks.md based on spec.md **Input**
-      line
-    condition: null
   - extension: git
     command: speckit.git.commit
     enabled: true

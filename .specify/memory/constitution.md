@@ -1,15 +1,26 @@
 <!-- Sync Impact Report
-Version change: 1.1.0 → 1.2.0
-Modified principles: Added Principle VI (TDD-Local Loop for Blocks).
-  Development Workflow & Tooling extended with `npm run test:local`
-  for the local-loopback TDD loop served by `aem up`.
-Added sections: Principle VI under Core Principles.
-Removed sections: N/A
+Version change: 1.3.0 → 1.4.0
+Modified principles: Principle VII (Attachment Full-Context Pre-Analysis)
+  — added. Replaces the deleted `visual-refs` after_tasks hook and
+  `speckit-visual-prepend-task` skill. Source of truth for attachment
+  refs shifts from the `**Input**` line regex to the
+  `<!-- cacophony:meta ... -->` JSON block in spec.md. Scope expands
+  beyond PNG/SVG to all non-image attachments (TXT/CSS/HTML/JSON/MD).
+  Enforcement model shifts from synthetic Phase 0 task injection to
+  a NON-NEGOTIABLE pre-implementation gate honored by /speckit-implement.
+  Adds a post-implementation parity check: authored content at
+  `/blocks/<feature-slug>` is verified against attachment text/links/paths
+  via `aem-content` MCP (`get-aem-page-content`,
+  `get-aem-page-content-definition`, `get-aem-page-metadata`), with
+  mismatches patched via `patch-aem-page-content` + re-publish. The
+  check is the final step of Principle VI Phase V.
+Added sections: Principle VII.
+Removed sections: N/A (legacy artifacts deleted outside the constitution).
 Templates requiring updates:
   - .specify/templates/plan-template.md — ✅ compatible
   - .specify/templates/spec-template.md — ✅ compatible
-  - .specify/templates/tasks-template.md — ✅ compatible (Phase G/V
-    scaffolding lives in Principle VI, not in the template)
+  - .specify/templates/tasks-template.md — ✅ compatible (no Phase 0
+    scaffolding to remove — Phase 0 was hook-injected)
   - .specify/templates/checklist-template.md — ✅ compatible
   - .specify/templates/agent-file-template.md — ✅ compatible
 Follow-up TODOs: none
@@ -18,6 +29,9 @@ Prior history:
   0.0.0 → 1.0.0 (2026-04-13): Initial ratification.
   1.0.0 → 1.1.0 (2026-04-20): Replaced "No test suite" with the
     Playwright E2E policy from feature 002-playwright-story-tests.
+  1.1.0 → 1.2.0 (2026-05-07): Added Principle VI (TDD-Local Loop for
+    Blocks) and `npm run test:local` workflow.
+  1.2.0 → 1.3.0 (2026-05-08): Added schema push gate to Principle VI.
 -->
 
 # Facilita EDS Constitution
@@ -109,17 +123,25 @@ loop iterates locally at `http://localhost:3000`.
 1. **Red**: Write the Playwright spec at
    `tests/<full-spec-dir-name>.ts` covering one user story. Tests
    navigate to `/blocks/<feature-slug>`.
-2. **Author**: Create the target page via
+2. **Push schema**: If the feature adds or modifies a block's
+   `_<name>.json` partial, run `npm run build:json`, then **commit and
+   push** the partial alongside the merged root files
+   (`component-definition.json`, `component-models.json`,
+   `component-filters.json`) to the feature branch BEFORE any MCP
+   authoring step. EDS preview and Universal Editor resolve block
+   identity from the pushed branch HEAD; without the push, the block
+   is unknown and MCP authoring cannot reference it.
+3. **Author**: Create the target page via
    `mcp__aem-content__create-aem-page` at `/blocks/<feature-slug>`.
    Populate the block's component fields with the values the test
    expects via `mcp__aem-content__patch-aem-page-content`.
-3. **Publish**: Promote the page with
+4. **Publish**: Promote the page with
    `mcp__aem-content__publish-aem-content` so the preview tier serves
    it.
-4. **Serve**: Run `aem up` (background) so `localhost:3000` proxies
+5. **Serve**: Run `aem up` (background) so `localhost:3000` proxies
    the published content while serving the **local** block JS/CSS
    under iteration.
-5. **Iterate**: Run `npm run test:local` (= `BASE_URL=http://localhost:3000 playwright test`).
+6. **Iterate**: Run `npm run test:local` (= `BASE_URL=http://localhost:3000 playwright test`).
    Edit `blocks/<feature-slug>/<feature-slug>.{js,css}` until the
    spec is green.
 
@@ -128,6 +150,25 @@ any feature that adds or modifies a block. Two phases sit between the
 test-authoring tasks and the block-implementation tasks:
 
 ```markdown
+## Phase F: Schema Registration (push gate)
+
+**Purpose**: Make EDS aware of the block before any MCP authoring
+runs. REQUIRED whenever the feature adds or modifies
+`_<name>.json`. SKIP only if the feature touches no block schema.
+
+- [ ] TF01 Author/update `blocks/<feature-slug>/_<feature-slug>.json`
+- [ ] TF02 Run `npm run build:json` (or rely on pre-commit hook) so
+      `component-definition.json`, `component-models.json`, and
+      `component-filters.json` are regenerated
+- [ ] TF03 Commit the partial + merged root files
+- [ ] TF04 `git push -u origin <feature-branch>` so the preview tier
+      and Universal Editor see the new block
+
+**Checkpoint**: Branch HEAD on remote contains the merged
+`component-*.json` referencing the new/modified block.
+
+---
+
 ## Phase G: AEM Author Setup (MCP-driven)
 
 **Purpose**: Stand up a real authored page at `/blocks/<feature-slug>`
@@ -162,13 +203,114 @@ re-runs OK.
 
 **Notes & nuances**:
 
-- MCP authoring writes content via REST and does not require the
-  block's `_<name>.json` definitions to be deployed first. The page
-  will render correctly under `aem up` even when the Universal Editor
-  cannot yet display it in author mode.
+- EDS preview (`*.aem.page`) and Universal Editor resolve a block's
+  identity from the merged `component-*.json` at the pushed branch
+  HEAD. MCP `create-aem-page` / `patch-aem-page-content` cannot
+  reference an unknown block, so Phase F (push gate) is mandatory for
+  any feature that adds or modifies `_<name>.json`. Features that
+  only touch block JS/CSS skip Phase F.
 - If MCP credentials are unavailable on a contributor's machine, the
   fallback is manual authoring in Universal Editor at the same path,
   followed by manual publish — the loop is otherwise unchanged.
+
+### VII. Attachment Full-Context Pre-Analysis (NON-NEGOTIABLE)
+
+Whenever a feature's `<featuredir>/spec.md` contains a
+`<!-- cacophony:meta ... -->` block, every attachment listed in that
+block MUST be fetched and loaded into the implementing model's context
+**in full** BEFORE any task that creates or modifies the feature's
+runtime artifacts (`blocks/<feature-slug>/<feature-slug>.{js,css}` for
+block features; the equivalent target files for other feature types).
+
+**Source of truth**:
+
+- The JSON payload inside `<!-- cacophony:meta ... -->` is authoritative
+  for the attachment list. The `**Input**` line of `spec.md` is NOT
+  scanned for attachment refs.
+- Each `attachments[].url` MUST be fetched via the
+  `cacophony-fetch-attachment` skill (the only credentialed path —
+  direct `WebFetch`/`curl` returns 401/403).
+
+**Pre-analysis contract**:
+
+- **Whole-file load**: every attachment MUST be loaded with a single
+  `Read` call covering the entire file. Chunked or paginated reads
+  (`offset`, `limit`, partial range, streaming) are FORBIDDEN. PNG/JPG
+  render visually; SVG, TXT, CSS, HTML, JSON, MD load as text in full.
+- **Default supported types** — pre-analysis applies to ALL attachments
+  in the meta block, regardless of extension:
+  - **Images** (PNG/SVG/JPG/etc.) — visual references for the block's
+    layout, spacing, color, typography.
+  - **Non-images** (TXT/CSS/HTML/JSON/MD/etc.) — authoritative reference
+    for the block's markup contract, styles, copy, or data shape. The
+    contents take precedence over inferred behavior.
+- **Caching**: within a single `/speckit-implement` invocation, an
+  already-fetched `/tmp/<name>` MAY be reused — but the Read MUST still
+  cover the whole file each session.
+
+**Hard gate**:
+
+- If the cacophony middleware is unreachable (connection refused on
+  `localhost:8080`), or any attachment returns non-200, implementation
+  tasks for the block's JS/CSS MUST NOT begin. The implementer MUST
+  resolve the fetch failure (start cacophony, fix the URL, etc.) before
+  proceeding. This gate has no fail-soft branch — partial visual
+  context is treated as no visual context.
+- The model MUST report the failed attachment names verbatim and stop,
+  rather than silently degrading.
+
+**No tasks-file injection**:
+
+- This principle is enforced by the implementing model reading the
+  constitution and the cacophony:meta block directly during
+  `/speckit-implement`. There is no synthetic Phase 0 block in
+  `tasks.md`. The legacy `visual-refs` extension and its `after_tasks`
+  hook are removed.
+- `/speckit-tasks` MUST NOT add attachment-handling tasks; the
+  constitutional gate covers it. Authors MAY still mention specific
+  attachments inside regular feature tasks for narrative clarity, but
+  the gate is independent of those mentions.
+
+**Post-implementation parity check (CMS-authored content)**:
+
+Because Facilita EDS is an AEM-authored site, attachments routinely
+carry strings, links, and paths that end up as authored content (block
+fields, page metadata, navigation hrefs) — NOT as hardcoded values in
+JS/CSS. After the block JS/CSS is green locally, the implementer MUST
+verify that the authored payload at `/blocks/<feature-slug>` matches
+the attachment contents.
+
+- Pull authored state via the `aem-content` MCP:
+  - `mcp__aem-content__get-aem-page-content` — block fields and
+    section structure.
+  - `mcp__aem-content__get-aem-page-content-definition` — schema-level
+    view of the authored values.
+  - `mcp__aem-content__get-aem-page-metadata` — page-level metadata
+    (title, description, OG tags, etc.).
+- For every textual / link / path token present in an attachment
+  (copy strings, anchor `href`s, image `src`/`alt`, CTA labels, ARIA
+  labels, page titles, etc.), confirm a byte-for-byte match against
+  the authored value. Whitespace and casing matter unless the
+  attachment explicitly notes otherwise.
+- On mismatch, prefer fixing the AUTHORED side via
+  `mcp__aem-content__patch-aem-page-content` (the attachment is the
+  source of truth for content). Then re-publish via
+  `mcp__aem-content__publish-aem-content` and re-run
+  `npm run test:local`.
+- Mismatches that reveal a bug in the block JS/CSS (e.g., the block
+  rewrites a path the author set correctly) MUST be fixed in code,
+  not by mutating the authored value.
+- This check is the final step of the Principle VI Phase V loop —
+  the spec is not "green" until both Playwright and the parity check
+  pass.
+
+**Out of scope**:
+
+- Trackers other than `tracker == "plane"` are unsupported today;
+  features using a different tracker MUST update the
+  `cacophony-fetch-attachment` skill before the gate can run.
+- Features whose `spec.md` has no `<!-- cacophony:meta ... -->` block
+  bypass this principle entirely (no-op).
 
 ## EDS Technical Constraints
 
@@ -225,4 +367,4 @@ principles above.
 - **Runtime guidance**: See `CLAUDE.md` at the project root for
   development commands and architecture details.
 
-**Version**: 1.2.0 | **Ratified**: 2026-04-13 | **Last Amended**: 2026-05-07
+**Version**: 1.4.0 | **Ratified**: 2026-04-13 | **Last Amended**: 2026-05-08
